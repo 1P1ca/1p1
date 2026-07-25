@@ -1,245 +1,209 @@
-<title>Italie · Octobre 2026 — Planificateur et budget</title>
+<title>Italia · Ottobre 2026 — Planificateur et budget</title>
 <style>
   :root {
-    --stone:   #F3EEE4;
-    --stone-2: #EAE3D5;
-    --card:    #FBF8F2;
-    --ink:     #221D18;
-    --ink-2:   #5C5348;
-    --line:    #DED4C2;
-    --chianti: #7C1E2C;
-    --chianti-soft: #A8455010;
-    --cypress: #33452E;
-    --ochre:   #C0872F;
-    --good:    #4E6B3A;
-    --shadow:  0 1px 2px rgba(34,29,24,.06), 0 8px 24px rgba(34,29,24,.06);
-    --serif: Georgia, "Iowan Old Style", "Times New Roman", serif;
-    --sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --paper:  #F6EFE0;
+    --paper-2:#EDE3CF;
+    --card:   #FBF6EA;
+    --ink:    #22140F;
+    --ink-2:  #6B5B4C;
+    --line:   #D6C6A8;
+    --rosso:  #9E2B25;   /* rouge pompéien */
+    --verde:  #1E5A44;   /* vert cyprès */
+    --oro:    #B0812A;   /* or / ocre */
+    --rosso-wash: rgba(158,43,37,.07);
+    --shadow: 0 1px 2px rgba(34,20,15,.05), 0 10px 30px rgba(34,20,15,.07);
+    --didone: "Bodoni 72", "Bodoni MT", Didot, "Playfair Display", "Times New Roman", serif;
+    --body:   "Iowan Old Style", Palatino, "Palatino Linotype", Georgia, serif;
+    --sans:   Futura, "Century Gothic", "Twentieth Century", system-ui, -apple-system, "Segoe UI", sans-serif;
   }
   @media (prefers-color-scheme: dark) {
     :root {
-      --stone:   #17130F;
-      --stone-2: #1E1813;
-      --card:    #221B15;
-      --ink:     #F0E7DA;
-      --ink-2:   #B4A794;
-      --line:    #3A2F26;
-      --chianti: #E0808C;
-      --cypress: #A9C093;
-      --ochre:   #E0AC5B;
-      --good:    #9FC07E;
-      --shadow:  0 1px 2px rgba(0,0,0,.3), 0 10px 30px rgba(0,0,0,.35);
+      --paper:#150F0A; --paper-2:#1D150D; --card:#211710; --ink:#F2E8D3; --ink-2:#B6A489;
+      --line:#3A2D1D; --rosso:#E0776B; --verde:#84BE9E; --oro:#DBB157;
+      --rosso-wash: rgba(224,119,107,.09);
+      --shadow: 0 1px 2px rgba(0,0,0,.35), 0 12px 34px rgba(0,0,0,.4);
     }
   }
   :root[data-theme="light"] {
-    --stone:#F3EEE4; --stone-2:#EAE3D5; --card:#FBF8F2; --ink:#221D18; --ink-2:#5C5348;
-    --line:#DED4C2; --chianti:#7C1E2C; --cypress:#33452E; --ochre:#C0872F; --good:#4E6B3A;
-    --shadow:0 1px 2px rgba(34,29,24,.06), 0 8px 24px rgba(34,29,24,.06);
+    --paper:#F6EFE0; --paper-2:#EDE3CF; --card:#FBF6EA; --ink:#22140F; --ink-2:#6B5B4C;
+    --line:#D6C6A8; --rosso:#9E2B25; --verde:#1E5A44; --oro:#B0812A;
+    --rosso-wash: rgba(158,43,37,.07);
+    --shadow:0 1px 2px rgba(34,20,15,.05), 0 10px 30px rgba(34,20,15,.07);
   }
   :root[data-theme="dark"] {
-    --stone:#17130F; --stone-2:#1E1813; --card:#221B15; --ink:#F0E7DA; --ink-2:#B4A794;
-    --line:#3A2F26; --chianti:#E0808C; --cypress:#A9C093; --ochre:#E0AC5B; --good:#9FC07E;
-    --shadow:0 1px 2px rgba(0,0,0,.3), 0 10px 30px rgba(0,0,0,.35);
+    --paper:#150F0A; --paper-2:#1D150D; --card:#211710; --ink:#F2E8D3; --ink-2:#B6A489;
+    --line:#3A2D1D; --rosso:#E0776B; --verde:#84BE9E; --oro:#DBB157;
+    --rosso-wash: rgba(224,119,107,.09);
+    --shadow:0 1px 2px rgba(0,0,0,.35), 0 12px 34px rgba(0,0,0,.4);
   }
 
   * { box-sizing: border-box; }
   html { -webkit-text-size-adjust: 100%; }
   body {
     margin: 0;
-    background: var(--stone);
+    background: var(--paper);
     color: var(--ink);
-    font-family: var(--serif);
-    line-height: 1.6;
+    font-family: var(--body);
+    line-height: 1.62;
     font-size: 17px;
   }
-  .wrap { max-width: 860px; margin: 0 auto; padding: 0 22px 80px; }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 26px 22px 84px; }
 
-  .eyebrow {
-    font-family: var(--sans);
-    font-size: 12px;
-    letter-spacing: .18em;
-    text-transform: uppercase;
-    color: var(--chianti);
-    font-weight: 600;
-    margin: 0;
-  }
-  .label {
-    font-family: var(--sans);
-    font-size: 11px;
-    letter-spacing: .14em;
-    text-transform: uppercase;
-    color: var(--ink-2);
-    font-weight: 600;
-  }
-  .num { font-family: var(--sans); font-variant-numeric: tabular-nums; }
+  .eyebrow { font-family: var(--sans); font-size: 12px; letter-spacing: .34em; text-transform: uppercase; color: var(--rosso); font-weight: 600; margin: 0; }
+  .label { font-family: var(--sans); font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--ink-2); font-weight: 600; }
+  .num { font-family: var(--didone); font-variant-numeric: tabular-nums; }
 
-  /* ---- Hero ---- */
-  header {
-    border-bottom: 1px solid var(--line);
-    padding: 60px 0 34px;
+  /* ── Ornaments ── */
+  .rule-orn { display: flex; align-items: center; justify-content: center; gap: 14px; color: var(--oro); margin: 0; }
+  .rule-orn::before, .rule-orn::after { content: ""; height: 1px; width: min(120px, 22vw); background: currentColor; opacity: .55; }
+  .rule-orn .diamond { font-size: 11px; letter-spacing: .3em; }
+
+  /* ── Poster hero ── */
+  header { animation: rise .7s ease both; }
+  @media (prefers-reduced-motion: reduce) { header { animation: none; } }
+  @keyframes rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+
+  .poster {
+    position: relative;
+    border: 1px solid var(--ink);
+    padding: 46px 26px 40px;
+    text-align: center;
+    background:
+      radial-gradient(120% 90% at 50% -10%, var(--rosso-wash), transparent 60%),
+      var(--paper);
   }
+  .poster::before {
+    content: "";
+    position: absolute; inset: 6px;
+    border: 1px solid var(--oro);
+    opacity: .5;
+    pointer-events: none;
+  }
+  .poster .kicker { position: relative; }
   h1 {
-    font-family: var(--serif);
+    font-family: var(--didone);
     font-weight: 700;
-    font-size: clamp(38px, 8vw, 64px);
-    line-height: 1.02;
-    letter-spacing: -.015em;
-    margin: 14px 0 0;
+    font-size: clamp(64px, 20vw, 168px);
+    line-height: .9;
+    letter-spacing: .04em;
+    margin: 16px 0 10px;
+    text-transform: uppercase;
     text-wrap: balance;
   }
-  h1 .accent { color: var(--chianti); font-style: italic; }
+  .subtitle { font-family: var(--didone); font-style: italic; font-size: clamp(19px, 4.4vw, 30px); color: var(--rosso); margin: 0 0 20px; letter-spacing: .01em; }
   .route {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 10px;
-    margin-top: 22px;
-    font-family: var(--sans);
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: .02em;
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px 12px;
+    font-family: var(--sans); font-size: 13px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--ink);
+    margin: 6px 0 0;
   }
-  .route .dot { color: var(--ochre); }
-  .route .city { color: var(--ink); }
-  .lede {
-    color: var(--ink-2);
-    font-size: 18px;
-    max-width: 60ch;
-    margin: 20px 0 0;
+  .route .sep { color: var(--oro); }
+  .poster .dates {
+    margin: 22px 0 0; font-family: var(--sans); font-size: 12.5px; letter-spacing: .22em; text-transform: uppercase; color: var(--ink-2); font-weight: 600;
   }
 
-  /* ---- Summary tiles ---- */
-  .tiles {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
-    margin: 30px 0 0;
-  }
-  .tile {
-    background: var(--card);
-    border: 1px solid var(--line);
-    border-radius: 12px;
-    padding: 16px 16px 15px;
-    box-shadow: var(--shadow);
-  }
-  .tile .val {
-    font-family: var(--sans);
-    font-variant-numeric: tabular-nums;
-    font-weight: 700;
-    font-size: 24px;
-    letter-spacing: -.02em;
-    margin-top: 8px;
-    color: var(--ink);
-  }
-  .tile .val small { font-size: 13px; font-weight: 600; color: var(--ink-2); }
+  .lede { color: var(--ink-2); font-size: 18.5px; max-width: 62ch; margin: 30px auto 0; text-align: center; }
 
-  /* ---- Section headings ---- */
-  section { margin-top: 56px; }
-  .sec-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; border-bottom: 2px solid var(--ink); padding-bottom: 10px; }
-  h2 { font-family: var(--serif); font-weight: 700; font-size: 27px; letter-spacing: -.01em; margin: 0; }
+  /* ── Summary tiles ── */
+  .tiles { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin: 34px 0 0; border: 1px solid var(--line); border-radius: 2px; overflow: hidden; }
+  .tile { padding: 18px 16px 16px; text-align: center; border-right: 1px solid var(--line); background: var(--card); }
+  .tile:last-child { border-right: 0; }
+  .tile .val { font-family: var(--didone); font-variant-numeric: tabular-nums; font-weight: 700; font-size: 27px; letter-spacing: 0; margin-top: 8px; color: var(--ink); }
+  .tile .val small { font-family: var(--body); font-size: 13px; font-weight: 400; color: var(--ink-2); font-style: italic; }
 
-  /* ---- Itinerary ---- */
-  .leg { margin-top: 30px; }
-  .leg-head { display: flex; align-items: center; gap: 14px; }
+  /* ── Sections ── */
+  section { margin-top: 62px; }
+  .sec-head { text-align: center; margin-bottom: 8px; }
+  .sec-head h2 { font-family: var(--didone); font-weight: 700; font-size: clamp(28px, 6vw, 40px); letter-spacing: .01em; margin: 12px 0 10px; text-transform: uppercase; }
+  .sec-head .label { display: block; }
+
+  /* ── Itinerary ── */
+  .leg { margin-top: 34px; }
+  .leg-head { display: flex; align-items: center; gap: 18px; }
   .leg-num {
-    flex: 0 0 auto;
-    width: 42px; height: 42px;
-    border-radius: 50%;
+    flex: 0 0 auto; width: 58px; height: 58px; border-radius: 50%;
     display: grid; place-items: center;
-    background: var(--chianti); color: #FBF8F2;
-    font-family: var(--sans); font-weight: 700; font-size: 17px;
-    font-variant-numeric: tabular-nums;
+    border: 1px solid var(--rosso); color: var(--rosso);
+    font-family: var(--didone); font-weight: 700; font-size: 24px; letter-spacing: .02em;
+    background: var(--rosso-wash);
   }
-  :root[data-theme="dark"] .leg-num, .leg-num { }
-  @media (prefers-color-scheme: dark) { .leg-num { color: #17130F; } }
-  :root[data-theme="dark"] .leg-num { color:#17130F; }
-  :root[data-theme="light"] .leg-num { color:#FBF8F2; }
-  .leg-title { font-family: var(--serif); font-weight: 700; font-size: 22px; margin: 0; }
-  .leg-sub { font-family: var(--sans); font-size: 12.5px; color: var(--ink-2); font-weight: 600; letter-spacing: .02em; }
-  .leg-body {
-    margin: 12px 0 0 56px;
-    border-left: 2px solid var(--line);
-    padding-left: 22px;
-  }
-  .day { padding: 11px 0; border-bottom: 1px solid var(--line); }
+  .leg-title { font-family: var(--didone); font-weight: 700; font-size: 26px; margin: 0; letter-spacing: .01em; }
+  .leg-sub { font-family: var(--sans); font-size: 11.5px; color: var(--ink-2); font-weight: 600; letter-spacing: .14em; text-transform: uppercase; }
+  .leg-body { margin: 14px 0 0 28px; border-left: 1px solid var(--line); padding-left: 30px; }
+  .day { padding: 12px 0; border-bottom: 1px solid var(--line); }
   .day:last-child { border-bottom: 0; }
-  .day .d-date { font-family: var(--sans); font-size: 11.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--chianti); font-weight: 700; }
-  .day .d-text { margin: 3px 0 0; }
-  .day .d-text b { font-weight: 700; }
+  .day .d-date { font-family: var(--sans); font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--oro); font-weight: 700; }
+  .day .d-text { margin: 4px 0 0; }
+  .day .d-text b { font-weight: 400; font-style: italic; color: var(--rosso); }
 
-  /* ---- Budget ---- */
-  .budget { margin-top: 26px; display: flex; flex-direction: column; gap: 4px; }
-  .brow {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 6px 16px;
-    align-items: baseline;
-    padding: 13px 0 12px;
-    border-bottom: 1px solid var(--line);
-  }
-  .brow .cat { font-weight: 700; font-size: 18px; }
-  .brow .amt { font-family: var(--sans); font-variant-numeric: tabular-nums; font-weight: 700; font-size: 18px; white-space: nowrap; }
-  .brow .desc { grid-column: 1 / 2; color: var(--ink-2); font-size: 14.5px; margin-top: 2px; }
-  .bar { grid-column: 1 / 3; height: 7px; border-radius: 4px; background: var(--stone-2); overflow: hidden; margin-top: 9px; }
-  .bar > span { display: block; height: 100%; border-radius: 4px; background: var(--chianti); }
-  .brow.total {
-    border-bottom: 0; border-top: 2px solid var(--ink); margin-top: 6px; padding-top: 16px;
-  }
-  .brow.total .cat { font-size: 21px; }
-  .brow.total .amt { font-size: 23px; color: var(--chianti); }
-  .split { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
-  .split .tile { flex: 1 1 150px; }
+  /* ── Budget ── */
+  .budget { margin-top: 28px; display: flex; flex-direction: column; }
+  .brow { display: grid; grid-template-columns: 1fr auto; gap: 4px 16px; align-items: baseline; padding: 15px 0 13px; border-bottom: 1px solid var(--line); }
+  .brow .cat { font-family: var(--didone); font-weight: 700; font-size: 21px; }
+  .brow .amt { font-family: var(--didone); font-variant-numeric: tabular-nums; font-weight: 700; font-size: 21px; white-space: nowrap; }
+  .brow .desc { grid-column: 1 / 2; color: var(--ink-2); font-size: 14.5px; margin-top: 3px; }
+  .brow .desc b { color: var(--rosso); font-weight: 400; font-style: italic; }
+  .bar { grid-column: 1 / 3; height: 6px; background: var(--paper-2); overflow: hidden; margin-top: 11px; }
+  .bar > span { display: block; height: 100%; background: linear-gradient(90deg, var(--rosso), var(--oro)); }
+  .brow.total { border-bottom: 0; border-top: 2px solid var(--ink); margin-top: 6px; padding-top: 18px; }
+  .brow.total .cat { font-size: 25px; }
+  .brow.total .amt { font-size: 28px; color: var(--rosso); }
 
-  /* ---- Notes ---- */
-  .notes { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 26px; }
-  .note {
-    background: var(--card); border: 1px solid var(--line); border-radius: 12px;
-    padding: 18px 18px 6px; box-shadow: var(--shadow);
-  }
-  .note h3 { font-family: var(--serif); font-size: 18px; margin: 0 0 8px; }
+  .split { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: 22px; border: 1px solid var(--line); overflow: hidden; }
+  .split .tile { border-right: 1px solid var(--line); }
+  .split .tile:last-child { border-right: 0; }
+
+  .callout { margin-top: 24px; background: var(--rosso-wash); border: 1px solid var(--line); border-left: 3px solid var(--oro); padding: 16px 20px; font-size: 15px; color: var(--ink-2); }
+  .callout b { color: var(--ink); font-style: italic; font-weight: 400; }
+
+  /* ── Notes ── */
+  .notes { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 28px; }
+  .note { background: var(--card); border: 1px solid var(--line); padding: 20px 20px 8px; box-shadow: var(--shadow); }
+  .note h3 { font-family: var(--didone); font-size: 20px; margin: 0 0 10px; font-style: italic; color: var(--rosso); }
   .note ul { margin: 0; padding: 0 0 12px 18px; }
-  .note li { margin: 7px 0; color: var(--ink-2); font-size: 15px; }
-  .note li b { color: var(--ink); font-weight: 700; }
+  .note li { margin: 8px 0; color: var(--ink-2); font-size: 15px; }
+  .note li b { color: var(--ink); font-weight: 400; font-style: italic; }
 
-  .callout {
-    margin-top: 22px;
-    background: var(--chianti-soft);
-    border: 1px solid var(--line);
-    border-left: 3px solid var(--ochre);
-    border-radius: 10px;
-    padding: 15px 18px;
-    font-size: 15px;
-    color: var(--ink-2);
-  }
-  .callout b { color: var(--ink); }
+  footer { margin-top: 64px; text-align: center; }
+  footer .rule-orn { margin-bottom: 16px; }
+  footer p { font-family: var(--sans); font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: var(--ink-2); margin: 4px 0; }
 
-  footer { margin-top: 60px; padding-top: 22px; border-top: 1px solid var(--line); font-family: var(--sans); font-size: 12.5px; color: var(--ink-2); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
-
-  @media (max-width: 620px) {
-    .tiles { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 640px) {
+    .tiles, .split { grid-template-columns: repeat(2, 1fr); }
+    .tiles .tile:nth-child(2), .split .tile:nth-child(2) { border-right: 0; }
+    .tiles .tile:nth-child(1), .tiles .tile:nth-child(2),
+    .split .tile:nth-child(1), .split .tile:nth-child(2) { border-bottom: 1px solid var(--line); }
     .notes { grid-template-columns: 1fr; }
-    .leg-body { margin-left: 8px; padding-left: 18px; }
+    .leg-body { margin-left: 10px; padding-left: 20px; }
+    .poster { padding: 34px 16px 30px; }
   }
 </style>
 
 <div class="wrap">
 
   <header>
-    <p class="eyebrow">Voyage · 6 au 20 octobre 2026 · 15 jours</p>
-    <h1>Italie&nbsp;: Rome, le <span class="accent">Chianti</span> &amp; Venise</h1>
-    <div class="route">
-      <span class="city">Montréal</span><span class="dot">✈</span>
-      <span class="city">Rome</span><span class="dot">→</span>
-      <span class="city">Toscane</span><span class="dot">→</span>
-      <span class="city">Venise</span><span class="dot">✈</span>
-      <span class="city">Montréal</span>
+    <div class="poster">
+      <div class="kicker">
+        <p class="eyebrow">Gran Tour d'automne · Anno MMXXVI</p>
+        <h1>Italia</h1>
+        <p class="subtitle">Roma &middot; il Chianti &middot; Venezia</p>
+        <p class="rule-orn"><span class="diamond">&#9670;</span></p>
+        <div class="route">
+          <span>Montréal</span><span class="sep">&#9992;</span>
+          <span>Roma</span><span class="sep">&mdash;</span>
+          <span>Toscana</span><span class="sep">&mdash;</span>
+          <span>Venezia</span><span class="sep">&#9992;</span>
+          <span>Montréal</span>
+        </div>
+        <p class="dates">6 &ndash; 20 octobre 2026 &nbsp;·&nbsp; 15 jours</p>
+      </div>
     </div>
-    <p class="lede">Deux semaines d'automne toscan&nbsp;: trois nuits romaines, une semaine au <b>Castello di Valle</b> dans les collines du Chianti, puis Venise avant le vol retour. Voici l'itinéraire jour par jour et le budget estimatif.</p>
+
+    <p class="lede">Deux semaines d'automne italien&nbsp;: trois nuits romaines, une semaine au <b>Castello di Valle</b> dans les collines du Chianti, puis Venise avant le vol du retour. Itinéraire jour par jour et budget estimatif.</p>
 
     <div class="tiles">
       <div class="tile"><div class="label">Budget total</div><div class="val">12 310&nbsp;$</div></div>
       <div class="tile"><div class="label">Par personne</div><div class="val">6 155&nbsp;$</div></div>
-      <div class="tile"><div class="label">Par jour · couple</div><div class="val">879&nbsp;$</div></div>
+      <div class="tile"><div class="label">Par jour · duo</div><div class="val">879&nbsp;$</div></div>
       <div class="tile"><div class="label">Nuitées</div><div class="val">13&nbsp;<small>nuits</small></div></div>
     </div>
   </header>
@@ -247,106 +211,62 @@
   <!-- ITINÉRAIRE -->
   <section>
     <div class="sec-head">
-      <h2>Itinéraire</h2>
-      <span class="label">3 escales</span>
+      <p class="rule-orn"><span class="diamond">&#9670;</span></p>
+      <h2>Itinerario</h2>
+      <span class="label">Trois escales</span>
     </div>
 
-    <!-- Rome -->
+    <!-- Roma -->
     <div class="leg">
       <div class="leg-head">
-        <div class="leg-num">1</div>
+        <div class="leg-num">I</div>
         <div>
-          <p class="leg-title">Rome</p>
-          <span class="leg-sub">7 – 10 OCT · 3 NUITS · CENTRE HISTORIQUE</span>
+          <p class="leg-title">Roma</p>
+          <span class="leg-sub">7 – 10 oct. · 3 nuits · Centre historique</span>
         </div>
       </div>
       <div class="leg-body">
-        <div class="day">
-          <div class="d-date">Mar. 6 oct.</div>
-          <p class="d-text"><b>Départ Montréal.</b> Vol Air Canada <span class="num">YUL → FCO</span>, 19 h 25. Nuit à bord.</p>
-        </div>
-        <div class="day">
-          <div class="d-date">Mer. 7 oct.</div>
-          <p class="d-text"><b>Arrivée à Rome</b> 9 h 15 (FCO). Transfert au logement, installation, flânerie de mise en jambe&nbsp;: Panthéon, place Navone, un premier <i>aperitivo</i>.</p>
-        </div>
-        <div class="day">
-          <div class="d-date">Jeu. 8 oct.</div>
-          <p class="d-text"><b>Rome antique.</b> Colisée, Forum romain et Palatin le matin (billet horodaté), Fontaine de Trevi et escalier de la Trinité-des-Monts en après-midi.</p>
-        </div>
-        <div class="day">
-          <div class="d-date">Ven. 9 oct.</div>
-          <p class="d-text"><b>Vatican.</b> Musées et chapelle Sixtine tôt, basilique Saint-Pierre, puis Trastevere pour le souper.</p>
-        </div>
+        <div class="day"><div class="d-date">Mar. 6 oct.</div><p class="d-text"><b>Départ Montréal.</b> Vol Air Canada <span class="num">YUL → FCO</span>, 19 h 25. Nuit à bord.</p></div>
+        <div class="day"><div class="d-date">Mer. 7 oct.</div><p class="d-text"><b>Arrivée à Rome</b> 9 h 15 (FCO). Transfert au logement, installation, flânerie de mise en jambe&nbsp;: Panthéon, place Navone, un premier <i>aperitivo</i>.</p></div>
+        <div class="day"><div class="d-date">Jeu. 8 oct.</div><p class="d-text"><b>Rome antique.</b> Colisée, Forum romain et Palatin le matin (billet horodaté), Fontaine de Trevi et Trinité-des-Monts en après-midi.</p></div>
+        <div class="day"><div class="d-date">Ven. 9 oct.</div><p class="d-text"><b>Vatican.</b> Musées et chapelle Sixtine tôt, basilique Saint-Pierre, puis Trastevere pour le souper.</p></div>
       </div>
     </div>
 
-    <!-- Toscane -->
+    <!-- Toscana -->
     <div class="leg">
       <div class="leg-head">
-        <div class="leg-num">2</div>
+        <div class="leg-num">II</div>
         <div>
-          <p class="leg-title">Chianti — Toscane</p>
-          <span class="leg-sub">10 – 17 OCT · 7 NUITS · CASTELLO DI VALLE, BARBERINO TAVARNELLE</span>
+          <p class="leg-title">Chianti — Toscana</p>
+          <span class="leg-sub">10 – 17 oct. · 7 nuits · Castello di Valle, Barberino Tavarnelle</span>
         </div>
       </div>
       <div class="leg-body">
-        <div class="day">
-          <div class="d-date">Sam. 10 oct.</div>
-          <p class="d-text"><b>Rome → Toscane.</b> Train pour Florence, prise en charge de la voiture de location, route vers le Chianti. <b>Arrivée au Castello di Valle</b> (hôte Pietro) dès 15 h — Strada Sicelle, 3.</p>
-        </div>
-        <div class="day">
-          <div class="d-date">Dim. 11 oct.</div>
-          <p class="d-text"><b>Route des vins du Chianti.</b> Greve, Panzano, Radda&nbsp;: dégustations en domaine et paysages de vignes.</p>
-        </div>
-        <div class="day">
-          <div class="d-date">Lun. 12 oct.</div>
-          <p class="d-text"><b>Florence.</b> Galerie des Offices, Duomo, Ponte Vecchio. Retour au château pour le souper.</p>
-        </div>
-        <div class="day">
-          <div class="d-date">Mar. 13 oct.</div>
-          <p class="d-text"><b>Sienne &amp; San Gimignano.</b> Piazza del Campo, cathédrale, puis les tours médiévales de San Gimignano.</p>
-        </div>
-        <div class="day">
-          <div class="d-date">Mer. 14 oct.</div>
-          <p class="d-text"><b>Journée lente.</b> Marché local, cuisine à la maison, piscine/lecture au domaine, coucher de soleil sur les collines.</p>
-        </div>
-        <div class="day">
-          <div class="d-date">Jeu. 15 oct.</div>
-          <p class="d-text"><b>Val d'Orcia.</b> Montalcino (Brunello) et Pienza (pecorino), villages et panoramas classés UNESCO.</p>
-        </div>
-        <div class="day">
-          <div class="d-date">Ven. 16 oct.</div>
-          <p class="d-text"><b>Chianti à pied.</b> Randonnée entre les domaines, dernier repas de terroir, préparation du départ.</p>
-        </div>
+        <div class="day"><div class="d-date">Sam. 10 oct.</div><p class="d-text"><b>Rome → Toscane.</b> Train pour Florence, prise en charge de la voiture, route vers le Chianti. <b>Arrivée au Castello di Valle</b> (hôte Pietro) dès 15 h — Strada Sicelle, 3.</p></div>
+        <div class="day"><div class="d-date">Dim. 11 oct.</div><p class="d-text"><b>Route des vins du Chianti.</b> Greve, Panzano, Radda&nbsp;: dégustations en domaine et paysages de vignes.</p></div>
+        <div class="day"><div class="d-date">Lun. 12 oct.</div><p class="d-text"><b>Florence.</b> Galerie des Offices, Duomo, Ponte Vecchio. Retour au château pour le souper.</p></div>
+        <div class="day"><div class="d-date">Mar. 13 oct.</div><p class="d-text"><b>Sienne &amp; San Gimignano.</b> Piazza del Campo, cathédrale, puis les tours médiévales de San Gimignano.</p></div>
+        <div class="day"><div class="d-date">Mer. 14 oct.</div><p class="d-text"><b>Journée lente.</b> Marché local, cuisine à la maison, lecture au domaine, coucher de soleil sur les collines.</p></div>
+        <div class="day"><div class="d-date">Jeu. 15 oct.</div><p class="d-text"><b>Val d'Orcia.</b> Montalcino (Brunello) et Pienza (pecorino), villages et panoramas classés UNESCO.</p></div>
+        <div class="day"><div class="d-date">Ven. 16 oct.</div><p class="d-text"><b>Chianti à pied.</b> Randonnée entre les domaines, dernier repas de terroir, préparation du départ.</p></div>
       </div>
     </div>
 
-    <!-- Venise -->
+    <!-- Venezia -->
     <div class="leg">
       <div class="leg-head">
-        <div class="leg-num">3</div>
+        <div class="leg-num">III</div>
         <div>
-          <p class="leg-title">Venise</p>
-          <span class="leg-sub">17 – 20 OCT · 3 NUITS · RETOUR VCE → YUL</span>
+          <p class="leg-title">Venezia</p>
+          <span class="leg-sub">17 – 20 oct. · 3 nuits · Retour VCE → YUL</span>
         </div>
       </div>
       <div class="leg-body">
-        <div class="day">
-          <div class="d-date">Sam. 17 oct.</div>
-          <p class="d-text"><b>Toscane → Venise.</b> Départ 10 h (checkout), remise de la voiture à Florence, train vers Venise (≈ 2 h). Installation, premier tour en <i>vaporetto</i>.</p>
-        </div>
-        <div class="day">
-          <div class="d-date">Dim. 18 oct.</div>
-          <p class="d-text"><b>Cœur de Venise.</b> Place et basilique Saint-Marc, palais des Doges, pont du Rialto, balade dans le Dorsoduro.</p>
-        </div>
-        <div class="day">
-          <div class="d-date">Lun. 19 oct.</div>
-          <p class="d-text"><b>La lagune.</b> Murano (verre) et Burano (maisons colorées), dernier souper vénitien, promenade en gondole.</p>
-        </div>
-        <div class="day">
-          <div class="d-date">Mar. 20 oct.</div>
-          <p class="d-text"><b>Retour.</b> Transfert à l'aéroport, vol Air Canada <span class="num">VCE → YUL</span> 12 h 20 → 15 h 10.</p>
-        </div>
+        <div class="day"><div class="d-date">Sam. 17 oct.</div><p class="d-text"><b>Toscane → Venise.</b> Départ 10 h (checkout), remise de la voiture à Florence, train vers Venise (≈ 2 h). Installation, premier tour en <i>vaporetto</i>.</p></div>
+        <div class="day"><div class="d-date">Dim. 18 oct.</div><p class="d-text"><b>Cœur de Venise.</b> Place et basilique Saint-Marc, palais des Doges, pont du Rialto, balade dans le Dorsoduro.</p></div>
+        <div class="day"><div class="d-date">Lun. 19 oct.</div><p class="d-text"><b>La lagune.</b> Murano (verre) et Burano (maisons colorées), dernier souper vénitien, promenade en gondole.</p></div>
+        <div class="day"><div class="d-date">Mar. 20 oct.</div><p class="d-text"><b>Retour.</b> Transfert à l'aéroport, vol Air Canada <span class="num">VCE → YUL</span> 12 h 20 → 15 h 10.</p></div>
       </div>
     </div>
   </section>
@@ -354,56 +274,48 @@
   <!-- BUDGET -->
   <section>
     <div class="sec-head">
-      <h2>Budget estimatif</h2>
-      <span class="label">Couple · CAD</span>
+      <p class="rule-orn"><span class="diamond">&#9670;</span></p>
+      <h2>Bilancio</h2>
+      <span class="label">Budget estimatif · duo · CAD</span>
     </div>
 
     <div class="budget">
       <div class="brow">
-        <span class="cat">Vols</span>
-        <span class="amt">3 100&nbsp;$</span>
+        <span class="cat">Vols</span><span class="amt">3 100&nbsp;$</span>
         <span class="desc">Air Canada aller-retour YUL–Rome / Venise–YUL — <b>réservé</b> · ≈ 1 550&nbsp;$/pers.</span>
         <div class="bar"><span style="width:100%"></span></div>
       </div>
       <div class="brow">
-        <span class="cat">Hébergement</span>
-        <span class="amt">4 180&nbsp;$</span>
+        <span class="cat">Hébergement</span><span class="amt">4 180&nbsp;$</span>
         <span class="desc">Rome 3 nts (840&nbsp;$) · Castello di Valle 7 nts, <b>réservé</b> (2 380&nbsp;$) · Venise 3 nts (960&nbsp;$)</span>
         <div class="bar"><span style="width:87%"></span></div>
       </div>
       <div class="brow">
-        <span class="cat">Restauration</span>
-        <span class="amt">2 100&nbsp;$</span>
+        <span class="cat">Restauration</span><span class="amt">2 100&nbsp;$</span>
         <span class="desc">≈ 150&nbsp;$/jour pour deux — trattorias, marchés et quelques bonnes tables</span>
         <div class="bar"><span style="width:44%"></span></div>
       </div>
       <div class="brow">
-        <span class="cat">Transport local</span>
-        <span class="amt">1 110&nbsp;$</span>
+        <span class="cat">Transport local</span><span class="amt">1 110&nbsp;$</span>
         <span class="desc">Trains Rome–Florence &amp; Toscane–Venise · location auto 7 j + carburant + péages · transferts &amp; vaporetto</span>
         <div class="bar"><span style="width:23%"></span></div>
       </div>
       <div class="brow">
-        <span class="cat">Activités &amp; visites</span>
-        <span class="amt">900&nbsp;$</span>
+        <span class="cat">Activités &amp; visites</span><span class="amt">900&nbsp;$</span>
         <span class="desc">Colisée, Vatican, Offices, dégustations de vins, palais des Doges, gondole</span>
         <div class="bar"><span style="width:19%"></span></div>
       </div>
       <div class="brow">
-        <span class="cat">Divers</span>
-        <span class="amt">920&nbsp;$</span>
+        <span class="cat">Divers</span><span class="amt">920&nbsp;$</span>
         <span class="desc">Assurance voyage (220&nbsp;$) · magasinage/souvenirs (400&nbsp;$) · imprévus ≈ 5&nbsp;% (300&nbsp;$)</span>
         <div class="bar"><span style="width:19%"></span></div>
       </div>
-      <div class="brow total">
-        <span class="cat">Total estimé</span>
-        <span class="amt">12 310&nbsp;$</span>
-      </div>
+      <div class="brow total"><span class="cat">Total estimé</span><span class="amt">12 310&nbsp;$</span></div>
     </div>
 
     <div class="split">
       <div class="tile"><div class="label">Par personne</div><div class="val">6 155&nbsp;$</div></div>
-      <div class="tile"><div class="label">Par jour · couple</div><div class="val">879&nbsp;$</div></div>
+      <div class="tile"><div class="label">Par jour · duo</div><div class="val">879&nbsp;$</div></div>
       <div class="tile"><div class="label">Déjà engagé</div><div class="val">≈ 5 480&nbsp;$</div></div>
       <div class="tile"><div class="label">Reste à dépenser</div><div class="val">≈ 6 830&nbsp;$</div></div>
     </div>
@@ -413,11 +325,12 @@
     </div>
   </section>
 
-  <!-- NOTES PRATIQUES -->
+  <!-- NOTES -->
   <section>
     <div class="sec-head">
-      <h2>Notes pratiques</h2>
-      <span class="label">À prévoir</span>
+      <p class="rule-orn"><span class="diamond">&#9670;</span></p>
+      <h2>Da sapere</h2>
+      <span class="label">Notes pratiques</span>
     </div>
 
     <div class="notes">
@@ -443,8 +356,9 @@
   </section>
 
   <footer>
-    <span>Planificateur Italie · 6 – 20 octobre 2026</span>
-    <span>1+1 Stratégie · préparé pour Philippe</span>
+    <p class="rule-orn"><span class="diamond">&#9670;</span></p>
+    <p>Buon viaggio</p>
+    <p>1+1 Stratégie · préparé pour Philippe · 6 – 20 octobre 2026</p>
   </footer>
 
 </div>
