@@ -138,15 +138,15 @@
   /* ── Budget ── */
   .budget { margin-top: 28px; display: flex; flex-direction: column; }
   .brow { display: grid; grid-template-columns: 1fr auto; gap: 4px 16px; align-items: baseline; padding: 15px 0 13px; border-bottom: 1px solid var(--line); }
-  .brow .cat { font-family: var(--didone); font-weight: 700; font-size: 21px; }
-  .brow .amt { font-family: var(--didone); font-variant-numeric: tabular-nums; font-weight: 700; font-size: 21px; white-space: nowrap; }
+  .brow .cat { font-family: var(--didone); font-weight: 400; font-size: 21px; }
+  .brow .amt { font-family: var(--didone); font-variant-numeric: tabular-nums; font-weight: 400; font-size: 21px; white-space: nowrap; }
   .brow .desc { grid-column: 1 / 2; color: var(--ink-2); font-size: 14.5px; margin-top: 3px; }
   .brow .desc b { color: var(--rosso); font-weight: 400; font-style: italic; }
   .bar { grid-column: 1 / 3; height: 6px; background: var(--paper-2); overflow: hidden; margin-top: 11px; }
   .bar > span { display: block; height: 100%; background: linear-gradient(90deg, var(--rosso), var(--oro)); }
   .brow.total { border-bottom: 0; border-top: 2px solid var(--ink); margin-top: 6px; padding-top: 18px; }
-  .brow.total .cat { font-size: 25px; }
-  .brow.total .amt { font-size: 28px; color: var(--rosso); }
+  .brow.total .cat { font-size: 25px; font-weight: 400; }
+  .brow.total .amt { font-size: 28px; font-weight: 400; color: var(--rosso); }
 
   .split { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: 22px; border: 1px solid var(--line); overflow: hidden; }
   .split .tile { border-right: 1px solid var(--line); }
