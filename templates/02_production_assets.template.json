@@ -1,0 +1,23 @@
+{
+  "topic": "<TOPIC>",
+  "avatar_dialogue": {
+    "platform": "HeyGen / Synthesia",
+    "clean_text": "<full spoken dialogue with all [VISUAL] cues stripped out>"
+  },
+  "voice_synthesis": {
+    "platform": "ElevenLabs",
+    "ssml": "<same dialogue with <break time=\"0.5s\"/> pacing markers inserted>"
+  },
+  "broll_prompts": [
+    {
+      "cue": "<original [VISUAL: ...] text>",
+      "engine": "Midjourney",
+      "prompt": "<image prompt> --ar 16:9"
+    },
+    {
+      "cue": "<original [VISUAL: ...] text>",
+      "engine": "Runway",
+      "prompt": "<video prompt>, 16:9"
+    }
+  ]
+}
