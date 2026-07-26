@@ -49,11 +49,4 @@ Délègue avec l'outil `Agent` quand la tâche est bien découpée :
 
 ## Moteur de production média (YouTube)
 
-Chaîne multi-agents qui transforme un sujet vidéo brut en paquet de production YouTube complet. Produits en anglais (outils avatar/voix anglophones). Orchestration via la commande `/build-episode "Sujet"`, qui délègue en séquence :
-
-- `editorial-agent` — titres, concept de miniature, script mot à mot avec marqueurs `[VISUAL: …]` → `01_script.md`.
-- `production-agent` — dialogue propre (HeyGen/Synthesia), pacing SSML `<break>` (ElevenLabs), prompts B-roll Midjourney/Runway `--ar 16:9` → `02_production_assets.json`.
-- `publisher-agent` — métadonnées SEO (titre <60 car., chapitres, tags, commentaire épinglé) → `03_metadata.md`.
-- `community-agent` — tri des commentaires, réponses en brouillon, synthèse de performance, idées d'épisodes → `04_community.md`.
-
-Structure : gabarits dans `templates/`, livrables dans `workspace/episodes/<slug>/` (voir l'exemple `ai-receptionist/`). **Garde-fou** : tout reste en brouillon local — aucune publication, aucun envoi ni commentaire posté sans l'accord explicite de Philippe.
+Espace **autonome et isolé** dans le sous-dossier `yt-media-engine/` : une chaîne multi-agents (editorial → production → publisher → community) qui transforme un sujet vidéo brut en paquet de production YouTube complet. Ses agents et sa commande `/build-episode` ne sont **pas** chargés à la racine — pour l'utiliser, lancer `claude` depuis `yt-media-engine/`. Voir `yt-media-engine/README.md` et `yt-media-engine/CLAUDE.md`. **Garde-fou** : tout reste en brouillon local, aucune publication sans accord explicite.
