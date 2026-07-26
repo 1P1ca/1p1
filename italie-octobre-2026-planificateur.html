@@ -157,15 +157,15 @@
   /* ── Budget ── */
   .budget { margin-top: 28px; display: flex; flex-direction: column; }
   .brow { display: grid; grid-template-columns: 1fr auto; gap: 4px 16px; align-items: baseline; padding: 15px 0 13px; border-bottom: 1px solid var(--line); }
-  .brow .cat { font-family: var(--didone); font-weight: 400; font-size: 21px; }
-  .brow .amt { font-family: var(--didone); font-variant-numeric: tabular-nums; font-weight: 400; font-size: 21px; white-space: nowrap; }
+  .brow .cat { font-family: var(--didone); font-weight: 700; font-size: 21px; }
+  .brow .amt { font-family: var(--didone); font-variant-numeric: tabular-nums; font-weight: 700; font-size: 21px; white-space: nowrap; }
   .brow .desc { grid-column: 1 / 2; color: var(--ink-2); font-size: 14.5px; margin-top: 3px; }
   .brow .desc b { color: var(--rosso); font-weight: 400; font-style: italic; }
   .bar { grid-column: 1 / 3; height: 6px; background: var(--paper-2); overflow: hidden; margin-top: 11px; }
   .bar > span { display: block; height: 100%; background: linear-gradient(90deg, var(--rosso), var(--oro)); }
   .brow.total { border-bottom: 0; border-top: 2px solid var(--ink); margin-top: 6px; padding-top: 18px; }
-  .brow.total .cat { font-size: 25px; font-weight: 400; }
-  .brow.total .amt { font-size: 28px; font-weight: 400; color: var(--rosso); }
+  .brow.total .cat { font-size: 25px; font-weight: 700; }
+  .brow.total .amt { font-size: 28px; font-weight: 700; color: var(--rosso); }
 
   .split { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: 22px; border: 1px solid var(--line); overflow: hidden; }
   .split .tile { border-right: 1px solid var(--line); }
@@ -220,9 +220,9 @@
     <p class="lede">Deux semaines d'automne italien&nbsp;: trois nuits romaines, une semaine au <b>Castello di Valle</b> dans les collines du Chianti, puis Venise avant le vol du retour. Itinéraire jour par jour et budget estimatif.</p>
 
     <div class="tiles">
-      <div class="tile"><div class="label">Budget total</div><div class="val">10 100&nbsp;$</div></div>
-      <div class="tile"><div class="label">Hors vols</div><div class="val">7 000&nbsp;$</div></div>
-      <div class="tile"><div class="label">Par personne</div><div class="val">5 050&nbsp;$</div></div>
+      <div class="tile"><div class="label">Budget · vols exclus</div><div class="val">7 000&nbsp;$</div></div>
+      <div class="tile"><div class="label">Par personne</div><div class="val">3 500&nbsp;$</div></div>
+      <div class="tile"><div class="label">Par jour · duo</div><div class="val">500&nbsp;$</div></div>
       <div class="tile"><div class="label">Nuitées</div><div class="val">13&nbsp;<small>nuits</small></div></div>
     </div>
   </header>
@@ -348,15 +348,10 @@
     <div class="sec-head">
       <p class="rule-orn"><span class="diamond">&#9670;</span></p>
       <h2>Bilancio</h2>
-      <span class="label">Budget estimatif · duo · CAD · hors vols 7 000&nbsp;$</span>
+      <span class="label">Budget estimatif · duo · CAD · vols exclus</span>
     </div>
 
     <div class="budget">
-      <div class="brow">
-        <span class="cat">Vols</span><span class="amt">3 100&nbsp;$</span>
-        <span class="desc">Air Canada aller-retour YUL–Rome / Venise–YUL — <b>réservé</b> · ≈ 1 550&nbsp;$/pers. · exclu du budget cible</span>
-        <div class="bar"><span style="width:74%"></span></div>
-      </div>
       <div class="brow">
         <span class="cat">Hébergement</span><span class="amt">4 180&nbsp;$</span>
         <span class="desc">Rome 3 nts (840&nbsp;$) · Castello di Valle 7 nts (2 380&nbsp;$) · Venise 3 nts (960&nbsp;$) — <b>tout réservé</b></span>
@@ -382,19 +377,18 @@
         <span class="desc">Assurance voyage (220&nbsp;$) · souvenirs &amp; imprévus (100&nbsp;$)</span>
         <div class="bar"><span style="width:8%"></span></div>
       </div>
-      <div class="brow total"><span class="cat">Total · hors vols</span><span class="amt">7 000&nbsp;$</span></div>
-      <div class="brow"><span class="cat" style="color:var(--ink-2)">Total avec vols</span><span class="amt" style="color:var(--ink-2)">10 100&nbsp;$</span></div>
+      <div class="brow total"><span class="cat">Total estimé · vols exclus</span><span class="amt">7 000&nbsp;$</span></div>
     </div>
 
     <div class="split">
-      <div class="tile"><div class="label">Hors vols</div><div class="val">7 000&nbsp;$</div></div>
-      <div class="tile"><div class="label">Par personne</div><div class="val">5 050&nbsp;$</div></div>
-      <div class="tile"><div class="label">Déjà engagé</div><div class="val">≈ 7 280&nbsp;$</div></div>
-      <div class="tile"><div class="label">Reste à dépenser</div><div class="val">≈ 2 820&nbsp;$</div></div>
+      <div class="tile"><div class="label">Par personne</div><div class="val">3 500&nbsp;$</div></div>
+      <div class="tile"><div class="label">Par jour · duo</div><div class="val">500&nbsp;$</div></div>
+      <div class="tile"><div class="label">Hébergement réservé</div><div class="val">4 180&nbsp;$</div></div>
+      <div class="tile"><div class="label">Reste à dépenser</div><div class="val">2 820&nbsp;$</div></div>
     </div>
 
     <div class="callout">
-      <b>Cible&nbsp;:</b> budget de <b>7 000&nbsp;$ hors vols</b> pour deux, 13 nuits. Les vols (3 100&nbsp;$) et <b>tous les hébergements</b> (4 180&nbsp;$, Rome + Chianti + Venise) sont réservés&nbsp;; les postes discrétionnaires — restauration, transport, visites, divers (2 820&nbsp;$) — sont ajustés pour respecter la cible. Estimations d'octobre 2026 en dollars canadiens. Ajuste une valeur et je rééquilibre le reste.
+      <b>Cible&nbsp;:</b> budget de <b>7 000&nbsp;$, vols exclus</b>, pour deux sur 13 nuits. Les <b>vols</b> (3 100&nbsp;$, réservés) sont comptabilisés à part, dans la section Voli. L'<b>hébergement</b> (4 180&nbsp;$, Rome + Chianti + Venise) est réservé&nbsp;; les postes discrétionnaires — restauration, transport, visites, divers (2 820&nbsp;$) — sont ajustés pour respecter la cible. Estimations d'octobre 2026 en dollars canadiens. Ajuste une valeur et je rééquilibre le reste.
     </div>
   </section>
 
