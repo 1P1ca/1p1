@@ -176,6 +176,9 @@
 
   /* ── Notes ── */
   .notes { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 28px; }
+  .trio { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 22px; }
+  .note li.muted { color: var(--ink-2); font-style: italic; font-size: 13.5px; }
+  .tag { display: inline-block; font-family: var(--sans); font-size: 9.5px; letter-spacing: .1em; text-transform: uppercase; font-weight: 700; color: var(--rosso); border: 1px solid var(--rosso); border-radius: 2px; padding: 1px 5px; margin-left: 4px; vertical-align: middle; }
   .note { background: var(--card); border: 1px solid var(--line); padding: 20px 20px 8px; box-shadow: var(--shadow); }
   .note h3 { font-family: var(--didone); font-size: 20px; margin: 0 0 10px; font-style: italic; color: var(--rosso); }
   .note ul { margin: 0; padding: 0 0 12px 18px; }
@@ -191,7 +194,7 @@
     .tiles .tile:nth-child(2), .split .tile:nth-child(2) { border-right: 0; }
     .tiles .tile:nth-child(1), .tiles .tile:nth-child(2),
     .split .tile:nth-child(1), .split .tile:nth-child(2) { border-bottom: 1px solid var(--line); }
-    .notes, .flights { grid-template-columns: 1fr; }
+    .notes, .flights, .trio { grid-template-columns: 1fr; }
     .leg-body { margin-left: 10px; padding-left: 20px; }
     .poster { padding: 34px 16px 30px; }
   }
@@ -315,13 +318,13 @@
         </div>
       </div>
       <div class="leg-body">
-        <div class="day"><div class="d-date">Sam. 10 oct.</div><p class="d-text"><b>Rome → Toscane.</b> Train pour Florence, prise en charge de la voiture, route vers le Chianti. <b>Arrivée au Castello di Valle</b> (hôte Pietro) dès 15 h — Strada Sicelle, 3.</p></div>
-        <div class="day"><div class="d-date">Dim. 11 oct.</div><p class="d-text"><b>Route des vins du Chianti.</b> Greve, Panzano, Radda&nbsp;: dégustations en domaine et paysages de vignes.</p></div>
-        <div class="day"><div class="d-date">Lun. 12 oct.</div><p class="d-text"><b>Florence.</b> Galerie des Offices, Duomo, Ponte Vecchio. Retour au château pour le souper.</p></div>
-        <div class="day"><div class="d-date">Mar. 13 oct.</div><p class="d-text"><b>Sienne &amp; San Gimignano.</b> Piazza del Campo, cathédrale, puis les tours médiévales de San Gimignano.</p></div>
-        <div class="day"><div class="d-date">Mer. 14 oct.</div><p class="d-text"><b>Journée lente.</b> Marché local, cuisine à la maison, lecture au domaine, coucher de soleil sur les collines.</p></div>
-        <div class="day"><div class="d-date">Jeu. 15 oct.</div><p class="d-text"><b>Val d'Orcia.</b> Montalcino (Brunello) et Pienza (pecorino), villages et panoramas classés UNESCO.</p></div>
-        <div class="day"><div class="d-date">Ven. 16 oct.</div><p class="d-text"><b>Chianti à pied.</b> Randonnée entre les domaines, dernier repas de terroir, préparation du départ.</p></div>
+        <div class="day"><div class="d-date">Sam. 10 oct.</div><p class="d-text"><b>Rome → Toscane.</b> Train Rome→Florence, prise en charge de la voiture à Firenze&nbsp;SMN, route vers le Chianti (≈ 45 min). <b>Arrivée au Castello di Valle</b> dès 15 h. Souper à San Donato in Poggio (Antica Trattoria La Toppa).</p></div>
+        <div class="day"><div class="d-date">Dim. 11 oct.</div><p class="d-text"><b>Route des vins — Greve &amp; Panzano.</b> Dégustation chez Fontodi (Panzano, sur réservation), dîner chez Dario Cecchini. Panoramas de vignes de Greve à Radda.</p></div>
+        <div class="day"><div class="d-date">Lun. 12 oct.</div><p class="d-text"><b>Marché de San Casciano</b> (matin) puis <b>Antinori nel Chianti Classico</b> à Bargino&nbsp;: cave-architecture, visite et dégustation sur réservation.</p></div>
+        <div class="day"><div class="d-date">Mar. 13 oct.</div><p class="d-text"><b>Florence</b> (en semaine, moins bondé). Offices, Duomo, Ponte Vecchio. Stationner au park-and-ride Villa Costanza + tram pour éviter la ZTL.</p></div>
+        <div class="day"><div class="d-date">Mer. 14 oct.</div><p class="d-text"><b>Castellina in Chianti &amp; Castello di Fonterutoli</b> (Mazzei), le domaine le plus proche du château. Après-midi détente au domaine.</p></div>
+        <div class="day"><div class="d-date">Jeu. 15 oct.</div><p class="d-text"><b>Marché de Tavarnelle</b> (matin, la commune du château) puis <b>Sienne</b>&nbsp;: Piazza del Campo et cathédrale. Stationner hors des murs.</p></div>
+        <div class="day"><div class="d-date">Ven. 16 oct.</div><p class="d-text"><b>San Gimignano</b> et ses tours, dernière dégustation (Rocca delle Macìe), souper de terroir et préparation du départ. <i>Option&nbsp;: Val d'Orcia — Montalcino, Pienza.</i></p></div>
       </div>
     </div>
 
@@ -339,6 +342,51 @@
         <div class="day"><div class="d-date">Dim. 18 oct.</div><p class="d-text"><b>Cœur de Venise.</b> Place et basilique Saint-Marc, palais des Doges, pont du Rialto, balade dans le Dorsoduro.</p></div>
         <div class="day"><div class="d-date">Lun. 19 oct.</div><p class="d-text"><b>La lagune.</b> Murano (verre) et Burano (maisons colorées), dernier souper vénitien, promenade en gondole.</p></div>
         <div class="day"><div class="d-date">Mar. 20 oct.</div><p class="d-text"><b>Retour.</b> Transfert à l'aéroport, vol Air Canada <span class="num">VCE → YUL</span> 12 h 20 → 15 h 10.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BASE CHIANTI -->
+  <section>
+    <div class="sec-head">
+      <p class="rule-orn"><span class="diamond">&#9670;</span></p>
+      <h2>Base in Chianti</h2>
+      <span class="label">Voiture · cantine · tavola · mercati</span>
+    </div>
+
+    <div class="callout">
+      <b>Voiture&nbsp;:</b> prise en charge à <b>Firenze&nbsp;SMN</b> (gare) à l'arrivée du train le 10 oct., retour au même point le 17 oct. avant le train pour Venise — <b>aller-retour Florence, sans frais d'aller simple</b>. Modèle compact (Fiat 500 / Panda) pour les routes étroites, ou petit SUV pour le confort. Le loueur Sixt, au garage souterrain (niveau -4), est <b>hors ZTL</b> — sortie la plus simple. Ne jamais entrer en voiture dans les centres historiques (Florence, Sienne, San Gimignano)&nbsp;: stationner en périphérie. ≈ 45 min de la gare au château.
+    </div>
+
+    <div class="trio">
+      <div class="note">
+        <h3>Cantine — à réserver</h3>
+        <ul>
+          <li><b>Castello di Fonterutoli</b> (Mazzei), Castellina — le plus proche du château <span class="tag">réserver</span></li>
+          <li><b>Fontodi</b>, Panzano — dégustation gratuite, visite sur réservation <span class="tag">réserver</span></li>
+          <li><b>Antinori nel Chianti Classico</b>, Bargino — cave-architecture <span class="tag">réserver</span></li>
+          <li><b>Castello di Ama</b>, Gaiole — vin &amp; art contemporain <span class="tag">réserver</span></li>
+          <li><b>Rocca delle Macìe</b>, Castellina — familial, accessible</li>
+        </ul>
+      </div>
+      <div class="note">
+        <h3>Tavola — où manger</h3>
+        <ul>
+          <li><b>Antica Trattoria La Toppa</b>, San Donato in Poggio — terroir, familial</li>
+          <li><b>Osteria alla Piazza</b>, entre Panzano et San Donato — vues</li>
+          <li><b>Locanda di Pietracupa</b>, Castellina — table raffinée</li>
+          <li><b>Dario Cecchini / Officina della Bistecca</b>, Panzano — la bistecca <span class="tag">réserver</span></li>
+          <li><b>La Bottega di Volpaia</b>, Radda — village-vignoble</li>
+        </ul>
+      </div>
+      <div class="note">
+        <h3>Mercati — jours de marché</h3>
+        <ul>
+          <li><b>Lundi</b> — San Casciano Val di Pesa <span class="tag" style="border-color:var(--verde);color:var(--verde)">12 oct.</span></li>
+          <li><b>Jeudi</b> — Tavarnelle Val di Pesa <span class="tag" style="border-color:var(--verde);color:var(--verde)">15 oct.</span></li>
+          <li><b>Samedi</b> — Greve &amp; Castellina in Chianti</li>
+          <li class="muted">Tous 8 h–13 h. Les samedis (10 et 17 oct.) sont des jours de route.</li>
+        </ul>
       </div>
     </div>
   </section>
