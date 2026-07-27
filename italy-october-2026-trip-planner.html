@@ -135,6 +135,17 @@
   .day .d-text { margin: 4px 0 0; }
   .day .d-text b { font-weight: 400; font-style: italic; color: var(--rosso); }
 
+  /* ── Dawn walk ── */
+  .walk { margin: 22px 0 0 28px; background: var(--card); border: 1px solid var(--line); border-left: 3px solid var(--oro); padding: 18px 22px 14px; box-shadow: var(--shadow); }
+  .walk .we { font-family: var(--sans); font-size: 10.5px; letter-spacing: .18em; text-transform: uppercase; color: var(--oro); font-weight: 700; }
+  .walk h4 { font-family: var(--didone); font-size: 21px; font-style: italic; margin: 6px 0 4px; color: var(--ink); }
+  .walk p.intro { color: var(--ink-2); font-size: 14.5px; margin: 0 0 10px; }
+  .walk-row { display: grid; grid-template-columns: 64px 1fr; gap: 2px 14px; padding: 7px 0; border-top: 1px solid var(--line); align-items: baseline; }
+  .walk-row .t { font-family: var(--sans); font-variant-numeric: tabular-nums; font-size: 12px; font-weight: 700; letter-spacing: .04em; color: var(--rosso); }
+  .walk-row .p { font-size: 15px; color: var(--ink-2); }
+  .walk-row .p b { font-weight: 400; font-style: italic; color: var(--ink); }
+  .walk .foot { margin-top: 10px; font-family: var(--sans); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-2); }
+
   /* ── Flights ── */
   .flights { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 28px; }
   .flight { background: var(--card); border: 1px solid var(--line); padding: 20px 22px 16px; box-shadow: var(--shadow); }
@@ -196,6 +207,7 @@
     .split .tile:nth-child(1), .split .tile:nth-child(2) { border-bottom: 1px solid var(--line); }
     .notes, .flights, .trio { grid-template-columns: 1fr; }
     .leg-body { margin-left: 10px; padding-left: 20px; }
+    .walk { margin-left: 8px; }
     .poster { padding: 34px 16px 30px; }
   }
 </style>
@@ -306,6 +318,23 @@
         <div class="day"><div class="d-date">Thu, Oct 8</div><p class="d-text"><b>Ancient Rome.</b> Colosseum, Roman Forum and Palatine in the morning (timed ticket), Trevi Fountain and the Spanish Steps in the afternoon.</p></div>
         <div class="day"><div class="d-date">Fri, Oct 9</div><p class="d-text"><b>Vatican.</b> Museums and Sistine Chapel early, St Peter's Basilica, then Trastevere for dinner.</p></div>
       </div>
+    </div>
+
+    <div class="walk">
+      <p class="we">Suggestion · at daybreak</p>
+      <h4>Rome at dawn — the walk before the crowds</h4>
+      <p class="intro">One morning, set the alarm early: at 6 AM Rome is almost empty. An outdoor loop of ≈ 6 km (~3.5 h) from the Colosseum to the Vatican — interiors closed, but the monuments seen without the crowds. Pairs naturally with the Vatican morning.</p>
+      <div class="walk-row"><span class="t">6:00</span><span class="p"><b>Colosseum</b> — exterior loop, Arch of Constantine</span></div>
+      <div class="walk-row"><span class="t">6:20</span><span class="p"><b>Roman Forum</b> along Via dei Fori Imperiali</span></div>
+      <div class="walk-row"><span class="t">6:45</span><span class="p"><b>Altare della Patria</b> (Vittoriano), Piazza Venezia</span></div>
+      <div class="walk-row"><span class="t">7:10</span><span class="p"><b>Trevi Fountain</b></span></div>
+      <div class="walk-row"><span class="t">7:25</span><span class="p"><b>Pantheon</b>, Piazza della Rotonda</span></div>
+      <div class="walk-row"><span class="t">7:40</span><span class="p"><b>Piazza Navona</b> — Bernini's Fountain of the Four Rivers</span></div>
+      <div class="walk-row"><span class="t">8:00</span><span class="p"><b>Campo de' Fiori</b> — morning market</span></div>
+      <div class="walk-row"><span class="t">8:15</span><span class="p">Breakfast at <b>Forno Campo de' Fiori</b> — pizza bianca</span></div>
+      <div class="walk-row"><span class="t">8:45</span><span class="p"><b>Castel Sant'Angelo</b></span></div>
+      <div class="walk-row"><span class="t">9:00</span><span class="p"><b>St Peter's Square &amp; the Vatican</b></span></div>
+      <p class="foot">≈ 6 km · 3.5 h · outdoor route, interiors closed</p>
     </div>
 
     <!-- Toscana -->
