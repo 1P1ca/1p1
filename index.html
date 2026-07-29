@@ -195,6 +195,13 @@
   .tab:active{opacity:.55;}
   .tab:active svg{transform:scale(.92);}
   .tab:focus-visible{outline:2px solid var(--accent);outline-offset:-2px;border-radius:8px;}
+  .tab svg .dot{fill:currentColor;stroke:none;}
+
+  /* More list rows (Rome / Tavarnelle / Venice) */
+  .morerow.tab{display:flex;flex-direction:row;align-items:center;justify-content:space-between;width:100%;text-align:left;padding:14px 16px;font-size:17px;font-weight:400;color:var(--ink);border-top:.5px solid var(--sep);opacity:1;-webkit-user-select:none;user-select:none;transition:background .15s ease;}
+  .morerow.tab:first-child{border-top:0;}
+  .morerow.tab .chev{color:var(--ink-3);font-size:19px;}
+  .morerow.tab:active{background:var(--card-2);opacity:1;}
 
   /* Desktop top nav (hidden on iPhone widths) */
   .dtabs-in{display:none;}
@@ -233,7 +240,9 @@
     <button class="tab on" data-v="home" type="button">Trip</button>
     <button class="tab" data-v="prep" type="button">Prep</button>
     <button class="tab" data-v="days" type="button">Days</button>
+    <button class="tab" data-v="rome" type="button">Rome</button>
     <button class="tab" data-v="chianti" type="button">Tavarnelle</button>
+    <button class="tab" data-v="venice" type="button">Venice</button>
     <button class="tab" data-v="info" type="button">Info</button>
     <button class="tab" data-v="budget" type="button">Budget</button>
   </nav>
@@ -347,7 +356,35 @@
       <div class="day" data-day="10-6"><div class="d-date">Tue, Oct 6</div><p class="d-text" data-edit><b>Depart Montréal.</b> Air Canada YUL → FCO, 7:25 PM. Overnight flight.</p></div>
       <div class="day" data-day="10-7"><div class="d-date">Wed, Oct 7</div><p class="d-text" data-edit><b>Arrive in Rome</b> 9:15 AM. Settle in, an easy wander: Pantheon, Piazza Navona, a first aperitivo.</p></div>
       <div class="day" data-day="10-8"><div class="d-date">Thu, Oct 8</div><p class="d-text" data-edit><b>Ancient Rome.</b> Colosseum, Forum &amp; Palatine (timed ticket), Trevi and the Spanish Steps.</p></div>
-      <div class="day" data-day="10-9"><div class="d-date">Fri, Oct 9</div><p class="d-text" data-edit><b>Dawn walk</b> (below), ~5:15 AM. Then the Vatican Museums and Sistine Chapel, dinner in Trastevere.</p></div>
+      <div class="day" data-day="10-9"><div class="d-date">Fri, Oct 9</div><p class="d-text" data-edit><b>Dawn walk</b> (full timeline in the <b>Rome</b> tab), ~5:15 AM. Then the Vatican Museums and Sistine Chapel, dinner in Trastevere.</p></div>
+    </div>
+
+    <div class="leg-hd"><div class="leg-badge">II</div><div><p class="lt">Tavarnelle — Toscana</p><span class="ls">Oct 10 – 17 · 7 nights · Castello di Valle</span></div></div>
+    <div class="group">
+      <div class="day" data-day="10-10"><div class="d-date">Sat, Oct 10</div><p class="d-text" data-edit><b>Rome → Tavarnelle.</b> Taxi to the Roma Tiburtina depot, A1 north (~283 km, ~3h15), Firenze Impruneta exit. Arrive from 3 PM. Dinner in San Donato (La Toppa).</p></div>
+      <div class="day" data-day="10-11"><div class="d-date">Sun, Oct 11</div><p class="d-text" data-edit><b>Wine — Greve &amp; Panzano.</b> Fontodi (by reservation), lunch at Dario Cecchini.</p></div>
+      <div class="day" data-day="10-12"><div class="d-date">Mon, Oct 12</div><p class="d-text" data-edit><b>San Casciano market</b> then <b>Antinori nel Chianti Classico</b> (Bargino), by reservation.</p></div>
+      <div class="day" data-day="10-13"><div class="d-date">Tue, Oct 13</div><p class="d-text" data-edit><b>Florence</b> (weekday). Uffizi, Duomo, Ponte Vecchio. Villa Costanza park-and-ride + tram.</p></div>
+      <div class="day" data-day="10-14"><div class="d-date">Wed, Oct 14</div><p class="d-text" data-edit><b>Castellina &amp; Castello di Fonterutoli</b> (nearest). Relaxed afternoon at the property.</p></div>
+      <div class="day" data-day="10-15"><div class="d-date">Thu, Oct 15</div><p class="d-text" data-edit><b>Tavarnelle market</b> then <b>Siena</b>: Piazza del Campo and the cathedral.</p></div>
+      <div class="day" data-day="10-16"><div class="d-date">Fri, Oct 16</div><p class="d-text" data-edit><b>San Gimignano</b>, a final tasting (Rocca delle Macìe), farewell dinner. Option: Val d'Orcia.</p></div>
+    </div>
+
+    <div class="leg-hd"><div class="leg-badge">III</div><div><p class="lt">Venezia</p><span class="ls">Oct 17 – 20 · 3 nights · Dimora Capuleti</span></div></div>
+    <div class="group">
+      <div class="day" data-day="10-17"><div class="d-date">Sat, Oct 17</div><p class="d-text" data-edit><b>Tavarnelle → Venice.</b> Depart 10 AM, drop the car in Florence, train (≈ 2 h). Check in, first vaporetto.</p></div>
+      <div class="day" data-day="10-18"><div class="d-date">Sun, Oct 18</div><p class="d-text" data-edit><b>Heart of Venice.</b> St Mark's, the Doge's Palace, Rialto, Dorsoduro.</p></div>
+      <div class="day" data-day="10-19"><div class="d-date">Mon, Oct 19</div><p class="d-text" data-edit><b>The lagoon.</b> Murano and Burano, a last Venetian dinner, a gondola ride. Full island guide in the <b>Venice</b> tab.</p></div>
+      <div class="day" data-day="10-20"><div class="d-date">Tue, Oct 20</div><p class="d-text" data-edit><b>Home.</b> Transfer, Air Canada VCE → YUL 12:20 PM → 3:10 PM.</p></div>
+    </div>
+  </section>
+
+  <!-- ROME -->
+  <section id="rome" class="view">
+    <div class="leg-hd"><div class="leg-badge">🏛️</div><div><p class="lt">Rome</p><span class="ls">Ancient sights · dawn walk · dining</span></div></div>
+
+    <div class="callout" data-edit>
+      <b>Book ahead:</b> the Vatican Museums, Sistine Chapel and Colosseum sell out routinely — buy timed tickets online well before Oct 7. St Peter's Basilica itself is free to enter but requires a security line.
     </div>
 
     <div class="feat">
@@ -371,44 +408,23 @@
       <div class="feat-ft">≈ 6 km · 3.25 h · keep the pace to stay ahead of tour groups</div>
     </div>
 
-    <div class="leg-hd"><div class="leg-badge">II</div><div><p class="lt">Tavarnelle — Toscana</p><span class="ls">Oct 10 – 17 · 7 nights · Castello di Valle</span></div></div>
+    <p class="sec">Sights</p>
     <div class="group">
-      <div class="day" data-day="10-10"><div class="d-date">Sat, Oct 10</div><p class="d-text" data-edit><b>Rome → Tavarnelle.</b> Taxi to the Roma Tiburtina depot, A1 north (~283 km, ~3h15), Firenze Impruneta exit. Arrive from 3 PM. Dinner in San Donato (La Toppa).</p></div>
-      <div class="day" data-day="10-11"><div class="d-date">Sun, Oct 11</div><p class="d-text" data-edit><b>Wine — Greve &amp; Panzano.</b> Fontodi (by reservation), lunch at Dario Cecchini.</p></div>
-      <div class="day" data-day="10-12"><div class="d-date">Mon, Oct 12</div><p class="d-text" data-edit><b>San Casciano market</b> then <b>Antinori nel Chianti Classico</b> (Bargino), by reservation.</p></div>
-      <div class="day" data-day="10-13"><div class="d-date">Tue, Oct 13</div><p class="d-text" data-edit><b>Florence</b> (weekday). Uffizi, Duomo, Ponte Vecchio. Villa Costanza park-and-ride + tram.</p></div>
-      <div class="day" data-day="10-14"><div class="d-date">Wed, Oct 14</div><p class="d-text" data-edit><b>Castellina &amp; Castello di Fonterutoli</b> (nearest). Relaxed afternoon at the property.</p></div>
-      <div class="day" data-day="10-15"><div class="d-date">Thu, Oct 15</div><p class="d-text" data-edit><b>Tavarnelle market</b> then <b>Siena</b>: Piazza del Campo and the cathedral.</p></div>
-      <div class="day" data-day="10-16"><div class="d-date">Fri, Oct 16</div><p class="d-text" data-edit><b>San Gimignano</b>, a final tasting (Rocca delle Macìe), farewell dinner. Option: Val d'Orcia.</p></div>
-    </div>
-
-    <div class="leg-hd"><div class="leg-badge">III</div><div><p class="lt">Venezia</p><span class="ls">Oct 17 – 20 · 3 nights · Dimora Capuleti</span></div></div>
-    <div class="group">
-      <div class="day" data-day="10-17"><div class="d-date">Sat, Oct 17</div><p class="d-text" data-edit><b>Tavarnelle → Venice.</b> Depart 10 AM, drop the car in Florence, train (≈ 2 h). Check in, first vaporetto.</p></div>
-      <div class="day" data-day="10-18"><div class="d-date">Sun, Oct 18</div><p class="d-text" data-edit><b>Heart of Venice.</b> St Mark's, the Doge's Palace, Rialto, Dorsoduro.</p></div>
-      <div class="day" data-day="10-19"><div class="d-date">Mon, Oct 19</div><p class="d-text" data-edit><b>The lagoon.</b> Murano and Burano, a last Venetian dinner, a gondola ride.</p></div>
-      <div class="day" data-day="10-20"><div class="d-date">Tue, Oct 20</div><p class="d-text" data-edit><b>Home.</b> Transfer, Air Canada VCE → YUL 12:20 PM → 3:10 PM.</p></div>
-    </div>
-
-    <p class="sec">Venice — the essentials</p>
-    <div class="group">
-      <p class="note-hd">Short on time · on foot</p>
       <ul class="note-ul" data-edit>
-        <li><b>Doge's Palace</b> <span class="tag">book</span></li>
-        <li><b>St Mark's Basilica</b></li>
-        <li><b>Rialto Bridge</b></li>
-        <li><b>San Polo district</b></li>
-        <li><b>Gondola</b></li>
+        <li><b>Colosseum</b>, Roman Forum &amp; Palatine <span class="tag">book</span></li>
+        <li><b>Vatican Museums</b> &amp; Sistine Chapel <span class="tag">book</span></li>
+        <li><b>St Peter's Basilica</b> — free entry, dress code applies</li>
+        <li><b>Trevi Fountain</b>, <b>Pantheon</b>, <b>Piazza Navona</b> — free, best at dawn</li>
       </ul>
     </div>
-    <div class="group" style="margin-top:12px">
-      <p class="note-hd">Lagoon islands</p>
+
+    <p class="sec">Neighborhoods &amp; dining</p>
+    <div class="group">
       <ul class="note-ul" data-edit>
-        <li><b>Torcello</b> — small, historical, peaceful</li>
-        <li><b>Mazzorbo</b> — quiet, vineyard</li>
-        <li><b>San Michele</b> — the cemetery island</li>
-        <li><b>Lido</b> — beach; Film Festival in September</li>
-        <li><b>Correr</b>, <b>La Fenice</b>, <b>San Giorgio Maggiore</b> — with 3 days</li>
+        <li><b>Trastevere</b> — cobblestones, dinner, nightlife</li>
+        <li><b>Campo de' Fiori</b> — morning market, aperitivo scene</li>
+        <li><b>Forno Campo de' Fiori</b> — the historic bakery, pizza bianca</li>
+        <li><b>Testaccio</b> — authentic, less touristy Roman food</li>
       </ul>
     </div>
   </section>
@@ -466,6 +482,37 @@
         <li><b>Monday</b> — San Casciano <span class="tag g">Oct 12</span></li>
         <li><b>Thursday</b> — Tavarnelle <span class="tag g">Oct 15</span></li>
         <li><b>Saturday</b> — Greve &amp; Castellina</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- VENICE -->
+  <section id="venice" class="view">
+    <div class="leg-hd"><div class="leg-badge">🚤</div><div><p class="lt">Venice</p><span class="ls">On foot &amp; by vaporetto · lagoon islands</span></div></div>
+
+    <div class="callout" data-edit>
+      <b>Getting around:</b> Venice has no cars — everything moves on foot or by <b>vaporetto</b> (water bus). If island-hopping to Murano, Burano or Torcello, a 48h or 72h ACTV travel pass is usually cheaper than single tickets.
+    </div>
+
+    <p class="sec first">Short on time · on foot</p>
+    <div class="group">
+      <ul class="note-ul" data-edit>
+        <li><b>Doge's Palace</b> <span class="tag">book</span></li>
+        <li><b>St Mark's Basilica</b></li>
+        <li><b>Rialto Bridge</b></li>
+        <li><b>San Polo district</b></li>
+        <li><b>Gondola</b></li>
+      </ul>
+    </div>
+
+    <p class="sec">Lagoon islands</p>
+    <div class="group">
+      <ul class="note-ul" data-edit>
+        <li><b>Torcello</b> — small, historical, peaceful</li>
+        <li><b>Mazzorbo</b> — quiet, vineyard</li>
+        <li><b>San Michele</b> — the cemetery island</li>
+        <li><b>Lido</b> — beach; Film Festival in September</li>
+        <li><b>Correr</b>, <b>La Fenice</b>, <b>San Giorgio Maggiore</b> — with 3 days</li>
       </ul>
     </div>
   </section>
@@ -548,6 +595,16 @@
     <footer>Buon viaggio · 1+1 Stratégie</footer>
   </section>
 
+  <!-- MORE -->
+  <section id="more" class="view">
+    <p class="sec first">Destinations</p>
+    <div class="group">
+      <button class="tab morerow" data-v="rome" type="button"><span>🏛️ Rome</span><span class="chev">›</span></button>
+      <button class="tab morerow" data-v="chianti" type="button"><span>🍷 Tavarnelle</span><span class="chev">›</span></button>
+      <button class="tab morerow" data-v="venice" type="button"><span>🚤 Venice</span><span class="chev">›</span></button>
+    </div>
+  </section>
+
 </div>
 
 <div id="toast" class="toast" role="status" aria-live="polite"></div>
@@ -556,9 +613,9 @@
   <button class="tab on" data-v="home" type="button"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polygon points="15.5 8.5 10.5 10.5 8.5 15.5 13.5 13.5"/></svg>Trip</button>
   <button class="tab" data-v="prep" type="button"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M7.5 9.5l1.5 1.5 3-3"/><line x1="13.5" y1="9" x2="17" y2="9"/><path d="M7.5 15l1.5 1.5 3-3"/><line x1="13.5" y1="14.5" x2="17" y2="14.5"/></svg>Prep</button>
   <button class="tab" data-v="days" type="button"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="3"/><line x1="4" y1="9.5" x2="20" y2="9.5"/><line x1="8" y1="3" x2="8" y2="6.5"/><line x1="16" y1="3" x2="16" y2="6.5"/></svg>Days</button>
-  <button class="tab" data-v="chianti" type="button"><svg viewBox="0 0 24 24"><path d="M7.5 4 h9 l-1.4 7 a3.1 3.1 0 0 1 -6.2 0 Z"/><line x1="12" y1="14" x2="12" y2="20"/><line x1="8.5" y1="20" x2="15.5" y2="20"/></svg>Tavarnelle</button>
   <button class="tab" data-v="info" type="button"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><line x1="12" y1="11" x2="12" y2="16.5"/><circle cx="12" cy="7.8" r=".7" fill="currentColor" stroke="none"/></svg>Info</button>
   <button class="tab" data-v="budget" type="button"><svg viewBox="0 0 24 24"><rect x="3" y="6.5" width="18" height="11" rx="2.5"/><circle cx="12" cy="12" r="2.4"/></svg>Budget</button>
+  <button class="tab" data-v="more" type="button"><svg viewBox="0 0 24 24"><circle class="dot" cx="6" cy="12" r="1.6"/><circle class="dot" cx="12" cy="12" r="1.6"/><circle class="dot" cx="18" cy="12" r="1.6"/></svg>More</button>
 </div></nav>
 
 <script>
@@ -566,10 +623,15 @@
   var LSK='italia-en-v2';
   var views=[].slice.call(document.querySelectorAll('.view'));
   var tabs=[].slice.call(document.querySelectorAll('.tab'));
+  var MORE_KEYS=['rome','chianti','venice'];
   function show(id){
     if(!views.some(function(v){return v.id===id;})) id='home';
     views.forEach(function(v){v.classList.toggle('active',v.id===id);});
-    tabs.forEach(function(t){t.classList.toggle('on',t.dataset.v===id);});
+    var underMore=MORE_KEYS.indexOf(id)!==-1;
+    tabs.forEach(function(t){
+      var on=t.dataset.v===id||(underMore&&t.dataset.v==='more'&&!t.classList.contains('morerow'));
+      t.classList.toggle('on',on);
+    });
     window.scrollTo(0,0);
     try{history.replaceState(null,'','#'+id);}catch(e){}
   }
@@ -617,7 +679,7 @@
   var PREP_LABELS={docs:'Documents & travel',book:'Reservations to lock in',money:'Money & connectivity',pack:'Packing',before:'Before you leave'};
   function buildMarkdown(){
     var out=['# Italia — October 6–20, 2026',''];
-    views.filter(function(v){return v.id!=='prep';}).forEach(function(v){
+    views.filter(function(v){return v.id!=='prep'&&v.id!=='more';}).forEach(function(v){
       v.querySelectorAll('.hero h1,.leg-hd .lt,.sec,.feat-hd h4,.note-hd,.row h3,.d-date,.d-text,.callout,.note-ul li,.tl-row,.brow .cat,.intro,.feat-ft').forEach(function(el){
         var t=txt(el);if(!t)return;
         if(el.matches('.leg-hd .lt,.feat-hd h4'))out.push('','## '+t);
