@@ -10,6 +10,7 @@
     --shadow:0 1px 2px rgba(0,0,0,.04), 0 6px 20px rgba(0,0,0,.05);
     --font:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display",system-ui,"Segoe UI",Roboto,sans-serif;
     --radius:16px;
+    --maxw:600px;
   }
   @media (prefers-color-scheme:dark){
     :root{
@@ -28,16 +29,16 @@
   *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
   html{-webkit-text-size-adjust:100%;}
   body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:17px;line-height:1.47;letter-spacing:-.01em;-webkit-font-smoothing:antialiased;}
-  .app{max-width:600px;margin:0 auto;padding:0 16px calc(94px + env(safe-area-inset-bottom));}
+  .app{max-width:var(--maxw);margin:0 auto;padding:0 16px calc(94px + env(safe-area-inset-bottom));}
 
   .bar{position:sticky;top:0;z-index:20;background:var(--nav-bg);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:.5px solid var(--sep);}
-  .bar-in{max-width:600px;margin:0 auto;padding:11px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px;}
+  .bar-in{max-width:var(--maxw);margin:0 auto;padding:11px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px;}
   .bar-title{font-weight:700;font-size:17px;letter-spacing:-.02em;}
   .bar-title .bar-sub{color:var(--ink-2);font-weight:600;}
   .bar-title .dot{color:var(--accent);}
   .editbtn{appearance:none;border:0;background:var(--accent-soft);color:var(--accent);font-family:inherit;font-weight:600;font-size:15px;padding:7px 15px;border-radius:980px;cursor:pointer;}
   .editbtn:active{transform:scale(.96);}
-  .edittools{max-width:600px;margin:0 auto;padding:0 16px 10px;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;}
+  .edittools{max-width:var(--maxw);margin:0 auto;padding:0 16px 10px;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;}
   .et-note{font-size:12.5px;color:var(--ink-2);}
   .et-actions{display:flex;gap:8px;}
   .et-btn{appearance:none;border:.5px solid var(--sep-strong);background:var(--card);color:var(--ink);font-family:inherit;font-weight:600;font-size:13px;padding:6px 12px;border-radius:980px;cursor:pointer;}
@@ -151,11 +152,34 @@
   .toast.show{opacity:1;}
 
   .tabs{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--nav-bg);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-top:.5px solid var(--sep);padding-bottom:env(safe-area-inset-bottom);}
-  .tabs-in{max-width:600px;margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr);}
+  .tabs-in{max-width:var(--maxw);margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr);}
   .tab{appearance:none;background:none;border:0;cursor:pointer;padding:8px 2px 7px;display:flex;flex-direction:column;align-items:center;gap:3px;color:var(--ink-3);font-family:inherit;font-size:10px;font-weight:600;}
   .tab svg{width:25px;height:25px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;}
   .tab.on{color:var(--accent);}
   .tab:focus-visible{outline:2px solid var(--accent);outline-offset:-2px;border-radius:8px;}
+
+  /* Desktop top nav (hidden on iPhone widths) */
+  .dtabs-in{display:none;}
+
+  /* ── Desktop mode ── */
+  @media (min-width:1024px){
+    :root{--maxw:760px;}
+    .tabs{display:none;}
+    .app{padding:0 24px 56px;}
+    .hero{padding:34px 6px 6px;}
+    .dtabs-in{
+      display:flex;gap:4px;max-width:var(--maxw);margin:0 auto;padding:0 24px 12px;
+      justify-content:center;flex-wrap:wrap;
+    }
+    .dtabs-in .tab{
+      flex-direction:row;gap:7px;color:var(--ink-2);font-size:13.5px;font-weight:600;
+      padding:8px 18px;border-radius:980px;
+    }
+    .dtabs-in .tab:hover{background:var(--card-2);}
+    .dtabs-in .tab.on{background:var(--accent-soft);color:var(--accent);}
+    .group:hover{box-shadow:0 1px 2px rgba(0,0,0,.05), 0 10px 26px rgba(0,0,0,.07);}
+    .chip, .feat, .callout{transition:box-shadow .15s ease;}
+  }
 </style>
 
 <header class="bar">
@@ -167,6 +191,13 @@
     <span class="et-note">Tap any text to edit it — saved locally on this device.</span>
     <span class="et-actions"><button id="exportBtn" class="et-btn" type="button">Export</button><button id="resetBtn" class="et-btn" type="button">Reset</button></span>
   </div>
+  <nav class="dtabs-in" aria-label="Sections">
+    <button class="tab on" data-v="home" type="button">Trip</button>
+    <button class="tab" data-v="days" type="button">Days</button>
+    <button class="tab" data-v="chianti" type="button">Tavarnelle</button>
+    <button class="tab" data-v="info" type="button">Info</button>
+    <button class="tab" data-v="budget" type="button">Budget</button>
+  </nav>
 </header>
 
 <div class="app">
