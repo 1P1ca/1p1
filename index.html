@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Italia · Octobre 2026</title>
+<style>
+  :root{
+    --paper:#F6EFE0; --card:#FBF6EA; --ink:#22140F; --ink-2:#6B5B4C; --line:#D6C6A8;
+    --rosso:#9E2B25; --oro:#B0812A; --rosso-wash:rgba(158,43,37,.07);
+    --shadow:0 1px 2px rgba(34,20,15,.05),0 10px 30px rgba(34,20,15,.08);
+    --didone:"Bodoni 72","Bodoni MT",Didot,"Playfair Display","Times New Roman",serif;
+    --body:"Iowan Old Style",Palatino,"Palatino Linotype",Georgia,serif;
+    --sans:Futura,"Century Gothic",system-ui,-apple-system,"Segoe UI",sans-serif;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{--paper:#150F0A;--card:#211710;--ink:#F2E8D3;--ink-2:#B6A489;--line:#3A2D1D;
+    --rosso:#E0776B;--oro:#DBB157;--rosso-wash:rgba(224,119,107,.09);
+    --shadow:0 1px 2px rgba(0,0,0,.35),0 12px 34px rgba(0,0,0,.4);}
+  }
+  :root[data-theme="light"]{--paper:#F6EFE0;--card:#FBF6EA;--ink:#22140F;--ink-2:#6B5B4C;--line:#D6C6A8;--rosso:#9E2B25;--oro:#B0812A;--rosso-wash:rgba(158,43,37,.07);}
+  :root[data-theme="dark"]{--paper:#150F0A;--card:#211710;--ink:#F2E8D3;--ink-2:#B6A489;--line:#3A2D1D;--rosso:#E0776B;--oro:#DBB157;--rosso-wash:rgba(224,119,107,.09);}
+  *{box-sizing:border-box;}
+  body{margin:0;min-height:100vh;background:var(--paper);color:var(--ink);font-family:var(--body);
+    display:flex;align-items:center;justify-content:center;padding:28px;}
+  .wrap{max-width:560px;width:100%;text-align:center;}
+  .poster{position:relative;border:1px solid var(--ink);padding:40px 24px 34px;
+    background:radial-gradient(120% 90% at 50% -10%,var(--rosso-wash),transparent 60%),var(--paper);}
+  .poster::before{content:"";position:absolute;inset:6px;border:1px solid var(--oro);opacity:.5;pointer-events:none;}
+  .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--rosso);font-weight:600;margin:0;}
+  h1{font-family:var(--didone);font-weight:700;font-size:clamp(58px,20vw,104px);line-height:.9;letter-spacing:.05em;text-transform:uppercase;margin:10px 0 8px;}
+  .sub{font-family:var(--didone);font-style:italic;font-size:clamp(17px,5vw,24px);color:var(--rosso);margin:0 0 6px;}
+  .dates{font-family:var(--sans);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-2);font-weight:600;margin:14px 0 0;}
+  .orn{display:flex;align-items:center;justify-content:center;gap:12px;color:var(--oro);margin:16px 0;}
+  .orn::before,.orn::after{content:"";height:1px;width:80px;background:currentColor;opacity:.55;}
+  .orn span{font-size:10px;}
+  .choose{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:26px;}
+  a.card{display:block;text-decoration:none;background:var(--card);border:1px solid var(--line);border-left:3px solid var(--oro);
+    padding:20px 18px;box-shadow:var(--shadow);color:var(--ink);transition:transform .15s ease,border-color .15s ease;}
+  a.card:hover,a.card:focus{transform:translateY(-2px);border-left-color:var(--rosso);outline:none;}
+  a.card:focus-visible{outline:2px solid var(--rosso);outline-offset:3px;}
+  a.card .flag{font-size:26px;}
+  a.card .lang{font-family:var(--didone);font-weight:700;font-size:22px;margin-top:6px;}
+  a.card .go{font-family:var(--sans);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--rosso);font-weight:700;margin-top:8px;}
+  footer{font-family:var(--sans);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2);margin-top:26px;}
+  @media (max-width:440px){.choose{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="poster">
+      <p class="eyebrow">Gran Tour d'automne · MMXXVI</p>
+      <h1>Italia</h1>
+      <p class="sub">Roma · il Chianti · Venezia</p>
+      <p class="orn"><span>&#9670;</span></p>
+      <p class="dates">6 – 20 octobre 2026 · pour deux</p>
+    </div>
+    <div class="choose">
+      <a class="card" href="italie-octobre-2026-planificateur.html">
+        <div class="flag">🇫🇷</div>
+        <div class="lang">Français</div>
+        <div class="go">Ouvrir l'appli ↗</div>
+      </a>
+      <a class="card" href="italy-october-2026-trip-planner.html">
+        <div class="flag">🇬🇧</div>
+        <div class="lang">English</div>
+        <div class="go">Open the app ↗</div>
+      </a>
+    </div>
+    <footer>1+1 Stratégie · Buon viaggio</footer>
+  </div>
+</body>
+</html>
