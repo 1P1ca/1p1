@@ -1,0 +1,539 @@
+<title>Italia · Ottobre 2026 — Appli de voyage</title>
+<style>
+  :root{
+    --bg:#F2F2F7; --card:#FFFFFF; --card-2:#F7F7FA;
+    --ink:#1C1C1E; --ink-2:#6C6C70; --ink-3:#9A9AA0;
+    --sep:rgba(60,60,67,.13); --sep-strong:rgba(60,60,67,.24);
+    --accent:#C2352B; --accent-soft:rgba(194,53,43,.10);
+    --green:#2E7D53; --gold:#B0812A;
+    --nav-bg:rgba(248,248,250,.82);
+    --shadow:0 1px 2px rgba(0,0,0,.04), 0 6px 20px rgba(0,0,0,.05);
+    --font:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display",system-ui,"Segoe UI",Roboto,sans-serif;
+    --radius:16px;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --bg:#000000; --card:#1C1C1E; --card-2:#161618;
+      --ink:#FFFFFF; --ink-2:#A0A0A6; --ink-3:#78787E;
+      --sep:rgba(84,84,88,.42); --sep-strong:rgba(120,120,128,.5);
+      --accent:#FF6E62; --accent-soft:rgba(255,110,98,.14);
+      --green:#7FD1A3; --gold:#DBB157;
+      --nav-bg:rgba(22,22,24,.82);
+      --shadow:none;
+    }
+  }
+  :root[data-theme="light"]{--bg:#F2F2F7;--card:#FFFFFF;--card-2:#F7F7FA;--ink:#1C1C1E;--ink-2:#6C6C70;--ink-3:#9A9AA0;--sep:rgba(60,60,67,.13);--sep-strong:rgba(60,60,67,.24);--accent:#C2352B;--accent-soft:rgba(194,53,43,.10);--green:#2E7D53;--gold:#B0812A;--nav-bg:rgba(248,248,250,.82);--shadow:0 1px 2px rgba(0,0,0,.04),0 6px 20px rgba(0,0,0,.05);}
+  :root[data-theme="dark"]{--bg:#000000;--card:#1C1C1E;--card-2:#161618;--ink:#FFFFFF;--ink-2:#A0A0A6;--ink-3:#78787E;--sep:rgba(84,84,88,.42);--sep-strong:rgba(120,120,128,.5);--accent:#FF6E62;--accent-soft:rgba(255,110,98,.14);--green:#7FD1A3;--gold:#DBB157;--nav-bg:rgba(22,22,24,.82);--shadow:none;}
+
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  html{-webkit-text-size-adjust:100%;}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:17px;line-height:1.47;
+    letter-spacing:-.01em;-webkit-font-smoothing:antialiased;}
+  .app{max-width:600px;margin:0 auto;padding:0 16px calc(94px + env(safe-area-inset-bottom));}
+
+  /* App bar */
+  .bar{position:sticky;top:0;z-index:20;background:var(--nav-bg);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:.5px solid var(--sep);}
+  .bar-in{max-width:600px;margin:0 auto;padding:11px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px;}
+  .bar-title{font-weight:700;font-size:17px;letter-spacing:-.02em;}
+  .bar-title .bar-sub{color:var(--ink-2);font-weight:600;}
+  .bar-title .dot{color:var(--accent);}
+  .editbtn{appearance:none;border:0;background:var(--accent-soft);color:var(--accent);font-family:inherit;font-weight:600;font-size:15px;padding:7px 15px;border-radius:980px;cursor:pointer;}
+  .editbtn:active{transform:scale(.96);}
+  .edittools{max-width:600px;margin:0 auto;padding:0 16px 10px;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;}
+  .et-note{font-size:12.5px;color:var(--ink-2);}
+  .et-actions{display:flex;gap:8px;}
+  .et-btn{appearance:none;border:.5px solid var(--sep-strong);background:var(--card);color:var(--ink);font-family:inherit;font-weight:600;font-size:13px;padding:6px 12px;border-radius:980px;cursor:pointer;}
+  .et-btn:active{transform:scale(.96);}
+
+  /* Views */
+  .view{display:none;}
+  .view.active{display:block;animation:fade .3s ease both;}
+  @keyframes fade{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:none;}}
+  @media (prefers-reduced-motion:reduce){.view.active{animation:none;}}
+
+  /* Hero */
+  .hero{padding:26px 6px 6px;}
+  .tricolore{display:flex;gap:0;width:46px;height:5px;border-radius:3px;overflow:hidden;margin-bottom:16px;}
+  .tricolore i{flex:1;}
+  .tricolore i:nth-child(1){background:#2E7D53;} .tricolore i:nth-child(2){background:var(--ink-3);} .tricolore i:nth-child(3){background:#C2352B;}
+  .hero h1{font-size:clamp(40px,11vw,52px);font-weight:800;letter-spacing:-.03em;line-height:1.02;margin:0;}
+  .hero .sub{font-size:19px;font-weight:600;color:var(--accent);margin:6px 0 0;letter-spacing:-.01em;}
+  .hero .meta{font-size:15px;color:var(--ink-2);margin:10px 0 0;}
+
+  /* Chips */
+  .chips{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:20px 0 4px;}
+  .chip{background:var(--card);border-radius:14px;padding:14px 10px;text-align:center;box-shadow:var(--shadow);}
+  .chip .n{font-size:24px;font-weight:800;letter-spacing:-.02em;font-variant-numeric:tabular-nums;}
+  .chip .l{font-size:11.5px;font-weight:600;color:var(--ink-2);margin-top:3px;letter-spacing:.02em;}
+
+  /* Section header (iOS grouped) */
+  .sec{font-size:13px;font-weight:600;letter-spacing:.02em;text-transform:uppercase;color:var(--ink-2);margin:30px 6px 9px;}
+  .sec.first{margin-top:24px;}
+
+  /* Grouped card */
+  .group{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;}
+  .row{padding:14px 16px;border-top:.5px solid var(--sep);}
+  .row:first-child{border-top:0;}
+  .row .rt{display:flex;justify-content:space-between;align-items:baseline;gap:12px;}
+  .row h3{font-size:17px;font-weight:700;margin:0;letter-spacing:-.01em;}
+  .row .when{font-size:13px;font-weight:600;color:var(--accent);white-space:nowrap;}
+  .row .addr{font-size:15px;color:var(--ink-2);margin:4px 0 0;}
+  .row .meta{font-size:12.5px;color:var(--ink-3);margin-top:5px;}
+  .maplink{display:inline-flex;align-items:center;gap:4px;margin-top:10px;font-size:14px;font-weight:600;color:var(--accent);text-decoration:none;}
+  a{color:var(--accent);}
+
+  /* Flights */
+  .fl{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:10px;}
+  .fl-h{display:flex;justify-content:space-between;font-size:12px;font-weight:600;color:var(--ink-2);margin-bottom:10px;}
+  .fl-h .car{color:var(--accent);text-transform:uppercase;letter-spacing:.04em;}
+  .fl-pt .code{font-size:26px;font-weight:800;letter-spacing:-.02em;}
+  .fl-pt .tm{font-size:14px;font-weight:600;font-variant-numeric:tabular-nums;margin-top:2px;}
+  .fl-pt .tm .plus{color:var(--accent);font-size:10px;vertical-align:super;}
+  .fl-pt .ci{font-size:11px;color:var(--ink-2);margin-top:2px;}
+  .fl-pt.arr{text-align:right;}
+  .fl-mid{display:flex;flex-direction:column;align-items:center;color:var(--gold);}
+  .fl-mid .ic{font-size:15px;}
+  .fl-mid .du{font-size:10.5px;color:var(--ink-3);margin-top:2px;}
+  .fl-note{font-size:12px;color:var(--ink-2);margin-top:12px;padding-top:10px;border-top:.5px solid var(--sep);}
+
+  /* Days */
+  .leg-hd{display:flex;align-items:center;gap:12px;margin:26px 6px 10px;}
+  .leg-badge{width:30px;height:30px;border-radius:9px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;font-weight:800;font-size:14px;}
+  .leg-hd .lt{font-size:20px;font-weight:800;letter-spacing:-.02em;margin:0;}
+  .leg-hd .ls{font-size:12.5px;color:var(--ink-2);font-weight:600;}
+  .day{padding:14px 16px;border-top:.5px solid var(--sep);}
+  .day:first-child{border-top:0;}
+  .day.today{background:var(--accent-soft);}
+  .d-date{font-size:12px;font-weight:700;color:var(--accent);letter-spacing:.02em;text-transform:uppercase;}
+  .day.today .d-date::after{content:" · aujourd'hui";}
+  .d-text{font-size:15.5px;margin:4px 0 0;color:var(--ink);}
+  .d-text b{font-weight:600;color:var(--accent);}
+
+  /* Feature (dawn walk / drive stops) */
+  .feat{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;margin-top:12px;}
+  .feat-hd{padding:15px 16px 4px;}
+  .feat-hd .we{font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--gold);}
+  .feat-hd h4{font-size:19px;font-weight:800;letter-spacing:-.02em;margin:4px 0 6px;}
+  .feat-hd .intro{font-size:14.5px;color:var(--ink-2);margin:0 0 6px;}
+  .feat-hd .intro b{color:var(--accent);font-weight:600;}
+  .tl{padding:6px 16px 4px;}
+  .tl-row{display:grid;grid-template-columns:54px 1fr;gap:12px;padding:9px 0;border-top:.5px solid var(--sep);align-items:baseline;}
+  .tl-row .t{font-size:12.5px;font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums;}
+  .tl-row .p{font-size:14.5px;color:var(--ink-2);}
+  .tl-row .p b{color:var(--ink);font-weight:600;}
+  .feat-ft{padding:10px 16px 14px;font-size:11.5px;color:var(--ink-3);}
+
+  /* Notes list */
+  .note-hd{font-size:16px;font-weight:700;padding:14px 16px 0;letter-spacing:-.01em;}
+  .note-ul{list-style:none;margin:0;padding:6px 16px 8px;}
+  .note-ul li{font-size:15px;color:var(--ink-2);padding:8px 0;border-top:.5px solid var(--sep);}
+  .note-ul li:first-child{border-top:0;}
+  .note-ul li b{color:var(--ink);font-weight:600;}
+  .note-ul li.muted{font-size:13px;color:var(--ink-3);}
+  .tag{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:var(--accent);background:var(--accent-soft);border-radius:6px;padding:1px 6px;margin-left:5px;vertical-align:middle;}
+  .tag.g{color:var(--green);background:rgba(46,125,83,.12);}
+
+  /* Callout */
+  .callout{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:15px 16px;font-size:14.5px;color:var(--ink-2);margin-top:12px;}
+  .callout b{color:var(--ink);font-weight:600;}
+  .callout + .callout{margin-top:10px;}
+
+  /* Budget */
+  .brow{padding:14px 16px;border-top:.5px solid var(--sep);}
+  .brow:first-child{border-top:0;}
+  .brow .tp{display:flex;justify-content:space-between;align-items:baseline;gap:12px;}
+  .brow .cat{font-size:16px;font-weight:700;letter-spacing:-.01em;}
+  .brow .amt{font-size:16px;font-weight:700;font-variant-numeric:tabular-nums;}
+  .brow .desc{font-size:13px;color:var(--ink-2);margin-top:3px;}
+  .brow .desc b{color:var(--accent);font-weight:600;}
+  .bar-track{height:6px;border-radius:3px;background:var(--bg);overflow:hidden;margin-top:10px;}
+  .bar-track > span{display:block;height:100%;border-radius:3px;background:var(--accent);}
+  .brow.total{background:var(--card-2);}
+  .brow.total .cat{font-size:18px;} .brow.total .amt{font-size:20px;color:var(--accent);}
+  .split{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:12px;}
+  .split .chip{text-align:left;padding:14px;}
+  .split .chip .n{font-size:20px;}
+  .split .chip .l{text-transform:none;letter-spacing:0;font-size:12px;}
+
+  footer{text-align:center;padding:30px 0 6px;color:var(--ink-3);font-size:12.5px;}
+
+  /* Editing */
+  .editing [data-edit]{outline:1.5px dashed var(--accent);outline-offset:4px;border-radius:6px;}
+  [data-edit]:focus{outline:2px solid var(--accent);outline-offset:4px;}
+  .editing [data-edit]{cursor:text;}
+
+  .toast{position:fixed;left:50%;bottom:calc(96px + env(safe-area-inset-bottom));transform:translateX(-50%);background:var(--ink);color:var(--bg);font-size:14px;font-weight:600;padding:10px 18px;border-radius:980px;opacity:0;pointer-events:none;transition:opacity .25s ease;z-index:50;}
+  .toast.show{opacity:1;}
+
+  /* Tab bar */
+  .tabs{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--nav-bg);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-top:.5px solid var(--sep);padding-bottom:env(safe-area-inset-bottom);}
+  .tabs-in{max-width:600px;margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr);}
+  .tab{appearance:none;background:none;border:0;cursor:pointer;padding:8px 2px 7px;display:flex;flex-direction:column;align-items:center;gap:3px;color:var(--ink-3);font-family:inherit;font-size:10px;font-weight:600;}
+  .tab svg{width:25px;height:25px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;}
+  .tab.on{color:var(--accent);}
+  .tab:focus-visible{outline:2px solid var(--accent);outline-offset:-2px;border-radius:8px;}
+</style>
+
+<header class="bar">
+  <div class="bar-in">
+    <div class="bar-title">Italia <span class="dot">·</span> <span class="bar-sub">6–20 oct.</span></div>
+    <button id="editBtn" class="editbtn" type="button">Éditer</button>
+  </div>
+  <div id="editTools" class="edittools" hidden>
+    <span class="et-note">Touchez un texte pour le modifier — sauvegarde locale sur cet appareil.</span>
+    <span class="et-actions"><button id="exportBtn" class="et-btn" type="button">Exporter</button><button id="resetBtn" class="et-btn" type="button">Réinitialiser</button></span>
+  </div>
+</header>
+
+<div class="app">
+
+  <!-- VOYAGE -->
+  <section id="home" class="view active">
+    <div class="hero">
+      <div class="tricolore"><i></i><i></i><i></i></div>
+      <h1>Italia</h1>
+      <p class="sub">Roma · il Chianti · Venezia</p>
+      <p class="meta">Montréal → Rome → Tavarnelle → Venise → Montréal · pour deux</p>
+    </div>
+
+    <div class="chips">
+      <div class="chip"><div class="n">3</div><div class="l">Escales</div></div>
+      <div class="chip"><div class="n">13</div><div class="l">Nuits</div></div>
+      <div class="chip"><div class="n">7 500&nbsp;$</div><div class="l">Budget*</div></div>
+    </div>
+
+    <p class="sec">Vols · Air Canada</p>
+    <div class="group">
+      <div class="row">
+        <div class="fl-h"><span class="car">Aller</span><span>Mar. 6 oct.</span></div>
+        <div class="fl">
+          <div class="fl-pt"><div class="code">YUL</div><div class="tm">19 h 25</div><div class="ci">Montréal</div></div>
+          <div class="fl-mid"><span class="ic">✈</span><span class="du">≈ 7 h 50</span></div>
+          <div class="fl-pt arr"><div class="code">FCO</div><div class="tm">09 h 15 <span class="plus">+1</span></div><div class="ci">Rome</div></div>
+        </div>
+        <div class="fl-note" data-edit>Nuit à bord · arrivée mer. 7 oct.</div>
+      </div>
+      <div class="row">
+        <div class="fl-h"><span class="car">Retour</span><span>Mar. 20 oct.</span></div>
+        <div class="fl">
+          <div class="fl-pt"><div class="code">VCE</div><div class="tm">12 h 20</div><div class="ci">Venise</div></div>
+          <div class="fl-mid"><span class="ic">✈</span><span class="du">≈ 8 h 50</span></div>
+          <div class="fl-pt arr"><div class="code">YUL</div><div class="tm">15 h 10</div><div class="ci">Montréal</div></div>
+        </div>
+        <div class="fl-note" data-edit>Arrivée le jour même.</div>
+      </div>
+    </div>
+
+    <p class="sec">Où je loge</p>
+    <div class="group">
+      <div class="row">
+        <div class="rt"><h3>Hotel La Rovere</h3><span class="when">7 – 10 oct.</span></div>
+        <p class="addr" data-edit>Rome · 3 nuits</p>
+        <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Hotel+La+Rovere+Roma" target="_blank" rel="noopener">Itinéraire ↗</a>
+      </div>
+      <div class="row">
+        <div class="rt"><h3>Castello di Valle</h3><span class="when">10 – 17 oct.</span></div>
+        <p class="addr" data-edit>Strada delle Sicelle 3, Barberino Tavarnelle (Val di Pesa) · hôte Pietro</p>
+        <p class="meta">Arrivée dès 15 h · départ 10 h · 7 nuits</p>
+        <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Strada+delle+Sicelle+3+Barberino+Tavarnelle" target="_blank" rel="noopener">Itinéraire ↗</a>
+      </div>
+      <div class="row">
+        <div class="rt"><h3>Dimora Capuleti</h3><span class="when">17 – 20 oct.</span></div>
+        <p class="addr" data-edit>Calle del Campaniel 1796, Venise (San Rocco) · 3 nuits</p>
+        <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Calle+del+Campaniel+1796+Venezia" target="_blank" rel="noopener">Itinéraire ↗</a>
+      </div>
+    </div>
+    <div class="callout" data-edit>*Budget de <b>7 500&nbsp;$ hors vols</b> pour deux — détails dans l'onglet Budget.</div>
+  </section>
+
+  <!-- JOURS -->
+  <section id="days" class="view">
+    <div class="leg-hd"><div class="leg-badge">I</div><div><p class="lt">Roma</p><span class="ls">7 – 10 oct. · 3 nuits</span></div></div>
+    <div class="group">
+      <div class="day" data-day="10-6"><div class="d-date">Mar. 6 oct.</div><p class="d-text" data-edit><b>Départ Montréal.</b> Air Canada YUL → FCO, 19 h 25. Nuit à bord.</p></div>
+      <div class="day" data-day="10-7"><div class="d-date">Mer. 7 oct.</div><p class="d-text" data-edit><b>Arrivée à Rome</b> 9 h 15. Installation, flânerie : Panthéon, place Navone, premier aperitivo.</p></div>
+      <div class="day" data-day="10-8"><div class="d-date">Jeu. 8 oct.</div><p class="d-text" data-edit><b>Rome antique.</b> Colisée, Forum et Palatin (billet horodaté), Trevi et Trinité-des-Monts.</p></div>
+      <div class="day" data-day="10-9"><div class="d-date">Ven. 9 oct.</div><p class="d-text" data-edit><b>Marche de l'aube</b> (ci-dessous), réveil ~5 h 15. Puis Musées du Vatican et Sixtine, souper à Trastevere.</p></div>
+    </div>
+
+    <div class="feat">
+      <div class="feat-hd">
+        <p class="we">Suggestion · lever du jour</p>
+        <h4>Rome à l'aube</h4>
+        <p class="intro" data-edit>Le <b>vendredi 9 oct.</b>, réveil ~5 h 15. Boucle extérieure ≈ 6 km du Colisée au Vatican — sans la foule.</p>
+      </div>
+      <div class="tl">
+        <div class="tl-row"><span class="t">6 h 00</span><span class="p"><b>Colisée</b> — extérieur, Arc de Constantin</span></div>
+        <div class="tl-row"><span class="t">6 h 20</span><span class="p"><b>Forum romain</b> — Via dei Fori Imperiali</span></div>
+        <div class="tl-row"><span class="t">6 h 45</span><span class="p"><b>Altare della Patria</b></span></div>
+        <div class="tl-row"><span class="t">7 h 05</span><span class="p"><b>Fontaine de Trevi</b></span></div>
+        <div class="tl-row"><span class="t">7 h 25</span><span class="p"><b>Panthéon</b></span></div>
+        <div class="tl-row"><span class="t">7 h 40</span><span class="p"><b>Piazza Navona</b> — fontaine du Bernin</span></div>
+        <div class="tl-row"><span class="t">8 h 00</span><span class="p"><b>Campo de' Fiori</b> — marché</span></div>
+        <div class="tl-row"><span class="t">8 h 15</span><span class="p">Déjeuner au <b>Forno Campo de' Fiori</b></span></div>
+        <div class="tl-row"><span class="t">8 h 40</span><span class="p"><b>Castel Sant'Angelo</b></span></div>
+        <div class="tl-row"><span class="t">9 h 15</span><span class="p"><b>Basilique Saint-Pierre</b> — épaules et genoux couverts</span></div>
+      </div>
+      <div class="feat-ft">≈ 6 km · 3 h 15 · garder le rythme pour devancer les groupes</div>
+    </div>
+
+    <div class="leg-hd"><div class="leg-badge">II</div><div><p class="lt">Tavarnelle — Toscana</p><span class="ls">10 – 17 oct. · 7 nuits · Castello di Valle</span></div></div>
+    <div class="group">
+      <div class="day" data-day="10-10"><div class="d-date">Sam. 10 oct.</div><p class="d-text" data-edit><b>Rome → Tavarnelle.</b> Taxi vers le dépôt Roma Tiburtina, A1 nord (~283 km, ~3 h 15), sortie Firenze Impruneta. Arrivée dès 15 h. Souper à San Donato (La Toppa).</p></div>
+      <div class="day" data-day="10-11"><div class="d-date">Dim. 11 oct.</div><p class="d-text" data-edit><b>Vins — Greve &amp; Panzano.</b> Fontodi (sur réservation), dîner chez Dario Cecchini.</p></div>
+      <div class="day" data-day="10-12"><div class="d-date">Lun. 12 oct.</div><p class="d-text" data-edit><b>Marché de San Casciano</b> puis <b>Antinori nel Chianti Classico</b> (Bargino), sur réservation.</p></div>
+      <div class="day" data-day="10-13"><div class="d-date">Mar. 13 oct.</div><p class="d-text" data-edit><b>Florence</b> (en semaine). Offices, Duomo, Ponte Vecchio. Park-and-ride Villa Costanza + tram.</p></div>
+      <div class="day" data-day="10-14"><div class="d-date">Mer. 14 oct.</div><p class="d-text" data-edit><b>Castellina &amp; Castello di Fonterutoli</b> (le plus proche). Après-midi détente au domaine.</p></div>
+      <div class="day" data-day="10-15"><div class="d-date">Jeu. 15 oct.</div><p class="d-text" data-edit><b>Marché de Tavarnelle</b> puis <b>Sienne</b> : Piazza del Campo et cathédrale.</p></div>
+      <div class="day" data-day="10-16"><div class="d-date">Ven. 16 oct.</div><p class="d-text" data-edit><b>San Gimignano</b>, dernière dégustation (Rocca delle Macìe), souper de terroir. Option : Val d'Orcia.</p></div>
+    </div>
+
+    <div class="leg-hd"><div class="leg-badge">III</div><div><p class="lt">Venezia</p><span class="ls">17 – 20 oct. · 3 nuits · Dimora Capuleti</span></div></div>
+    <div class="group">
+      <div class="day" data-day="10-17"><div class="d-date">Sam. 17 oct.</div><p class="d-text" data-edit><b>Tavarnelle → Venise.</b> Départ 10 h, remise de la voiture à Florence, train (≈ 2 h). Installation, premier vaporetto.</p></div>
+      <div class="day" data-day="10-18"><div class="d-date">Dim. 18 oct.</div><p class="d-text" data-edit><b>Cœur de Venise.</b> Saint-Marc, palais des Doges, Rialto, Dorsoduro.</p></div>
+      <div class="day" data-day="10-19"><div class="d-date">Lun. 19 oct.</div><p class="d-text" data-edit><b>La lagune.</b> Murano et Burano, dernier souper vénitien, gondole.</p></div>
+      <div class="day" data-day="10-20"><div class="d-date">Mar. 20 oct.</div><p class="d-text" data-edit><b>Retour.</b> Transfert, Air Canada VCE → YUL 12 h 20 → 15 h 10.</p></div>
+    </div>
+
+    <p class="sec">Venise — l'essentiel</p>
+    <div class="group">
+      <p class="note-hd">Court séjour · à pied</p>
+      <ul class="note-ul" data-edit>
+        <li><b>Palais des Doges</b> <span class="tag">réserver</span></li>
+        <li><b>Basilique Saint-Marc</b></li>
+        <li><b>Pont du Rialto</b></li>
+        <li><b>Quartier San Polo</b></li>
+        <li><b>Gondole</b></li>
+      </ul>
+    </div>
+    <div class="group" style="margin-top:12px">
+      <p class="note-hd">Îles de la lagune</p>
+      <ul class="note-ul" data-edit>
+        <li><b>Torcello</b> — petite, historique, paisible</li>
+        <li><b>Mazzorbo</b> — calme, vignoble</li>
+        <li><b>San Michele</b> — l'île-cimetière</li>
+        <li><b>Lido</b> — plage; Mostra en septembre</li>
+        <li><b>Correr</b>, <b>La Fenice</b>, <b>San Giorgio Maggiore</b> — avec 3 jours</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- TAVARNELLE -->
+  <section id="chianti" class="view">
+    <div class="leg-hd"><div class="leg-badge">🍷</div><div><p class="lt">Base à Tavarnelle</p><span class="ls">Voiture · vignobles · tables · marchés</span></div></div>
+
+    <div class="callout" data-edit>
+      <b>Route Rome → Tavarnelle (10 oct.)</b> — taxi de l'Hotel La Rovere au dépôt <b>Roma Tiburtina</b> (~15–20 €). A1 nord (~283 km, ~3 h 15) par le GRA, sortie Firenze Impruneta — ou variante panoramique SR222 Via Chiantigiana.
+    </div>
+    <div class="callout" data-edit>
+      <b>Péages &amp; essence</b> — ticket aux voies blanches (éviter le jaune Telepass), paiement carte à la sortie (~18–22 €). Plein en « Self » aux Autogrill (~40–50 €). ZTL : jamais de voiture dans les centres. Retour de l'auto à Florence le 17 oct.
+    </div>
+
+    <div class="feat">
+      <div class="feat-hd">
+        <p class="we">En option · sur l'A1</p>
+        <h4>4 arrêts en chemin</h4>
+        <p class="intro" data-edit>Pour couper les ~3 h 15 (temps depuis Rome).</p>
+      </div>
+      <div class="tl">
+        <div class="tl-row"><span class="t">1 h 15</span><span class="p"><b>Orvieto</b> — Duomo à façade d'or; parking Campo della Fiera + funiculaire</span></div>
+        <div class="tl-row"><span class="t">1 h 30</span><span class="p"><b>Civita di Bagnoregio</b> — « la ville qui meurt », passerelle piétonne</span></div>
+        <div class="tl-row"><span class="t">1 h 45</span><span class="p"><b>Chiusi</b> — héritage étrusque, musées</span></div>
+        <div class="tl-row"><span class="t">2 h 15</span><span class="p"><b>Montepulciano</b> — Vino Nobile, halte déjeuner; parking hors ZTL</span></div>
+      </div>
+    </div>
+
+    <p class="sec">Cantine — à réserver</p>
+    <div class="group">
+      <ul class="note-ul" data-edit>
+        <li><b>Castello di Fonterutoli</b>, Castellina — le plus proche <span class="tag">réserver</span></li>
+        <li><b>Fontodi</b>, Panzano <span class="tag">réserver</span></li>
+        <li><b>Antinori nel Chianti Classico</b>, Bargino <span class="tag">réserver</span></li>
+        <li><b>Castello di Ama</b>, Gaiole — vin &amp; art <span class="tag">réserver</span></li>
+        <li><b>Rocca delle Macìe</b>, Castellina</li>
+      </ul>
+    </div>
+
+    <p class="sec">Tavola — où manger</p>
+    <div class="group">
+      <ul class="note-ul" data-edit>
+        <li><b>La Toppa</b>, San Donato in Poggio</li>
+        <li><b>Osteria alla Piazza</b>, vers Panzano</li>
+        <li><b>Locanda di Pietracupa</b>, Castellina</li>
+        <li><b>Dario Cecchini</b>, Panzano — la bistecca <span class="tag">réserver</span></li>
+        <li><b>La Bottega di Volpaia</b>, Radda</li>
+      </ul>
+    </div>
+
+    <p class="sec">Mercati — marchés (8 h–13 h)</p>
+    <div class="group">
+      <ul class="note-ul" data-edit>
+        <li><b>Lundi</b> — San Casciano <span class="tag g">12 oct.</span></li>
+        <li><b>Jeudi</b> — Tavarnelle <span class="tag g">15 oct.</span></li>
+        <li><b>Samedi</b> — Greve &amp; Castellina</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- INFOS -->
+  <section id="info" class="view">
+    <p class="sec first">À réserver tôt</p>
+    <div class="group"><ul class="note-ul" data-edit>
+      <li><b>Musées du Vatican</b> &amp; <b>Colisée</b> — billets horodatés en ligne</li>
+      <li><b>Galerie des Offices</b> — réservation obligatoire</li>
+      <li><b>Location auto</b> Roma Tiburtina — boîte manuelle par défaut</li>
+      <li><b>Palais des Doges</b> &amp; <b>gondole</b> — quelques jours d'avance</li>
+    </ul></div>
+
+    <p class="sec">Sur place</p>
+    <div class="group"><ul class="note-ul" data-edit>
+      <li><b>ZTL</b> en Toscane — amendes fréquentes, se garer hors des centres</li>
+      <li><b>Tenue</b> aux basiliques — épaules et genoux couverts</li>
+      <li><b>Adaptateur</b> type F/L, 230 V; un peu d'espèces utile</li>
+      <li><b>Météo</b> d'octobre — 15–23 °C, soirées fraîches</li>
+    </ul></div>
+
+    <p class="sec">Urgences &amp; utile</p>
+    <div class="group"><ul class="note-ul" data-edit>
+      <li><b>Urgences (UE)</b> — <a href="tel:112">112</a></li>
+      <li><b>ETIAS</b> possiblement requis en 2026 — vérifier avant le départ</li>
+      <li><b>Passeport</b> valide 3 mois après le retour</li>
+    </ul></div>
+
+    <p class="sec">Adresses</p>
+    <div class="group"><ul class="note-ul" data-edit>
+      <li><b>Hotel La Rovere</b> — Rome (7–10 oct.)</li>
+      <li><b>Castello di Valle</b> — Strada delle Sicelle 3, Barberino Tavarnelle</li>
+      <li><b>Dimora Capuleti</b> — Calle del Campaniel 1796, Venise</li>
+      <li><b>Auto</b> — dépôt Roma Tiburtina · <b>Aéroports</b> FCO, VCE</li>
+    </ul></div>
+  </section>
+
+  <!-- BUDGET -->
+  <section id="budget" class="view">
+    <p class="sec first">Budget · duo · CAD · vols exclus</p>
+    <div class="group">
+      <div class="brow">
+        <div class="tp"><span class="cat">Hébergement</span><span class="amt">4 670&nbsp;$</span></div>
+        <div class="desc" data-edit>Rome (855 €) · Castello di Valle (2 380 $, est.) · Venise (671 €) — <b>tout réservé</b></div>
+        <div class="bar-track"><span style="width:100%"></span></div>
+      </div>
+      <div class="brow">
+        <div class="tp"><span class="cat">Restauration</span><span class="amt">1 300&nbsp;$</span></div>
+        <div class="desc" data-edit>≈ 90 $/jour pour deux</div>
+        <div class="bar-track"><span style="width:28%"></span></div>
+      </div>
+      <div class="brow">
+        <div class="tp"><span class="cat">Transport local</span><span class="amt">700&nbsp;$</span></div>
+        <div class="desc" data-edit>Taxi · location aller simple 7 j, péages &amp; essence · train · vaporetto</div>
+        <div class="bar-track"><span style="width:15%"></span></div>
+      </div>
+      <div class="brow">
+        <div class="tp"><span class="cat">Activités</span><span class="amt">500&nbsp;$</span></div>
+        <div class="desc" data-edit>Colisée, Vatican, Offices, dégustations, gondole</div>
+        <div class="bar-track"><span style="width:11%"></span></div>
+      </div>
+      <div class="brow">
+        <div class="tp"><span class="cat">Divers</span><span class="amt">330&nbsp;$</span></div>
+        <div class="desc" data-edit>Assurance · souvenirs &amp; imprévus</div>
+        <div class="bar-track"><span style="width:7%"></span></div>
+      </div>
+      <div class="brow total"><div class="tp"><span class="cat">Total · vols exclus</span><span class="amt">7 500&nbsp;$</span></div></div>
+    </div>
+
+    <div class="split">
+      <div class="chip"><div class="n">3 750&nbsp;$</div><div class="l">Par personne</div></div>
+      <div class="chip"><div class="n">536&nbsp;$</div><div class="l">Par jour · duo</div></div>
+      <div class="chip"><div class="n">4 670&nbsp;$</div><div class="l">Hébergement</div></div>
+      <div class="chip"><div class="n">2 830&nbsp;$</div><div class="l">Reste à dépenser</div></div>
+    </div>
+
+    <div class="callout" data-edit><b>Vols</b> (3 100 $, réservés) comptabilisés à part. Rome et Venise au tarif réel converti (≈ 1,50 $/€); Chianti encore estimé. Un tableur modifiable accompagne l'appli.</div>
+
+    <footer>Buon viaggio · 1+1 Stratégie</footer>
+  </section>
+
+</div>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<nav class="tabs"><div class="tabs-in">
+  <button class="tab on" data-v="home" type="button"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polygon points="15.5 8.5 10.5 10.5 8.5 15.5 13.5 13.5"/></svg>Voyage</button>
+  <button class="tab" data-v="days" type="button"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="3"/><line x1="4" y1="9.5" x2="20" y2="9.5"/><line x1="8" y1="3" x2="8" y2="6.5"/><line x1="16" y1="3" x2="16" y2="6.5"/></svg>Jours</button>
+  <button class="tab" data-v="chianti" type="button"><svg viewBox="0 0 24 24"><path d="M7.5 4 h9 l-1.4 7 a3.1 3.1 0 0 1 -6.2 0 Z"/><line x1="12" y1="14" x2="12" y2="20"/><line x1="8.5" y1="20" x2="15.5" y2="20"/></svg>Tavarnelle</button>
+  <button class="tab" data-v="info" type="button"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><line x1="12" y1="11" x2="12" y2="16.5"/><circle cx="12" cy="7.8" r=".7" fill="currentColor" stroke="none"/></svg>Infos</button>
+  <button class="tab" data-v="budget" type="button"><svg viewBox="0 0 24 24"><rect x="3" y="6.5" width="18" height="11" rx="2.5"/><circle cx="12" cy="12" r="2.4"/></svg>Budget</button>
+</div></nav>
+
+<script>
+(function(){
+  var LSK='italia-fr-v2';
+  var views=[].slice.call(document.querySelectorAll('.view'));
+  var tabs=[].slice.call(document.querySelectorAll('.tab'));
+  function show(id){
+    if(!views.some(function(v){return v.id===id;})) id='home';
+    views.forEach(function(v){v.classList.toggle('active',v.id===id);});
+    tabs.forEach(function(t){t.classList.toggle('on',t.dataset.v===id);});
+    window.scrollTo(0,0);
+    try{history.replaceState(null,'','#'+id);}catch(e){}
+  }
+  tabs.forEach(function(t){t.addEventListener('click',function(){show(t.dataset.v);});});
+  show((location.hash||'').replace('#',''));
+
+  // Jour courant
+  try{var n=new Date();if(n.getFullYear()===2026){var k=(n.getMonth()+1)+'-'+n.getDate();var el=document.querySelector('[data-day="'+k+'"]');if(el)el.classList.add('today');}}catch(e){}
+
+  // Éditeur de contenu
+  var eds=[].slice.call(document.querySelectorAll('[data-edit]'));
+  eds.forEach(function(el,i){el.dataset.k='k'+i;});
+  var saved={};try{saved=JSON.parse(localStorage.getItem(LSK)||'{}');}catch(e){}
+  eds.forEach(function(el){if(saved[el.dataset.k]!=null)el.innerHTML=saved[el.dataset.k];});
+  function persist(){var m={};eds.forEach(function(el){m[el.dataset.k]=el.innerHTML;});try{localStorage.setItem(LSK,JSON.stringify(m));}catch(e){}}
+
+  var editing=false;
+  var editBtn=document.getElementById('editBtn');
+  var tools=document.getElementById('editTools');
+  function setEditing(on){
+    editing=on;document.body.classList.toggle('editing',on);
+    eds.forEach(function(el){el.contentEditable=on?'true':'false';});
+    editBtn.textContent=on?'Terminé':'Éditer';
+    tools.hidden=!on;
+  }
+  editBtn.addEventListener('click',function(){var next=!editing;setEditing(next);if(!next){persist();toast('Modifications enregistrées');}});
+  document.addEventListener('input',function(e){if(editing&&e.target.closest&&e.target.closest('[data-edit]'))persist();});
+
+  document.getElementById('resetBtn').addEventListener('click',function(){
+    if(confirm('Réinitialiser tout le contenu modifié ?')){try{localStorage.removeItem(LSK);}catch(e){}location.reload();}
+  });
+
+  var toastEl=document.getElementById('toast');var toastT;
+  function toast(msg){toastEl.textContent=msg;toastEl.classList.add('show');clearTimeout(toastT);toastT=setTimeout(function(){toastEl.classList.remove('show');},1800);}
+
+  var expBtn=document.getElementById('exportBtn');
+  if(window.claude&&window.claude.downloads){
+    expBtn.addEventListener('click',function(){
+      var md=buildMarkdown();
+      window.claude.downloads.save({filename:'italia-octobre-2026.md',data:md})
+        .then(function(){toast('Exporté');})
+        .catch(function(err){toast(err&&err.code==='declined'?'Export annulé':'Export indisponible');});
+    });
+  } else { expBtn.style.display='none'; }
+
+  function txt(el){return (el.textContent||'').replace(/\s+/g,' ').trim();}
+  function buildMarkdown(){
+    var out=['# Italia — 6–20 octobre 2026',''];
+    views.forEach(function(v){
+      v.querySelectorAll('.hero h1,.leg-hd .lt,.sec,.feat-hd h4,.note-hd,.row h3,.d-date,.d-text,.callout,.note-ul li,.tl-row,.brow .cat,.intro,.feat-ft').forEach(function(el){
+        var t=txt(el);if(!t)return;
+        if(el.matches('.leg-hd .lt,.feat-hd h4'))out.push('','## '+t);
+        else if(el.matches('.sec,.note-hd'))out.push('','### '+t);
+        else if(el.matches('.d-date,.row h3'))out.push('','**'+t+'**');
+        else if(el.matches('.note-ul li,.tl-row'))out.push('- '+t);
+        else out.push(t);
+      });
+    });
+    return out.join('\n')+'\n';
+  }
+})();
+</script>
