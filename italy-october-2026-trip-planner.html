@@ -1,496 +1,521 @@
 <title>Italia · October 2026 — Trip App</title>
 <style>
-  :root {
-    --paper:#F6EFE0; --paper-2:#EDE3CF; --card:#FBF6EA; --ink:#22140F; --ink-2:#6B5B4C;
-    --line:#D6C6A8; --rosso:#9E2B25; --verde:#1E5A44; --oro:#B0812A;
-    --rosso-wash: rgba(158,43,37,.07);
-    --shadow: 0 1px 2px rgba(34,20,15,.05), 0 8px 24px rgba(34,20,15,.07);
-    --nav-bg: rgba(246,239,224,.94);
-    --didone: "Bodoni 72", "Bodoni MT", Didot, "Playfair Display", "Times New Roman", serif;
-    --body:   "Iowan Old Style", Palatino, "Palatino Linotype", Georgia, serif;
-    --sans:   Futura, "Century Gothic", "Twentieth Century", system-ui, -apple-system, "Segoe UI", sans-serif;
+  :root{
+    --bg:#F2F2F7; --card:#FFFFFF; --card-2:#F7F7FA;
+    --ink:#1C1C1E; --ink-2:#6C6C70; --ink-3:#9A9AA0;
+    --sep:rgba(60,60,67,.13); --sep-strong:rgba(60,60,67,.24);
+    --accent:#C2352B; --accent-soft:rgba(194,53,43,.10);
+    --green:#2E7D53; --gold:#B0812A;
+    --nav-bg:rgba(248,248,250,.82);
+    --shadow:0 1px 2px rgba(0,0,0,.04), 0 6px 20px rgba(0,0,0,.05);
+    --font:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display",system-ui,"Segoe UI",Roboto,sans-serif;
+    --radius:16px;
   }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --paper:#150F0A; --paper-2:#1D150D; --card:#211710; --ink:#F2E8D3; --ink-2:#B6A489;
-      --line:#3A2D1D; --rosso:#E0776B; --verde:#84BE9E; --oro:#DBB157;
-      --rosso-wash: rgba(224,119,107,.09);
-      --shadow: 0 1px 2px rgba(0,0,0,.35), 0 12px 34px rgba(0,0,0,.4);
-      --nav-bg: rgba(21,15,10,.94);
+  @media (prefers-color-scheme:dark){
+    :root{
+      --bg:#000000; --card:#1C1C1E; --card-2:#161618;
+      --ink:#FFFFFF; --ink-2:#A0A0A6; --ink-3:#78787E;
+      --sep:rgba(84,84,88,.42); --sep-strong:rgba(120,120,128,.5);
+      --accent:#FF6E62; --accent-soft:rgba(255,110,98,.14);
+      --green:#7FD1A3; --gold:#DBB157;
+      --nav-bg:rgba(22,22,24,.82);
+      --shadow:none;
     }
   }
-  :root[data-theme="light"] { --paper:#F6EFE0; --paper-2:#EDE3CF; --card:#FBF6EA; --ink:#22140F; --ink-2:#6B5B4C; --line:#D6C6A8; --rosso:#9E2B25; --verde:#1E5A44; --oro:#B0812A; --rosso-wash: rgba(158,43,37,.07); --shadow:0 1px 2px rgba(34,20,15,.05),0 8px 24px rgba(34,20,15,.07); --nav-bg: rgba(246,239,224,.94); }
-  :root[data-theme="dark"] { --paper:#150F0A; --paper-2:#1D150D; --card:#211710; --ink:#F2E8D3; --ink-2:#B6A489; --line:#3A2D1D; --rosso:#E0776B; --verde:#84BE9E; --oro:#DBB157; --rosso-wash: rgba(224,119,107,.09); --shadow:0 1px 2px rgba(0,0,0,.35),0 12px 34px rgba(0,0,0,.4); --nav-bg: rgba(21,15,10,.94); }
+  :root[data-theme="light"]{--bg:#F2F2F7;--card:#FFFFFF;--card-2:#F7F7FA;--ink:#1C1C1E;--ink-2:#6C6C70;--ink-3:#9A9AA0;--sep:rgba(60,60,67,.13);--sep-strong:rgba(60,60,67,.24);--accent:#C2352B;--accent-soft:rgba(194,53,43,.10);--green:#2E7D53;--gold:#B0812A;--nav-bg:rgba(248,248,250,.82);--shadow:0 1px 2px rgba(0,0,0,.04),0 6px 20px rgba(0,0,0,.05);}
+  :root[data-theme="dark"]{--bg:#000000;--card:#1C1C1E;--card-2:#161618;--ink:#FFFFFF;--ink-2:#A0A0A6;--ink-3:#78787E;--sep:rgba(84,84,88,.42);--sep-strong:rgba(120,120,128,.5);--accent:#FF6E62;--accent-soft:rgba(255,110,98,.14);--green:#7FD1A3;--gold:#DBB157;--nav-bg:rgba(22,22,24,.82);--shadow:none;}
 
-  * { box-sizing: border-box; }
-  html { -webkit-text-size-adjust: 100%; }
-  body { margin:0; background:var(--paper); color:var(--ink); font-family:var(--body); line-height:1.6; font-size:17px; }
-  .app { max-width: 760px; margin: 0 auto; padding: 0 18px calc(96px + env(safe-area-inset-bottom)); }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  html{-webkit-text-size-adjust:100%;}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:17px;line-height:1.47;letter-spacing:-.01em;-webkit-font-smoothing:antialiased;}
+  .app{max-width:600px;margin:0 auto;padding:0 16px calc(94px + env(safe-area-inset-bottom));}
 
-  .eyebrow { font-family:var(--sans); font-size:11px; letter-spacing:.28em; text-transform:uppercase; color:var(--rosso); font-weight:600; margin:0; }
-  .label { font-family:var(--sans); font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--ink-2); font-weight:600; }
-  .num { font-family:var(--didone); font-variant-numeric:tabular-nums; }
+  .bar{position:sticky;top:0;z-index:20;background:var(--nav-bg);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:.5px solid var(--sep);}
+  .bar-in{max-width:600px;margin:0 auto;padding:11px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px;}
+  .bar-title{font-weight:700;font-size:17px;letter-spacing:-.02em;}
+  .bar-title .bar-sub{color:var(--ink-2);font-weight:600;}
+  .bar-title .dot{color:var(--accent);}
+  .editbtn{appearance:none;border:0;background:var(--accent-soft);color:var(--accent);font-family:inherit;font-weight:600;font-size:15px;padding:7px 15px;border-radius:980px;cursor:pointer;}
+  .editbtn:active{transform:scale(.96);}
+  .edittools{max-width:600px;margin:0 auto;padding:0 16px 10px;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;}
+  .et-note{font-size:12.5px;color:var(--ink-2);}
+  .et-actions{display:flex;gap:8px;}
+  .et-btn{appearance:none;border:.5px solid var(--sep-strong);background:var(--card);color:var(--ink);font-family:inherit;font-weight:600;font-size:13px;padding:6px 12px;border-radius:980px;cursor:pointer;}
+  .et-btn:active{transform:scale(.96);}
 
-  .appbar { position: sticky; top:0; z-index:20; background:var(--nav-bg); backdrop-filter:saturate(140%) blur(8px); -webkit-backdrop-filter:saturate(140%) blur(8px); border-bottom:1px solid var(--line); }
-  .appbar .in { max-width:760px; margin:0 auto; padding:12px 18px; display:flex; align-items:baseline; justify-content:space-between; gap:12px; }
-  .appbar .wm { font-family:var(--didone); font-weight:700; font-size:22px; letter-spacing:.06em; text-transform:uppercase; }
-  .appbar .wm span { color:var(--rosso); }
-  .appbar .dt { font-family:var(--sans); font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-2); font-weight:600; }
+  .view{display:none;}
+  .view.active{display:block;animation:fade .3s ease both;}
+  @keyframes fade{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:none;}}
+  @media (prefers-reduced-motion:reduce){.view.active{animation:none;}}
 
-  .view { display:none; animation: fade .35s ease both; }
-  .view.active { display:block; }
-  @keyframes fade { from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:none;} }
-  @media (prefers-reduced-motion: reduce){ .view{animation:none;} }
+  .hero{padding:26px 6px 6px;}
+  .tricolore{display:flex;gap:0;width:46px;height:5px;border-radius:3px;overflow:hidden;margin-bottom:16px;}
+  .tricolore i{flex:1;}
+  .tricolore i:nth-child(1){background:#2E7D53;} .tricolore i:nth-child(2){background:var(--ink-3);} .tricolore i:nth-child(3){background:#C2352B;}
+  .hero h1{font-size:clamp(40px,11vw,52px);font-weight:800;letter-spacing:-.03em;line-height:1.02;margin:0;}
+  .hero .sub{font-size:19px;font-weight:600;color:var(--accent);margin:6px 0 0;letter-spacing:-.01em;}
+  .hero .meta{font-size:15px;color:var(--ink-2);margin:10px 0 0;}
 
-  .vhead { text-align:center; margin:26px 0 4px; }
-  .vhead h2 { font-family:var(--didone); font-weight:700; font-size:clamp(26px,7vw,38px); letter-spacing:.01em; margin:8px 0 6px; text-transform:uppercase; }
-  .orn { display:flex; align-items:center; justify-content:center; gap:12px; color:var(--oro); margin:0; }
-  .orn::before,.orn::after { content:""; height:1px; width:min(90px,20vw); background:currentColor; opacity:.55; }
-  .orn span { font-size:10px; }
+  .chips{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:20px 0 4px;}
+  .chip{background:var(--card);border-radius:14px;padding:14px 10px;text-align:center;box-shadow:var(--shadow);}
+  .chip .n{font-size:24px;font-weight:800;letter-spacing:-.02em;font-variant-numeric:tabular-nums;}
+  .chip .l{font-size:11.5px;font-weight:600;color:var(--ink-2);margin-top:3px;letter-spacing:.02em;}
 
-  .poster { position:relative; border:1px solid var(--ink); padding:30px 20px 24px; text-align:center; margin-top:20px; background:radial-gradient(120% 90% at 50% -10%, var(--rosso-wash), transparent 60%), var(--paper); }
-  .poster::before { content:""; position:absolute; inset:5px; border:1px solid var(--oro); opacity:.5; pointer-events:none; }
-  .poster h1 { font-family:var(--didone); font-weight:700; font-size:clamp(52px,17vw,96px); line-height:.9; letter-spacing:.05em; margin:8px 0 8px; text-transform:uppercase; }
-  .poster .sub { font-family:var(--didone); font-style:italic; font-size:clamp(17px,4vw,24px); color:var(--rosso); margin:0 0 14px; }
-  .poster .route { display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:6px 10px; font-family:var(--sans); font-size:11.5px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; }
-  .poster .route .sep { color:var(--oro); }
-  .poster .dates { margin:16px 0 0; font-family:var(--sans); font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--ink-2); font-weight:600; }
+  .sec{font-size:13px;font-weight:600;letter-spacing:.02em;text-transform:uppercase;color:var(--ink-2);margin:30px 6px 9px;}
+  .sec.first{margin-top:24px;}
 
-  .tiles { display:grid; grid-template-columns:repeat(3,1fr); gap:0; margin:18px 0 0; border:1px solid var(--line); overflow:hidden; }
-  .tile { padding:14px 12px; text-align:center; border-right:1px solid var(--line); background:var(--card); }
-  .tile:last-child { border-right:0; }
-  .tile .val { font-family:var(--didone); font-variant-numeric:tabular-nums; font-weight:700; font-size:23px; margin-top:6px; }
-  .tile .val small { font-family:var(--body); font-size:12px; font-weight:400; font-style:italic; color:var(--ink-2); }
+  .group{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;}
+  .row{padding:14px 16px;border-top:.5px solid var(--sep);}
+  .row:first-child{border-top:0;}
+  .row .rt{display:flex;justify-content:space-between;align-items:baseline;gap:12px;}
+  .row h3{font-size:17px;font-weight:700;margin:0;letter-spacing:-.01em;}
+  .row .when{font-size:13px;font-weight:600;color:var(--accent);white-space:nowrap;}
+  .row .addr{font-size:15px;color:var(--ink-2);margin:4px 0 0;}
+  .row .meta{font-size:12.5px;color:var(--ink-3);margin-top:5px;}
+  .maplink{display:inline-flex;align-items:center;gap:4px;margin-top:10px;font-size:14px;font-weight:600;color:var(--accent);text-decoration:none;}
+  a{color:var(--accent);}
 
-  .sec { font-family:var(--didone); font-style:italic; font-size:21px; color:var(--rosso); margin:30px 0 12px; }
+  .fl{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:10px;}
+  .fl-h{display:flex;justify-content:space-between;font-size:12px;font-weight:600;color:var(--ink-2);margin-bottom:10px;}
+  .fl-h .car{color:var(--accent);text-transform:uppercase;letter-spacing:.04em;}
+  .fl-pt .code{font-size:26px;font-weight:800;letter-spacing:-.02em;}
+  .fl-pt .tm{font-size:14px;font-weight:600;font-variant-numeric:tabular-nums;margin-top:2px;}
+  .fl-pt .tm .plus{color:var(--accent);font-size:10px;vertical-align:super;}
+  .fl-pt .ci{font-size:11px;color:var(--ink-2);margin-top:2px;}
+  .fl-pt.arr{text-align:right;}
+  .fl-mid{display:flex;flex-direction:column;align-items:center;color:var(--gold);}
+  .fl-mid .ic{font-size:15px;}
+  .fl-mid .du{font-size:10.5px;color:var(--ink-3);margin-top:2px;}
+  .fl-note{font-size:12px;color:var(--ink-2);margin-top:12px;padding-top:10px;border-top:.5px solid var(--sep);}
 
-  .stay { background:var(--card); border:1px solid var(--line); border-left:3px solid var(--oro); padding:15px 17px; box-shadow:var(--shadow); margin-bottom:12px; }
-  .stay .top { display:flex; justify-content:space-between; align-items:baseline; gap:10px; }
-  .stay h3 { font-family:var(--didone); font-weight:700; font-size:20px; margin:0; }
-  .stay .when { font-family:var(--sans); font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--rosso); font-weight:700; white-space:nowrap; }
-  .stay .addr { color:var(--ink-2); font-size:14.5px; margin:6px 0 0; }
-  .stay .meta { font-family:var(--sans); font-size:11px; letter-spacing:.05em; color:var(--ink-2); margin-top:8px; text-transform:uppercase; }
-  a.maplink { display:inline-block; margin-top:10px; font-family:var(--sans); font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--rosso); text-decoration:none; border:1px solid var(--rosso); border-radius:2px; padding:5px 10px; }
-  a.maplink:hover, a.maplink:focus { background:var(--rosso); color:var(--paper); }
-  a { color:var(--rosso); }
+  .leg-hd{display:flex;align-items:center;gap:12px;margin:26px 6px 10px;}
+  .leg-badge{width:30px;height:30px;border-radius:9px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;font-weight:800;font-size:14px;}
+  .leg-hd .lt{font-size:20px;font-weight:800;letter-spacing:-.02em;margin:0;}
+  .leg-hd .ls{font-size:12.5px;color:var(--ink-2);font-weight:600;}
+  .day{padding:14px 16px;border-top:.5px solid var(--sep);}
+  .day:first-child{border-top:0;}
+  .day.today{background:var(--accent-soft);}
+  .d-date{font-size:12px;font-weight:700;color:var(--accent);letter-spacing:.02em;text-transform:uppercase;}
+  .day.today .d-date::after{content:" · today";}
+  .d-text{font-size:15.5px;margin:4px 0 0;color:var(--ink);}
+  .d-text b{font-weight:600;color:var(--accent);}
 
-  .flights { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:6px; }
-  .flight { background:var(--card); border:1px solid var(--line); padding:16px 18px 13px; box-shadow:var(--shadow); }
-  .fl-head { display:flex; justify-content:space-between; align-items:baseline; font-family:var(--sans); font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-2); font-weight:600; }
-  .fl-head .car { color:var(--rosso); }
-  .fl-body { display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:10px; margin-top:13px; }
-  .fl-pt.dep { text-align:left; } .fl-pt.arr { text-align:right; }
-  .fl-code { font-family:var(--didone); font-size:30px; line-height:1; }
-  .fl-time { font-family:var(--sans); font-variant-numeric:tabular-nums; font-size:14px; font-weight:600; margin-top:5px; }
-  .fl-time .plus { color:var(--rosso); font-size:10px; vertical-align:super; }
-  .fl-city { font-family:var(--sans); font-size:9.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-2); margin-top:3px; }
-  .fl-mid { display:flex; flex-direction:column; align-items:center; gap:4px; color:var(--oro); }
-  .fl-mid .ln { display:flex; align-items:center; }
-  .fl-mid .ln::before,.fl-mid .ln::after { content:""; width:14px; height:1px; background:currentColor; opacity:.6; }
-  .fl-mid .dur { font-family:var(--sans); font-size:9.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-2); }
-  .fl-note { margin-top:12px; padding-top:10px; border-top:1px solid var(--line); font-family:var(--sans); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-2); }
+  .feat{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;margin-top:12px;}
+  .feat-hd{padding:15px 16px 4px;}
+  .feat-hd .we{font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--gold);}
+  .feat-hd h4{font-size:19px;font-weight:800;letter-spacing:-.02em;margin:4px 0 6px;}
+  .feat-hd .intro{font-size:14.5px;color:var(--ink-2);margin:0 0 6px;}
+  .feat-hd .intro b{color:var(--accent);font-weight:600;}
+  .tl{padding:6px 16px 4px;}
+  .tl-row{display:grid;grid-template-columns:48px 1fr;gap:12px;padding:9px 0;border-top:.5px solid var(--sep);align-items:baseline;}
+  .tl-row .t{font-size:12.5px;font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums;}
+  .tl-row .p{font-size:14.5px;color:var(--ink-2);}
+  .tl-row .p b{color:var(--ink);font-weight:600;}
+  .feat-ft{padding:10px 16px 14px;font-size:11.5px;color:var(--ink-3);}
 
-  .leg { margin-top:22px; }
-  .leg-head { display:flex; align-items:center; gap:14px; }
-  .leg-num { flex:0 0 auto; width:48px; height:48px; border-radius:50%; display:grid; place-items:center; border:1px solid var(--rosso); color:var(--rosso); font-family:var(--didone); font-weight:700; font-size:20px; background:var(--rosso-wash); }
-  .leg-title { font-family:var(--didone); font-weight:700; font-size:22px; margin:0; }
-  .leg-sub { font-family:var(--sans); font-size:10.5px; color:var(--ink-2); font-weight:600; letter-spacing:.1em; text-transform:uppercase; }
-  .leg-body { margin:10px 0 0 24px; border-left:1px solid var(--line); padding-left:22px; }
-  .day { padding:11px 0; border-bottom:1px solid var(--line); }
-  .day:last-child { border-bottom:0; }
-  .day.is-today { background:var(--rosso-wash); margin:0 -10px; padding:11px 10px; border-bottom:1px solid var(--line); border-radius:4px; }
-  .day.is-today .d-date::after { content:" · today"; color:var(--rosso); }
-  .d-date { font-family:var(--sans); font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--oro); font-weight:700; }
-  .d-text { margin:4px 0 0; }
-  .d-text b { font-weight:400; font-style:italic; color:var(--rosso); }
+  .note-hd{font-size:16px;font-weight:700;padding:14px 16px 0;letter-spacing:-.01em;}
+  .note-ul{list-style:none;margin:0;padding:6px 16px 8px;}
+  .note-ul li{font-size:15px;color:var(--ink-2);padding:8px 0;border-top:.5px solid var(--sep);}
+  .note-ul li:first-child{border-top:0;}
+  .note-ul li b{color:var(--ink);font-weight:600;}
+  .note-ul li.muted{font-size:13px;color:var(--ink-3);}
+  .tag{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:var(--accent);background:var(--accent-soft);border-radius:6px;padding:1px 6px;margin-left:5px;vertical-align:middle;}
+  .tag.g{color:var(--green);background:rgba(46,125,83,.12);}
 
-  .walk { margin:20px 0 0 24px; background:var(--card); border:1px solid var(--line); border-left:3px solid var(--oro); padding:16px 18px 12px; box-shadow:var(--shadow); }
-  .walk .we { font-family:var(--sans); font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--oro); font-weight:700; }
-  .walk h4 { font-family:var(--didone); font-size:20px; font-style:italic; margin:6px 0 4px; }
-  .walk p.intro { color:var(--ink-2); font-size:14px; margin:0 0 8px; }
-  .walk p.intro b { font-weight:400; font-style:italic; color:var(--rosso); }
-  .walk-row { display:grid; grid-template-columns:52px 1fr; gap:2px 12px; padding:7px 0; border-top:1px solid var(--line); align-items:baseline; }
-  .walk-row .t { font-family:var(--sans); font-variant-numeric:tabular-nums; font-size:11.5px; font-weight:700; color:var(--rosso); }
-  .walk-row .p { font-size:14.5px; color:var(--ink-2); }
-  .walk-row .p b { font-weight:400; font-style:italic; color:var(--ink); }
-  .walk .foot { margin-top:9px; font-family:var(--sans); font-size:9.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-2); }
+  .callout{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:15px 16px;font-size:14.5px;color:var(--ink-2);margin-top:12px;}
+  .callout b{color:var(--ink);font-weight:600;}
+  .callout + .callout{margin-top:10px;}
 
-  .trio { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:6px; }
-  .notes { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:6px; }
-  .note { background:var(--card); border:1px solid var(--line); padding:16px 17px 6px; box-shadow:var(--shadow); }
-  .note h3 { font-family:var(--didone); font-size:18px; margin:0 0 8px; font-style:italic; color:var(--rosso); }
-  .note ul { margin:0; padding:0 0 10px 17px; }
-  .note li { margin:7px 0; color:var(--ink-2); font-size:14.5px; }
-  .note li b { color:var(--ink); font-weight:400; font-style:italic; }
-  .note li.muted { font-style:italic; font-size:13px; }
-  .tag { display:inline-block; font-family:var(--sans); font-size:9px; letter-spacing:.08em; text-transform:uppercase; font-weight:700; color:var(--rosso); border:1px solid var(--rosso); border-radius:2px; padding:1px 5px; margin-left:4px; vertical-align:middle; }
+  .brow{padding:14px 16px;border-top:.5px solid var(--sep);}
+  .brow:first-child{border-top:0;}
+  .brow .tp{display:flex;justify-content:space-between;align-items:baseline;gap:12px;}
+  .brow .cat{font-size:16px;font-weight:700;letter-spacing:-.01em;}
+  .brow .amt{font-size:16px;font-weight:700;font-variant-numeric:tabular-nums;}
+  .brow .desc{font-size:13px;color:var(--ink-2);margin-top:3px;}
+  .brow .desc b{color:var(--accent);font-weight:600;}
+  .bar-track{height:6px;border-radius:3px;background:var(--bg);overflow:hidden;margin-top:10px;}
+  .bar-track > span{display:block;height:100%;border-radius:3px;background:var(--accent);}
+  .brow.total{background:var(--card-2);}
+  .brow.total .cat{font-size:18px;} .brow.total .amt{font-size:20px;color:var(--accent);}
+  .split{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:12px;}
+  .split .chip{text-align:left;padding:14px;}
+  .split .chip .n{font-size:20px;}
+  .split .chip .l{text-transform:none;letter-spacing:0;font-size:12px;}
 
-  .callout { margin-top:14px; background:var(--rosso-wash); border:1px solid var(--line); border-left:3px solid var(--oro); padding:15px 18px; font-size:14.5px; color:var(--ink-2); }
-  .callout b { color:var(--ink); font-style:italic; font-weight:400; }
+  footer{text-align:center;padding:30px 0 6px;color:var(--ink-3);font-size:12.5px;}
 
-  .budget { margin-top:8px; display:flex; flex-direction:column; }
-  .brow { display:grid; grid-template-columns:1fr auto; gap:4px 16px; align-items:baseline; padding:14px 0 12px; border-bottom:1px solid var(--line); }
-  .brow .cat { font-family:var(--didone); font-weight:700; font-size:20px; }
-  .brow .amt { font-family:var(--didone); font-variant-numeric:tabular-nums; font-weight:700; font-size:20px; white-space:nowrap; }
-  .brow .desc { grid-column:1/2; color:var(--ink-2); font-size:14px; margin-top:3px; }
-  .brow .desc b { color:var(--rosso); font-weight:400; font-style:italic; }
-  .bar { grid-column:1/3; height:6px; background:var(--paper-2); overflow:hidden; margin-top:10px; }
-  .bar > span { display:block; height:100%; background:linear-gradient(90deg,var(--rosso),var(--oro)); }
-  .brow.total { border-bottom:0; border-top:2px solid var(--ink); margin-top:6px; padding-top:16px; }
-  .brow.total .cat { font-size:23px; } .brow.total .amt { font-size:25px; color:var(--rosso); }
-  .split { display:grid; grid-template-columns:repeat(2,1fr); gap:0; margin-top:18px; border:1px solid var(--line); overflow:hidden; }
-  .split .tile { border-right:1px solid var(--line); border-bottom:1px solid var(--line); }
-  .split .tile:nth-child(2n){ border-right:0; }
-  .split .tile:nth-last-child(-n+2){ border-bottom:0; }
+  .editing [data-edit]{outline:1.5px dashed var(--accent);outline-offset:4px;border-radius:6px;cursor:text;}
+  [data-edit]:focus{outline:2px solid var(--accent);outline-offset:4px;}
 
-  .tabbar { position:fixed; left:0; right:0; bottom:0; z-index:30; background:var(--nav-bg); backdrop-filter:saturate(140%) blur(10px); -webkit-backdrop-filter:saturate(140%) blur(10px); border-top:1px solid var(--line); padding-bottom:env(safe-area-inset-bottom); }
-  .tabbar .in { max-width:760px; margin:0 auto; display:grid; grid-template-columns:repeat(5,1fr); }
-  .tab { appearance:none; background:none; border:0; cursor:pointer; padding:9px 4px 8px; display:flex; flex-direction:column; align-items:center; gap:3px; color:var(--ink-2); font-family:var(--sans); font-size:9.5px; letter-spacing:.06em; text-transform:uppercase; font-weight:600; }
-  .tab svg { width:23px; height:23px; fill:none; stroke:currentColor; stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round; }
-  .tab.on { color:var(--rosso); }
-  .tab:focus-visible { outline:2px solid var(--rosso); outline-offset:2px; }
+  .toast{position:fixed;left:50%;bottom:calc(96px + env(safe-area-inset-bottom));transform:translateX(-50%);background:var(--ink);color:var(--bg);font-size:14px;font-weight:600;padding:10px 18px;border-radius:980px;opacity:0;pointer-events:none;transition:opacity .25s ease;z-index:50;}
+  .toast.show{opacity:1;}
 
-  footer { margin-top:40px; text-align:center; }
-  footer .orn { margin-bottom:12px; }
-  footer p { font-family:var(--sans); font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-2); margin:3px 0; }
-
-  @media (max-width:600px){
-    .flights, .trio, .notes { grid-template-columns:1fr; }
-    .leg-body, .walk { margin-left:6px; }
-    .leg-body { padding-left:16px; }
-  }
+  .tabs{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--nav-bg);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-top:.5px solid var(--sep);padding-bottom:env(safe-area-inset-bottom);}
+  .tabs-in{max-width:600px;margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr);}
+  .tab{appearance:none;background:none;border:0;cursor:pointer;padding:8px 2px 7px;display:flex;flex-direction:column;align-items:center;gap:3px;color:var(--ink-3);font-family:inherit;font-size:10px;font-weight:600;}
+  .tab svg{width:25px;height:25px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;}
+  .tab.on{color:var(--accent);}
+  .tab:focus-visible{outline:2px solid var(--accent);outline-offset:-2px;border-radius:8px;}
 </style>
 
-<div class="appbar"><div class="in"><span class="wm">Ital<span>i</span>a</span><span class="dt">Oct 6–20, 2026</span></div></div>
+<header class="bar">
+  <div class="bar-in">
+    <div class="bar-title">Italia <span class="dot">·</span> <span class="bar-sub">Oct 6–20</span></div>
+    <button id="editBtn" class="editbtn" type="button">Edit</button>
+  </div>
+  <div id="editTools" class="edittools" hidden>
+    <span class="et-note">Tap any text to edit it — saved locally on this device.</span>
+    <span class="et-actions"><button id="exportBtn" class="et-btn" type="button">Export</button><button id="resetBtn" class="et-btn" type="button">Reset</button></span>
+  </div>
+</header>
 
 <div class="app">
 
-  <!-- ═══ TRIP ═══ -->
+  <!-- TRIP -->
   <section id="home" class="view active">
-    <div class="poster">
-      <p class="eyebrow">Autumn Grand Tour · MMXXVI</p>
+    <div class="hero">
+      <div class="tricolore"><i></i><i></i><i></i></div>
       <h1>Italia</h1>
-      <p class="sub">Roma &middot; il Chianti &middot; Venezia</p>
-      <div class="route"><span>Montréal</span><span class="sep">&#9992;</span><span>Roma</span><span class="sep">&mdash;</span><span>Toscana</span><span class="sep">&mdash;</span><span>Venezia</span><span class="sep">&#9992;</span><span>Montréal</span></div>
-      <p class="dates">15 days · 13 nights · for two</p>
+      <p class="sub">Roma · il Chianti · Venezia</p>
+      <p class="meta">Montréal → Rome → Tavarnelle → Venice → Montréal · for two</p>
     </div>
 
-    <div class="tiles">
-      <div class="tile"><div class="label">Stops</div><div class="val">3</div></div>
-      <div class="tile"><div class="label">Nights</div><div class="val">13</div></div>
-      <div class="tile"><div class="label">Budget*</div><div class="val">$7,500</div></div>
+    <div class="chips">
+      <div class="chip"><div class="n">3</div><div class="l">Stops</div></div>
+      <div class="chip"><div class="n">13</div><div class="l">Nights</div></div>
+      <div class="chip"><div class="n">$7,500</div><div class="l">Budget*</div></div>
     </div>
 
-    <p class="sec">Flights — Air Canada</p>
-    <div class="flights">
-      <div class="flight">
-        <div class="fl-head"><span class="car">Outbound</span><span>Tue, Oct 6</span></div>
-        <div class="fl-body">
-          <div class="fl-pt dep"><div class="fl-code">YUL</div><div class="fl-time">7:25 PM</div><div class="fl-city">Montréal</div></div>
-          <div class="fl-mid"><span class="ln">&#9992;</span><span class="dur">≈ 7h 50m</span></div>
-          <div class="fl-pt arr"><div class="fl-code">FCO</div><div class="fl-time">9:15 AM <span class="plus">+1</span></div><div class="fl-city">Rome</div></div>
+    <p class="sec">Flights · Air Canada</p>
+    <div class="group">
+      <div class="row">
+        <div class="fl-h"><span class="car">Outbound</span><span>Tue, Oct 6</span></div>
+        <div class="fl">
+          <div class="fl-pt"><div class="code">YUL</div><div class="tm">7:25 PM</div><div class="ci">Montréal</div></div>
+          <div class="fl-mid"><span class="ic">✈</span><span class="du">≈ 7h 50m</span></div>
+          <div class="fl-pt arr"><div class="code">FCO</div><div class="tm">9:15 AM <span class="plus">+1</span></div><div class="ci">Rome</div></div>
         </div>
-        <div class="fl-note">Overnight · arrives Wed, Oct 7</div>
+        <div class="fl-note" data-edit>Overnight · arrives Wed, Oct 7.</div>
       </div>
-      <div class="flight">
-        <div class="fl-head"><span class="car">Return</span><span>Tue, Oct 20</span></div>
-        <div class="fl-body">
-          <div class="fl-pt dep"><div class="fl-code">VCE</div><div class="fl-time">12:20 PM</div><div class="fl-city">Venice</div></div>
-          <div class="fl-mid"><span class="ln">&#9992;</span><span class="dur">≈ 8h 50m</span></div>
-          <div class="fl-pt arr"><div class="fl-code">YUL</div><div class="fl-time">3:10 PM</div><div class="fl-city">Montréal</div></div>
+      <div class="row">
+        <div class="fl-h"><span class="car">Return</span><span>Tue, Oct 20</span></div>
+        <div class="fl">
+          <div class="fl-pt"><div class="code">VCE</div><div class="tm">12:20 PM</div><div class="ci">Venice</div></div>
+          <div class="fl-mid"><span class="ic">✈</span><span class="du">≈ 8h 50m</span></div>
+          <div class="fl-pt arr"><div class="code">YUL</div><div class="tm">3:10 PM</div><div class="ci">Montréal</div></div>
         </div>
-        <div class="fl-note">Same-day arrival</div>
+        <div class="fl-note" data-edit>Same-day arrival.</div>
       </div>
     </div>
 
     <p class="sec">Where I'm staying</p>
-    <div class="stay">
-      <div class="top"><h3>Hotel La Rovere</h3><span class="when">Oct 7 – 10</span></div>
-      <p class="addr">Rome · 3 nights</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Hotel+La+Rovere+Roma" target="_blank" rel="noopener">Directions ↗</a>
+    <div class="group">
+      <div class="row">
+        <div class="rt"><h3>Hotel La Rovere</h3><span class="when">Oct 7 – 10</span></div>
+        <p class="addr" data-edit>Rome · 3 nights</p>
+        <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Hotel+La+Rovere+Roma" target="_blank" rel="noopener">Directions ↗</a>
+      </div>
+      <div class="row">
+        <div class="rt"><h3>Castello di Valle</h3><span class="when">Oct 10 – 17</span></div>
+        <p class="addr" data-edit>Strada delle Sicelle 3, Barberino Tavarnelle (Val di Pesa) · host Pietro</p>
+        <p class="meta">Check-in from 3 PM · checkout 10 AM · 7 nights</p>
+        <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Strada+delle+Sicelle+3+Barberino+Tavarnelle" target="_blank" rel="noopener">Directions ↗</a>
+      </div>
+      <div class="row">
+        <div class="rt"><h3>Dimora Capuleti</h3><span class="when">Oct 17 – 20</span></div>
+        <p class="addr" data-edit>Calle del Campaniel 1796, Venice (San Rocco) · 3 nights</p>
+        <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Calle+del+Campaniel+1796+Venezia" target="_blank" rel="noopener">Directions ↗</a>
+      </div>
     </div>
-    <div class="stay">
-      <div class="top"><h3>Castello di Valle</h3><span class="when">Oct 10 – 17</span></div>
-      <p class="addr">Strada delle Sicelle 3, Barberino Tavarnelle (Val di Pesa) · host Pietro</p>
-      <p class="meta">Check-in from 3 PM · checkout 10 AM · 7 nights</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Strada+delle+Sicelle+3+Barberino+Tavarnelle" target="_blank" rel="noopener">Directions ↗</a>
-    </div>
-    <div class="stay">
-      <div class="top"><h3>Dimora Capuleti</h3><span class="when">Oct 17 – 20</span></div>
-      <p class="addr">Calle del Campaniel 1796, Venice (San Rocco) · 3 nights</p>
-      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Calle+del+Campaniel+1796+Venezia" target="_blank" rel="noopener">Directions ↗</a>
-    </div>
-    <div class="callout">*A <b>$7,500 budget, flights excluded</b>, for two — details in the <b>Budget</b> tab.</div>
+    <div class="callout" data-edit>*A <b>$7,500 budget, flights excluded</b>, for two — details in the Budget tab.</div>
   </section>
 
-  <!-- ═══ DAYS ═══ -->
+  <!-- DAYS -->
   <section id="days" class="view">
-    <div class="vhead"><p class="orn"><span>&#9670;</span></p><h2>Day by day</h2><span class="label">Three stops</span></div>
+    <div class="leg-hd"><div class="leg-badge">I</div><div><p class="lt">Roma</p><span class="ls">Oct 7 – 10 · 3 nights</span></div></div>
+    <div class="group">
+      <div class="day" data-day="10-6"><div class="d-date">Tue, Oct 6</div><p class="d-text" data-edit><b>Depart Montréal.</b> Air Canada YUL → FCO, 7:25 PM. Overnight flight.</p></div>
+      <div class="day" data-day="10-7"><div class="d-date">Wed, Oct 7</div><p class="d-text" data-edit><b>Arrive in Rome</b> 9:15 AM. Settle in, an easy wander: Pantheon, Piazza Navona, a first aperitivo.</p></div>
+      <div class="day" data-day="10-8"><div class="d-date">Thu, Oct 8</div><p class="d-text" data-edit><b>Ancient Rome.</b> Colosseum, Forum &amp; Palatine (timed ticket), Trevi and the Spanish Steps.</p></div>
+      <div class="day" data-day="10-9"><div class="d-date">Fri, Oct 9</div><p class="d-text" data-edit><b>Dawn walk</b> (below), ~5:15 AM. Then the Vatican Museums and Sistine Chapel, dinner in Trastevere.</p></div>
+    </div>
 
-    <div class="leg">
-      <div class="leg-head"><div class="leg-num">I</div><div><p class="leg-title">Roma</p><span class="leg-sub">Oct 7 – 10 · 3 nights</span></div></div>
-      <div class="leg-body">
-        <div class="day" data-day="10-6"><div class="d-date">Tue, Oct 6</div><p class="d-text"><b>Depart Montréal.</b> Air Canada <span class="num">YUL → FCO</span>, 7:25 PM. Overnight flight.</p></div>
-        <div class="day" data-day="10-7"><div class="d-date">Wed, Oct 7</div><p class="d-text"><b>Arrive in Rome</b> 9:15 AM. Settle in, an easy wander: Pantheon, Piazza Navona, a first <i>aperitivo</i>.</p></div>
-        <div class="day" data-day="10-8"><div class="d-date">Thu, Oct 8</div><p class="d-text"><b>Ancient Rome.</b> Colosseum, Forum &amp; Palatine (timed ticket), Trevi and the Spanish Steps.</p></div>
-        <div class="day" data-day="10-9"><div class="d-date">Fri, Oct 9</div><p class="d-text"><b>Dawn walk</b> (below), ~5:15 AM: Colosseum to the Vatican, St Peter's by 9:15. Then the <b>Vatican Museums</b> and Sistine Chapel, dinner in Trastevere.</p></div>
-      </div>
-      <div class="walk">
+    <div class="feat">
+      <div class="feat-hd">
         <p class="we">Suggestion · at daybreak</p>
-        <h4>Rome at dawn — before the crowds</h4>
-        <p class="intro">On <b>Friday, Oct 9</b>, ~5:15 AM wake-up. An outdoor loop of ≈ 6 km (~3.25 h) from the Colosseum to the Vatican — interiors closed, but seen without the crowds.</p>
-        <div class="walk-row"><span class="t">6:00</span><span class="p"><b>Colosseum</b> — exterior, Arch of Constantine</span></div>
-        <div class="walk-row"><span class="t">6:20</span><span class="p"><b>Roman Forum</b> — Via dei Fori Imperiali</span></div>
-        <div class="walk-row"><span class="t">6:45</span><span class="p"><b>Altare della Patria</b>, Piazza Venezia</span></div>
-        <div class="walk-row"><span class="t">7:05</span><span class="p"><b>Trevi Fountain</b></span></div>
-        <div class="walk-row"><span class="t">7:25</span><span class="p"><b>Pantheon</b>, Piazza della Rotonda</span></div>
-        <div class="walk-row"><span class="t">7:40</span><span class="p"><b>Piazza Navona</b> — Bernini's fountain</span></div>
-        <div class="walk-row"><span class="t">8:00</span><span class="p"><b>Campo de' Fiori</b> — morning market</span></div>
-        <div class="walk-row"><span class="t">8:15</span><span class="p">Breakfast at <b>Forno Campo de' Fiori</b></span></div>
-        <div class="walk-row"><span class="t">8:40</span><span class="p"><b>Castel Sant'Angelo</b> — via Ponte Sant'Angelo</span></div>
-        <div class="walk-row"><span class="t">9:15</span><span class="p"><b>St Peter's Basilica</b> — free entry, shoulders &amp; knees covered</span></div>
-        <p class="foot">≈ 6 km · 3.25 h · keep the pace to stay ahead of tour groups</p>
+        <h4>Rome at dawn</h4>
+        <p class="intro" data-edit>On <b>Friday, Oct 9</b>, ~5:15 AM wake-up. An outdoor loop ≈ 6 km from the Colosseum to the Vatican — without the crowds.</p>
       </div>
+      <div class="tl">
+        <div class="tl-row"><span class="t">6:00</span><span class="p"><b>Colosseum</b> — exterior, Arch of Constantine</span></div>
+        <div class="tl-row"><span class="t">6:20</span><span class="p"><b>Roman Forum</b> — Via dei Fori Imperiali</span></div>
+        <div class="tl-row"><span class="t">6:45</span><span class="p"><b>Altare della Patria</b></span></div>
+        <div class="tl-row"><span class="t">7:05</span><span class="p"><b>Trevi Fountain</b></span></div>
+        <div class="tl-row"><span class="t">7:25</span><span class="p"><b>Pantheon</b></span></div>
+        <div class="tl-row"><span class="t">7:40</span><span class="p"><b>Piazza Navona</b> — Bernini's fountain</span></div>
+        <div class="tl-row"><span class="t">8:00</span><span class="p"><b>Campo de' Fiori</b> — market</span></div>
+        <div class="tl-row"><span class="t">8:15</span><span class="p">Breakfast at <b>Forno Campo de' Fiori</b></span></div>
+        <div class="tl-row"><span class="t">8:40</span><span class="p"><b>Castel Sant'Angelo</b></span></div>
+        <div class="tl-row"><span class="t">9:15</span><span class="p"><b>St Peter's Basilica</b> — shoulders &amp; knees covered</span></div>
+      </div>
+      <div class="feat-ft">≈ 6 km · 3.25 h · keep the pace to stay ahead of tour groups</div>
     </div>
 
-    <div class="leg">
-      <div class="leg-head"><div class="leg-num">II</div><div><p class="leg-title">Tavarnelle — Toscana</p><span class="leg-sub">Oct 10 – 17 · 7 nights · Castello di Valle, Barberino Tavarnelle</span></div></div>
-      <div class="leg-body">
-        <div class="day" data-day="10-10"><div class="d-date">Sat, Oct 10</div><p class="d-text"><b>Rome → Tuscany.</b> Taxi to the Roma Tiburtina depot, then the A1 north (~283 km, ~3h15), Firenze Impruneta exit. <b>Arrive at the castle</b> from 3 PM. Dinner in San Donato in Poggio (La Toppa).</p></div>
-        <div class="day" data-day="10-11"><div class="d-date">Sun, Oct 11</div><p class="d-text"><b>Wine — Greve &amp; Panzano.</b> Fontodi (by reservation), lunch at Dario Cecchini.</p></div>
-        <div class="day" data-day="10-12"><div class="d-date">Mon, Oct 12</div><p class="d-text"><b>San Casciano market</b> then <b>Antinori nel Chianti Classico</b> (Bargino), by reservation.</p></div>
-        <div class="day" data-day="10-13"><div class="d-date">Tue, Oct 13</div><p class="d-text"><b>Florence</b> (weekday). Uffizi, Duomo, Ponte Vecchio. Villa Costanza park-and-ride + tram.</p></div>
-        <div class="day" data-day="10-14"><div class="d-date">Wed, Oct 14</div><p class="d-text"><b>Castellina &amp; Castello di Fonterutoli</b> (nearest). Relaxed afternoon at the property.</p></div>
-        <div class="day" data-day="10-15"><div class="d-date">Thu, Oct 15</div><p class="d-text"><b>Tavarnelle market</b> then <b>Siena</b>: Piazza del Campo and the cathedral.</p></div>
-        <div class="day" data-day="10-16"><div class="d-date">Fri, Oct 16</div><p class="d-text"><b>San Gimignano</b>, a final tasting (Rocca delle Macìe), farewell dinner. <i>Option: Val d'Orcia.</i></p></div>
-      </div>
+    <div class="leg-hd"><div class="leg-badge">II</div><div><p class="lt">Tavarnelle — Toscana</p><span class="ls">Oct 10 – 17 · 7 nights · Castello di Valle</span></div></div>
+    <div class="group">
+      <div class="day" data-day="10-10"><div class="d-date">Sat, Oct 10</div><p class="d-text" data-edit><b>Rome → Tavarnelle.</b> Taxi to the Roma Tiburtina depot, A1 north (~283 km, ~3h15), Firenze Impruneta exit. Arrive from 3 PM. Dinner in San Donato (La Toppa).</p></div>
+      <div class="day" data-day="10-11"><div class="d-date">Sun, Oct 11</div><p class="d-text" data-edit><b>Wine — Greve &amp; Panzano.</b> Fontodi (by reservation), lunch at Dario Cecchini.</p></div>
+      <div class="day" data-day="10-12"><div class="d-date">Mon, Oct 12</div><p class="d-text" data-edit><b>San Casciano market</b> then <b>Antinori nel Chianti Classico</b> (Bargino), by reservation.</p></div>
+      <div class="day" data-day="10-13"><div class="d-date">Tue, Oct 13</div><p class="d-text" data-edit><b>Florence</b> (weekday). Uffizi, Duomo, Ponte Vecchio. Villa Costanza park-and-ride + tram.</p></div>
+      <div class="day" data-day="10-14"><div class="d-date">Wed, Oct 14</div><p class="d-text" data-edit><b>Castellina &amp; Castello di Fonterutoli</b> (nearest). Relaxed afternoon at the property.</p></div>
+      <div class="day" data-day="10-15"><div class="d-date">Thu, Oct 15</div><p class="d-text" data-edit><b>Tavarnelle market</b> then <b>Siena</b>: Piazza del Campo and the cathedral.</p></div>
+      <div class="day" data-day="10-16"><div class="d-date">Fri, Oct 16</div><p class="d-text" data-edit><b>San Gimignano</b>, a final tasting (Rocca delle Macìe), farewell dinner. Option: Val d'Orcia.</p></div>
     </div>
 
-    <div class="leg">
-      <div class="leg-head"><div class="leg-num">III</div><div><p class="leg-title">Venezia</p><span class="leg-sub">Oct 17 – 20 · 3 nights · Dimora Capuleti</span></div></div>
-      <div class="leg-body">
-        <div class="day" data-day="10-17"><div class="d-date">Sat, Oct 17</div><p class="d-text"><b>Tuscany → Venice.</b> Depart 10 AM, drop the car in Florence, train (≈ 2 h). Check in, first <i>vaporetto</i>.</p></div>
-        <div class="day" data-day="10-18"><div class="d-date">Sun, Oct 18</div><p class="d-text"><b>Heart of Venice.</b> St Mark's, the Doge's Palace, Rialto, Dorsoduro.</p></div>
-        <div class="day" data-day="10-19"><div class="d-date">Mon, Oct 19</div><p class="d-text"><b>The lagoon.</b> Murano and Burano, a last Venetian dinner, a gondola ride.</p></div>
-        <div class="day" data-day="10-20"><div class="d-date">Tue, Oct 20</div><p class="d-text"><b>Home.</b> Transfer, Air Canada <span class="num">VCE → YUL</span> 12:20 PM → 3:10 PM.</p></div>
-      </div>
+    <div class="leg-hd"><div class="leg-badge">III</div><div><p class="lt">Venezia</p><span class="ls">Oct 17 – 20 · 3 nights · Dimora Capuleti</span></div></div>
+    <div class="group">
+      <div class="day" data-day="10-17"><div class="d-date">Sat, Oct 17</div><p class="d-text" data-edit><b>Tavarnelle → Venice.</b> Depart 10 AM, drop the car in Florence, train (≈ 2 h). Check in, first vaporetto.</p></div>
+      <div class="day" data-day="10-18"><div class="d-date">Sun, Oct 18</div><p class="d-text" data-edit><b>Heart of Venice.</b> St Mark's, the Doge's Palace, Rialto, Dorsoduro.</p></div>
+      <div class="day" data-day="10-19"><div class="d-date">Mon, Oct 19</div><p class="d-text" data-edit><b>The lagoon.</b> Murano and Burano, a last Venetian dinner, a gondola ride.</p></div>
+      <div class="day" data-day="10-20"><div class="d-date">Tue, Oct 20</div><p class="d-text" data-edit><b>Home.</b> Transfer, Air Canada VCE → YUL 12:20 PM → 3:10 PM.</p></div>
     </div>
 
     <p class="sec">Venice — the essentials</p>
-    <div class="notes">
-      <div class="note">
-        <h3>Short on time · on foot</h3>
-        <ul>
-          <li><b>Doge's Palace</b> <span class="tag">book</span></li>
-          <li><b>St Mark's Basilica</b></li>
-          <li><b>Rialto Bridge</b></li>
-          <li><b>San Polo district</b></li>
-          <li><b>Gondola</b></li>
-        </ul>
-      </div>
-      <div class="note">
-        <h3>With 3 days (your case)</h3>
-        <ul>
-          <li><b>Burano &amp; Murano</b> — the islands</li>
-          <li><b>Correr Museum</b></li>
-          <li><b>Teatro La Fenice</b> — opera</li>
-          <li><b>San Giorgio Maggiore</b> — view over Venice</li>
-          <li><b>Strada Nova</b>, Cannaregio</li>
-        </ul>
-      </div>
-      <div class="note">
-        <h3>Lagoon islands</h3>
-        <ul>
-          <li><b>Torcello</b> — small, historical, peaceful (near Burano)</li>
-          <li><b>Mazzorbo</b> — quiet, vineyard (near Burano)</li>
-          <li><b>San Michele</b> — the cemetery island</li>
-          <li><b>Lido</b> — beach; Venice Film Festival in September</li>
-          <li class="muted">Also: Murano, Burano, San Giorgio Maggiore (above).</li>
-        </ul>
-      </div>
+    <div class="group">
+      <p class="note-hd">Short on time · on foot</p>
+      <ul class="note-ul" data-edit>
+        <li><b>Doge's Palace</b> <span class="tag">book</span></li>
+        <li><b>St Mark's Basilica</b></li>
+        <li><b>Rialto Bridge</b></li>
+        <li><b>San Polo district</b></li>
+        <li><b>Gondola</b></li>
+      </ul>
+    </div>
+    <div class="group" style="margin-top:12px">
+      <p class="note-hd">Lagoon islands</p>
+      <ul class="note-ul" data-edit>
+        <li><b>Torcello</b> — small, historical, peaceful</li>
+        <li><b>Mazzorbo</b> — quiet, vineyard</li>
+        <li><b>San Michele</b> — the cemetery island</li>
+        <li><b>Lido</b> — beach; Film Festival in September</li>
+        <li><b>Correr</b>, <b>La Fenice</b>, <b>San Giorgio Maggiore</b> — with 3 days</li>
+      </ul>
     </div>
   </section>
 
-  <!-- ═══ CHIANTI ═══ -->
+  <!-- TAVARNELLE -->
   <section id="chianti" class="view">
-    <div class="vhead"><p class="orn"><span>&#9670;</span></p><h2>Base in Tavarnelle</h2><span class="label">Car · wineries · dining · Chianti markets</span></div>
+    <div class="leg-hd"><div class="leg-badge">🍷</div><div><p class="lt">Base in Tavarnelle</p><span class="ls">Car · wineries · dining · markets</span></div></div>
 
-    <div class="callout">
-      <b>Rome → Tavarnelle drive (Sat, Oct 10)</b> — taxi from Hotel La Rovere to the rental depot at <b>Roma Tiburtina</b> (15–20 min, ~€15–20). Then the A1 north (~283 km, ~3h15) via the GRA ring road, past Orvieto and Chiusi, exit <b>Firenze Impruneta</b> — or the scenic <b>SR222 Via Chiantigiana</b> (Valdichiana/Siena exit). Arrive at Strada Sicelle from 3 PM.
+    <div class="callout" data-edit>
+      <b>Rome → Tavarnelle drive (Oct 10)</b> — taxi from Hotel La Rovere to the <b>Roma Tiburtina</b> depot (~€15–20). A1 north (~283 km, ~3h15) via the GRA, Firenze Impruneta exit — or the scenic SR222 Via Chiantigiana.
     </div>
-    <div class="callout">
-      <b>Tolls &amp; fuel</b> — entering the A1, avoid the yellow <b>Telepass</b> lanes: take a ticket at the white lanes. At the exit, pay by contactless card or cash (tolls ~€18–22). Refuel at the <b>Self</b> pumps at Autogrill stops (~€0.20–0.30/L cheaper; ~€40–50). <b>ZTL</b>: never drive into town centres (Florence, Siena, San Gimignano) — park on the outskirts. Return the car in Florence on Oct 17 before the train to Venice.
-    </div>
-
-    <div class="walk">
-      <p class="we">Optional · on the A1</p>
-      <h4>En route — 4 stops between Rome and Tavarnelle</h4>
-      <p class="intro">To break up the ~3h15 drive, four hilltop towns along the motorway (time from Rome).</p>
-      <div class="walk-row"><span class="t">1h15</span><span class="p"><b>Orvieto</b> (Umbria) — Gothic Duomo with a gold-leaf facade. Park at Campo della Fiera + funicular; right off the A1 exit.</span></div>
-      <div class="walk-row"><span class="t">1h30</span><span class="p"><b>Civita di Bagnoregio</b> — the "dying town," reached by a pedestrian footbridge; ~25 min west of the Orvieto exit.</span></div>
-      <div class="walk-row"><span class="t">1h45</span><span class="p"><b>Chiusi</b> (Tuscany) — Etruscan heritage, museums and labyrinths; 5 min off the Chiusi-Chianciano Terme exit.</span></div>
-      <div class="walk-row"><span class="t">2h15</span><span class="p"><b>Montepulciano</b> (Val d'Orcia) — Renaissance town and Vino Nobile; a fine lunch stop. Park outside the ZTL (Parcheggio 1 or 8).</span></div>
-      <p class="foot">Optional stops — each adds to the arrival day (check-in from 3 PM).</p>
+    <div class="callout" data-edit>
+      <b>Tolls &amp; fuel</b> — take a ticket at the white lanes (avoid yellow Telepass), pay by card at the exit (~€18–22). Refuel at the "Self" pumps at Autogrill (~€40–50). ZTL: never drive into town centres. Return the car in Florence on Oct 17.
     </div>
 
-    <div class="trio">
-      <div class="note">
-        <h3>Wineries — book ahead</h3>
-        <ul>
-          <li><b>Castello di Fonterutoli</b>, Castellina — nearest <span class="tag">book</span></li>
-          <li><b>Fontodi</b>, Panzano <span class="tag">book</span></li>
-          <li><b>Antinori nel Chianti Classico</b>, Bargino <span class="tag">book</span></li>
-          <li><b>Castello di Ama</b>, Gaiole — wine &amp; art <span class="tag">book</span></li>
-          <li><b>Rocca delle Macìe</b>, Castellina</li>
-        </ul>
+    <div class="feat">
+      <div class="feat-hd">
+        <p class="we">Optional · on the A1</p>
+        <h4>4 stops en route</h4>
+        <p class="intro" data-edit>To break up the ~3h15 (time from Rome).</p>
       </div>
-      <div class="note">
-        <h3>Where to eat</h3>
-        <ul>
-          <li><b>La Toppa</b>, San Donato in Poggio</li>
-          <li><b>Osteria alla Piazza</b>, towards Panzano</li>
-          <li><b>Locanda di Pietracupa</b>, Castellina</li>
-          <li><b>Dario Cecchini</b>, Panzano — the bistecca <span class="tag">book</span></li>
-          <li><b>La Bottega di Volpaia</b>, Radda</li>
-        </ul>
+      <div class="tl">
+        <div class="tl-row"><span class="t">1h15</span><span class="p"><b>Orvieto</b> — gold-leaf Duomo; park at Campo della Fiera + funicular</span></div>
+        <div class="tl-row"><span class="t">1h30</span><span class="p"><b>Civita di Bagnoregio</b> — the "dying town", pedestrian footbridge</span></div>
+        <div class="tl-row"><span class="t">1h45</span><span class="p"><b>Chiusi</b> — Etruscan heritage, museums</span></div>
+        <div class="tl-row"><span class="t">2h15</span><span class="p"><b>Montepulciano</b> — Vino Nobile, lunch stop; park outside the ZTL</span></div>
       </div>
-      <div class="note">
-        <h3>Market days</h3>
-        <ul>
-          <li><b>Monday</b> — San Casciano <span class="tag" style="border-color:var(--verde);color:var(--verde)">Oct 12</span></li>
-          <li><b>Thursday</b> — Tavarnelle <span class="tag" style="border-color:var(--verde);color:var(--verde)">Oct 15</span></li>
-          <li><b>Saturday</b> — Greve &amp; Castellina</li>
-          <li class="muted">All 8 AM–1 PM.</li>
-        </ul>
-      </div>
+    </div>
+
+    <p class="sec">Wineries — book ahead</p>
+    <div class="group">
+      <ul class="note-ul" data-edit>
+        <li><b>Castello di Fonterutoli</b>, Castellina — nearest <span class="tag">book</span></li>
+        <li><b>Fontodi</b>, Panzano <span class="tag">book</span></li>
+        <li><b>Antinori nel Chianti Classico</b>, Bargino <span class="tag">book</span></li>
+        <li><b>Castello di Ama</b>, Gaiole — wine &amp; art <span class="tag">book</span></li>
+        <li><b>Rocca delle Macìe</b>, Castellina</li>
+      </ul>
+    </div>
+
+    <p class="sec">Where to eat</p>
+    <div class="group">
+      <ul class="note-ul" data-edit>
+        <li><b>La Toppa</b>, San Donato in Poggio</li>
+        <li><b>Osteria alla Piazza</b>, towards Panzano</li>
+        <li><b>Locanda di Pietracupa</b>, Castellina</li>
+        <li><b>Dario Cecchini</b>, Panzano — the bistecca <span class="tag">book</span></li>
+        <li><b>La Bottega di Volpaia</b>, Radda</li>
+      </ul>
+    </div>
+
+    <p class="sec">Market days (8 AM–1 PM)</p>
+    <div class="group">
+      <ul class="note-ul" data-edit>
+        <li><b>Monday</b> — San Casciano <span class="tag g">Oct 12</span></li>
+        <li><b>Thursday</b> — Tavarnelle <span class="tag g">Oct 15</span></li>
+        <li><b>Saturday</b> — Greve &amp; Castellina</li>
+      </ul>
     </div>
   </section>
 
-  <!-- ═══ INFO ═══ -->
+  <!-- INFO -->
   <section id="info" class="view">
-    <div class="vhead"><p class="orn"><span>&#9670;</span></p><h2>Da sapere</h2><span class="label">Practical notes</span></div>
+    <p class="sec first">Book early</p>
+    <div class="group"><ul class="note-ul" data-edit>
+      <li><b>Vatican Museums</b> &amp; <b>Colosseum</b> — timed tickets online</li>
+      <li><b>Uffizi Gallery</b> — reservation required</li>
+      <li><b>Car rental</b> Roma Tiburtina — manual transmission by default</li>
+      <li><b>Doge's Palace</b> &amp; <b>gondola</b> — a few days ahead</li>
+    </ul></div>
 
-    <div class="notes">
-      <div class="note">
-        <h3>Book early</h3>
-        <ul>
-          <li><b>Vatican Museums</b> &amp; <b>Colosseum</b>: timed tickets online.</li>
-          <li><b>Uffizi Gallery</b>: reservation required.</li>
-          <li><b>Car rental</b> Firenze SMN: manual transmission by default.</li>
-          <li><b>Doge's Palace</b> &amp; <b>gondola</b>: a few days ahead.</li>
-        </ul>
-      </div>
-      <div class="note">
-        <h3>On the ground</h3>
-        <ul>
-          <li><b>ZTL</b> in Tuscany: fines are common, park outside the centres.</li>
-          <li><b>Dress code</b> at basilicas: shoulders and knees covered.</li>
-          <li><b>Adapter</b> type F/L, 230 V. A little cash is handy.</li>
-          <li><b>October weather</b>: 15–23 °C, cool evenings.</li>
-        </ul>
-      </div>
-      <div class="note">
-        <h3>Emergencies &amp; useful</h3>
-        <ul>
-          <li><b>Emergencies (EU)</b>: <a href="tel:112">112</a></li>
-          <li><b>ETIAS</b> may be required in 2026 — check before departure.</li>
-          <li><b>Passport</b> valid 3 months past return.</li>
-        </ul>
-      </div>
-      <div class="note">
-        <h3>Addresses</h3>
-        <ul>
-          <li><b>Hotel La Rovere</b> — Rome (Oct 7–10)</li>
-          <li><b>Castello di Valle</b> — Strada delle Sicelle 3, Barberino Tavarnelle</li>
-          <li><b>Dimora Capuleti</b> — Calle del Campaniel 1796, Venice</li>
-          <li><b>Car rental</b> — Roma Tiburtina depot (departs Oct 10)</li>
-          <li><b>Airports</b>: FCO (Rome), VCE (Venice)</li>
-        </ul>
-      </div>
-    </div>
+    <p class="sec">On the ground</p>
+    <div class="group"><ul class="note-ul" data-edit>
+      <li><b>ZTL</b> in Tuscany — fines are common, park outside the centres</li>
+      <li><b>Dress code</b> at basilicas — shoulders and knees covered</li>
+      <li><b>Adapter</b> type F/L, 230 V; a little cash is handy</li>
+      <li><b>October weather</b> — 15–23 °C, cool evenings</li>
+    </ul></div>
+
+    <p class="sec">Emergencies &amp; useful</p>
+    <div class="group"><ul class="note-ul" data-edit>
+      <li><b>Emergencies (EU)</b> — <a href="tel:112">112</a></li>
+      <li><b>ETIAS</b> may be required in 2026 — check before departure</li>
+      <li><b>Passport</b> valid 3 months past return</li>
+    </ul></div>
+
+    <p class="sec">Addresses</p>
+    <div class="group"><ul class="note-ul" data-edit>
+      <li><b>Hotel La Rovere</b> — Rome (Oct 7–10)</li>
+      <li><b>Castello di Valle</b> — Strada delle Sicelle 3, Barberino Tavarnelle</li>
+      <li><b>Dimora Capuleti</b> — Calle del Campaniel 1796, Venice</li>
+      <li><b>Car</b> — Roma Tiburtina depot · <b>Airports</b> FCO, VCE</li>
+    </ul></div>
   </section>
 
-  <!-- ═══ BUDGET ═══ -->
+  <!-- BUDGET -->
   <section id="budget" class="view">
-    <div class="vhead"><p class="orn"><span>&#9670;</span></p><h2>Bilancio</h2><span class="label">Couple · CAD · flights excluded</span></div>
-
-    <div class="budget">
+    <p class="sec first">Budget · couple · CAD · flights excluded</p>
+    <div class="group">
       <div class="brow">
-        <span class="cat">Lodging</span><span class="amt">$4,670</span>
-        <span class="desc">Rome (€855) · Castello di Valle ($2,380, est.) · Venice (€671) — <b>all booked</b></span>
-        <div class="bar"><span style="width:100%"></span></div>
+        <div class="tp"><span class="cat">Lodging</span><span class="amt">$4,670</span></div>
+        <div class="desc" data-edit>Rome (€855) · Castello di Valle ($2,380, est.) · Venice (€671) — <b>all booked</b></div>
+        <div class="bar-track"><span style="width:100%"></span></div>
       </div>
       <div class="brow">
-        <span class="cat">Dining</span><span class="amt">$1,300</span>
-        <span class="desc">≈ $90/day for two</span>
-        <div class="bar"><span style="width:28%"></span></div>
+        <div class="tp"><span class="cat">Dining</span><span class="amt">$1,300</span></div>
+        <div class="desc" data-edit>≈ $90/day for two</div>
+        <div class="bar-track"><span style="width:28%"></span></div>
       </div>
       <div class="brow">
-        <span class="cat">Local transport</span><span class="amt">$700</span>
-        <span class="desc">Taxi to Tiburtina · one-way car rental 7 d, tolls &amp; fuel · Tuscany–Venice train · vaporetto</span>
-        <div class="bar"><span style="width:15%"></span></div>
+        <div class="tp"><span class="cat">Local transport</span><span class="amt">$700</span></div>
+        <div class="desc" data-edit>Taxi · one-way rental 7 d, tolls &amp; fuel · train · vaporetto</div>
+        <div class="bar-track"><span style="width:15%"></span></div>
       </div>
       <div class="brow">
-        <span class="cat">Sights</span><span class="amt">$500</span>
-        <span class="desc">Colosseum, Vatican, Uffizi, tastings, gondola</span>
-        <div class="bar"><span style="width:11%"></span></div>
+        <div class="tp"><span class="cat">Sights</span><span class="amt">$500</span></div>
+        <div class="desc" data-edit>Colosseum, Vatican, Uffizi, tastings, gondola</div>
+        <div class="bar-track"><span style="width:11%"></span></div>
       </div>
       <div class="brow">
-        <span class="cat">Miscellaneous</span><span class="amt">$330</span>
-        <span class="desc">Insurance · souvenirs &amp; buffer</span>
-        <div class="bar"><span style="width:7%"></span></div>
+        <div class="tp"><span class="cat">Miscellaneous</span><span class="amt">$330</span></div>
+        <div class="desc" data-edit>Insurance · souvenirs &amp; buffer</div>
+        <div class="bar-track"><span style="width:7%"></span></div>
       </div>
-      <div class="brow total"><span class="cat">Total · flights excluded</span><span class="amt">$7,500</span></div>
+      <div class="brow total"><div class="tp"><span class="cat">Total · flights excluded</span><span class="amt">$7,500</span></div></div>
     </div>
 
     <div class="split">
-      <div class="tile"><div class="label">Per person</div><div class="val">$3,750</div></div>
-      <div class="tile"><div class="label">Per day · couple</div><div class="val">$536</div></div>
-      <div class="tile"><div class="label">Lodging</div><div class="val">$4,670</div></div>
-      <div class="tile"><div class="label">Left to spend</div><div class="val">$2,830</div></div>
+      <div class="chip"><div class="n">$3,750</div><div class="l">Per person</div></div>
+      <div class="chip"><div class="n">$536</div><div class="l">Per day · couple</div></div>
+      <div class="chip"><div class="n">$4,670</div><div class="l">Lodging</div></div>
+      <div class="chip"><div class="n">$2,830</div><div class="l">Left to spend</div></div>
     </div>
 
-    <div class="callout">
-      <b>Flights</b> ($3,100, booked) counted separately. <b>Lodging</b> booked: Rome and Venice at the real rate converted (≈ $1.50/€), Chianti still estimated. That leaves <b>$2,830</b> for dining, transport, sights and extras. An editable spreadsheet accompanies this planner.
-    </div>
+    <div class="callout" data-edit><b>Flights</b> ($3,100, booked) counted separately. Rome and Venice at the real rate converted (≈ $1.50/€); Chianti still estimated. An editable spreadsheet accompanies the app.</div>
 
-    <footer>
-      <p class="orn"><span>&#9670;</span></p>
-      <p>Buon viaggio</p>
-      <p>1+1 Stratégie · prepared for Philippe</p>
-    </footer>
+    <footer>Buon viaggio · 1+1 Stratégie</footer>
   </section>
 
 </div>
 
-<nav class="tabbar"><div class="in">
-  <button class="tab on" data-v="home"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polygon points="15.5 8.5 10.5 10.5 8.5 15.5 13.5 13.5"/></svg>Trip</button>
-  <button class="tab" data-v="days"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2"/><line x1="4" y1="9.5" x2="20" y2="9.5"/><line x1="8" y1="3" x2="8" y2="6.5"/><line x1="16" y1="3" x2="16" y2="6.5"/></svg>Days</button>
-  <button class="tab" data-v="chianti"><svg viewBox="0 0 24 24"><path d="M7.5 4 h9 l-1.4 7 a3.1 3.1 0 0 1 -6.2 0 Z"/><line x1="12" y1="14" x2="12" y2="20"/><line x1="8.5" y1="20" x2="15.5" y2="20"/></svg>Tavarnelle</button>
-  <button class="tab" data-v="info"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><line x1="12" y1="11" x2="12" y2="16.5"/><circle cx="12" cy="7.8" r="0.7" fill="currentColor" stroke="none"/></svg>Info</button>
-  <button class="tab" data-v="budget"><svg viewBox="0 0 24 24"><rect x="3" y="6.5" width="18" height="11" rx="2"/><circle cx="12" cy="12" r="2.4"/><line x1="6" y1="12" x2="6.02" y2="12"/><line x1="18" y1="12" x2="18.02" y2="12"/></svg>Budget</button>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<nav class="tabs"><div class="tabs-in">
+  <button class="tab on" data-v="home" type="button"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polygon points="15.5 8.5 10.5 10.5 8.5 15.5 13.5 13.5"/></svg>Trip</button>
+  <button class="tab" data-v="days" type="button"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="3"/><line x1="4" y1="9.5" x2="20" y2="9.5"/><line x1="8" y1="3" x2="8" y2="6.5"/><line x1="16" y1="3" x2="16" y2="6.5"/></svg>Days</button>
+  <button class="tab" data-v="chianti" type="button"><svg viewBox="0 0 24 24"><path d="M7.5 4 h9 l-1.4 7 a3.1 3.1 0 0 1 -6.2 0 Z"/><line x1="12" y1="14" x2="12" y2="20"/><line x1="8.5" y1="20" x2="15.5" y2="20"/></svg>Tavarnelle</button>
+  <button class="tab" data-v="info" type="button"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><line x1="12" y1="11" x2="12" y2="16.5"/><circle cx="12" cy="7.8" r=".7" fill="currentColor" stroke="none"/></svg>Info</button>
+  <button class="tab" data-v="budget" type="button"><svg viewBox="0 0 24 24"><rect x="3" y="6.5" width="18" height="11" rx="2.5"/><circle cx="12" cy="12" r="2.4"/></svg>Budget</button>
 </div></nav>
 
 <script>
-  (function(){
-    var views = Array.prototype.slice.call(document.querySelectorAll('.view'));
-    var tabs  = Array.prototype.slice.call(document.querySelectorAll('.tab'));
-    function show(id){
-      if(!views.some(function(v){return v.id===id;})) id='home';
-      views.forEach(function(v){ v.classList.toggle('active', v.id===id); });
-      tabs.forEach(function(t){ t.classList.toggle('on', t.dataset.v===id); });
-      window.scrollTo(0,0);
-      try{ history.replaceState(null,'','#'+id); }catch(e){}
-    }
-    tabs.forEach(function(t){ t.addEventListener('click', function(){ show(t.dataset.v); }); });
-    show((location.hash||'').replace('#',''));
-    try{
-      var now = new Date();
-      if(now.getFullYear()===2026){
-        var key = (now.getMonth()+1)+'-'+now.getDate();
-        var el = document.querySelector('[data-day="'+key+'"]');
-        if(el){ el.classList.add('is-today'); }
-      }
-    }catch(e){}
-  })();
+(function(){
+  var LSK='italia-en-v2';
+  var views=[].slice.call(document.querySelectorAll('.view'));
+  var tabs=[].slice.call(document.querySelectorAll('.tab'));
+  function show(id){
+    if(!views.some(function(v){return v.id===id;})) id='home';
+    views.forEach(function(v){v.classList.toggle('active',v.id===id);});
+    tabs.forEach(function(t){t.classList.toggle('on',t.dataset.v===id);});
+    window.scrollTo(0,0);
+    try{history.replaceState(null,'','#'+id);}catch(e){}
+  }
+  tabs.forEach(function(t){t.addEventListener('click',function(){show(t.dataset.v);});});
+  show((location.hash||'').replace('#',''));
+
+  try{var n=new Date();if(n.getFullYear()===2026){var k=(n.getMonth()+1)+'-'+n.getDate();var el=document.querySelector('[data-day="'+k+'"]');if(el)el.classList.add('today');}}catch(e){}
+
+  var eds=[].slice.call(document.querySelectorAll('[data-edit]'));
+  eds.forEach(function(el,i){el.dataset.k='k'+i;});
+  var saved={};try{saved=JSON.parse(localStorage.getItem(LSK)||'{}');}catch(e){}
+  eds.forEach(function(el){if(saved[el.dataset.k]!=null)el.innerHTML=saved[el.dataset.k];});
+  function persist(){var m={};eds.forEach(function(el){m[el.dataset.k]=el.innerHTML;});try{localStorage.setItem(LSK,JSON.stringify(m));}catch(e){}}
+
+  var editing=false;
+  var editBtn=document.getElementById('editBtn');
+  var tools=document.getElementById('editTools');
+  function setEditing(on){
+    editing=on;document.body.classList.toggle('editing',on);
+    eds.forEach(function(el){el.contentEditable=on?'true':'false';});
+    editBtn.textContent=on?'Done':'Edit';
+    tools.hidden=!on;
+  }
+  editBtn.addEventListener('click',function(){var next=!editing;setEditing(next);if(!next){persist();toast('Changes saved');}});
+  document.addEventListener('input',function(e){if(editing&&e.target.closest&&e.target.closest('[data-edit]'))persist();});
+
+  document.getElementById('resetBtn').addEventListener('click',function(){
+    if(confirm('Reset all edited content?')){try{localStorage.removeItem(LSK);}catch(e){}location.reload();}
+  });
+
+  var toastEl=document.getElementById('toast');var toastT;
+  function toast(msg){toastEl.textContent=msg;toastEl.classList.add('show');clearTimeout(toastT);toastT=setTimeout(function(){toastEl.classList.remove('show');},1800);}
+
+  var expBtn=document.getElementById('exportBtn');
+  if(window.claude&&window.claude.downloads){
+    expBtn.addEventListener('click',function(){
+      var md=buildMarkdown();
+      window.claude.downloads.save({filename:'italia-october-2026.md',data:md})
+        .then(function(){toast('Exported');})
+        .catch(function(err){toast(err&&err.code==='declined'?'Export cancelled':'Export unavailable');});
+    });
+  } else { expBtn.style.display='none'; }
+
+  function txt(el){return (el.textContent||'').replace(/\s+/g,' ').trim();}
+  function buildMarkdown(){
+    var out=['# Italia — October 6–20, 2026',''];
+    views.forEach(function(v){
+      v.querySelectorAll('.hero h1,.leg-hd .lt,.sec,.feat-hd h4,.note-hd,.row h3,.d-date,.d-text,.callout,.note-ul li,.tl-row,.brow .cat,.intro,.feat-ft').forEach(function(el){
+        var t=txt(el);if(!t)return;
+        if(el.matches('.leg-hd .lt,.feat-hd h4'))out.push('','## '+t);
+        else if(el.matches('.sec,.note-hd'))out.push('','### '+t);
+        else if(el.matches('.d-date,.row h3'))out.push('','**'+t+'**');
+        else if(el.matches('.note-ul li,.tl-row'))out.push('- '+t);
+        else out.push(t);
+      });
+    });
+    return out.join('\n')+'\n';
+  }
+})();
 </script>
