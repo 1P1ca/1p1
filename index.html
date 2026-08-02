@@ -158,6 +158,22 @@
   .cli-add-btn{appearance:none;border:0;background:var(--accent-soft);color:var(--accent);font-family:inherit;font-weight:700;font-size:14px;padding:9px 16px;border-radius:10px;cursor:pointer;white-space:nowrap;-webkit-user-select:none;user-select:none;}
   .cli-add-btn:active{transform:scale(.96);}
 
+  /* Rome ticket tracker */
+  .tix-list{list-style:none;margin:0;padding:0;}
+  .tix-row{padding:14px 16px;border-top:.5px solid var(--sep);}
+  .tix-row:first-child{border-top:0;}
+  .tix-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;}
+  .tix-name{font-size:16px;font-weight:700;letter-spacing:-.01em;}
+  .tix-link{display:inline-block;margin-top:3px;font-size:12.5px;font-weight:600;color:var(--accent);text-decoration:none;transition:opacity .12s ease;}
+  .tix-link:active{opacity:.5;}
+  .tix-status{flex:0 0 auto;font-size:10.5px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;padding:4px 9px;border-radius:980px;white-space:nowrap;}
+  .tix-status.wait{color:var(--ink-2);background:var(--card-2);}
+  .tix-status.open{color:var(--accent);background:var(--accent-soft);}
+  .tix-status.passed{color:var(--ink-3);background:var(--card-2);}
+  .tix-tip{font-size:13.5px;color:var(--ink-2);margin-top:8px;}
+  .tix-check{display:flex;align-items:center;gap:8px;margin-top:10px;font-size:13.5px;font-weight:600;color:var(--ink-2);cursor:pointer;-webkit-user-select:none;user-select:none;}
+  .tix-check input{width:19px;height:19px;flex:0 0 auto;accent-color:var(--accent);}
+
   .callout{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:15px 16px;font-size:14.5px;color:var(--ink-2);margin-top:12px;}
   .callout b{color:var(--ink);font-weight:600;}
   .callout + .callout{margin-top:10px;}
@@ -384,8 +400,12 @@
     <div class="leg-hd"><div class="leg-badge">🏛️</div><div><p class="lt">Rome</p><span class="ls">Ancient sights · dawn walk · dining</span></div></div>
 
     <div class="callout" data-edit>
-      <b>Book ahead:</b> the Vatican Museums, Sistine Chapel and Colosseum sell out routinely — buy timed tickets online well before Oct 7. St Peter's Basilica itself is free to enter but requires a security line.
+      <b>Book direct, skip the markup:</b> buy straight from the official platforms below — third-party resellers mark these up and the lines for on-site purchase can eat a whole morning.
     </div>
+
+    <p class="sec">Tickets — live status</p>
+    <div class="group"><ul class="tix-list" id="tixList"></ul></div>
+    <div class="callout" data-edit>Free, no ticket needed: St Peter's Basilica, the Pantheon exterior, Trevi Fountain and Piazza Navona.</div>
 
     <div class="feat">
       <div class="feat-hd">
@@ -408,23 +428,44 @@
       <div class="feat-ft">≈ 6 km · 3.25 h · keep the pace to stay ahead of tour groups</div>
     </div>
 
-    <p class="sec">Sights</p>
+    <p class="sec">Dining — neighborhood anchors</p>
     <div class="group">
+      <p class="note-hd">Monti</p>
       <ul class="note-ul" data-edit>
-        <li><b>Colosseum</b>, Roman Forum &amp; Palatine <span class="tag">book</span></li>
-        <li><b>Vatican Museums</b> &amp; Sistine Chapel <span class="tag">book</span></li>
-        <li><b>St Peter's Basilica</b> — free entry, dress code applies</li>
-        <li><b>Trevi Fountain</b>, <b>Pantheon</b>, <b>Piazza Navona</b> — free, best at dawn</li>
+        <li><b>Trattoria Vecchia Roma</b> or <b>Ai Tre Scalini</b> — classic Roman pastas: cacio e pepe, amatriciana, carbonara</li>
+        <li><b>Gelateria Fatamorgana</b> — all-natural, artisanal gelato</li>
+      </ul>
+    </div>
+    <div class="group" style="margin-top:12px">
+      <p class="note-hd">Vatican / Prati</p>
+      <ul class="note-ul" data-edit>
+        <li><b>Pizzarium Bonci</b> — legendary pizza al taglio, ~10 min north of the Vatican</li>
+        <li><b>Hostaria Dino e Toni</b> — traditional, down-to-earth; let the chef decide</li>
+      </ul>
+    </div>
+    <div class="group" style="margin-top:12px">
+      <p class="note-hd">Historic Center &amp; Jewish Ghetto</p>
+      <ul class="note-ul" data-edit>
+        <li><b>Nonna Betta</b> or <b>Piperno</b> — carciofi alla giudia (crispy Roman fried artichokes)</li>
+        <li><b>Roscioli Salumeria con Cucina</b> — top-rated carbonara <span class="tag">book weeks ahead</span></li>
+        <li><b>Campo de' Fiori</b> morning market; <b>Forno Campo de' Fiori</b> for pizza bianca — the dawn-walk breakfast stop</li>
+      </ul>
+    </div>
+    <div class="group" style="margin-top:12px">
+      <p class="note-hd">Trastevere</p>
+      <ul class="note-ul" data-edit>
+        <li><b>Da Enzo al 29</b> — tiny and legendary; no online booking, arrive ~15 min before opening</li>
+        <li><b>Testaccio</b> (nearby) — authentic, less touristy Roman food</li>
       </ul>
     </div>
 
-    <p class="sec">Neighborhoods &amp; dining</p>
+    <p class="sec">On the ground</p>
     <div class="group">
       <ul class="note-ul" data-edit>
-        <li><b>Trastevere</b> — cobblestones, dinner, nightlife</li>
-        <li><b>Campo de' Fiori</b> — morning market, aperitivo scene</li>
-        <li><b>Forno Campo de' Fiori</b> — the historic bakery, pizza bianca</li>
-        <li><b>Testaccio</b> — authentic, less touristy Roman food</li>
+        <li><b>Vatican dress code</b> — knees &amp; shoulders covered, both men and women; pack a light scarf or jacket</li>
+        <li><b>Nasoni fountains</b> — 2,500+ free drinking fountains citywide; carry a refillable bottle</li>
+        <li><b>Taxis</b> — official stands or apps (FreeNow, IT Taxi) only; never street touts at airports/stations; fixed rates apply airport ↔ centre</li>
+        <li><b>Gelato tell</b> — natural pistachio is brownish-green (not neon); natural banana is greyish-white (not bright yellow)</li>
       </ul>
     </div>
   </section>
@@ -815,5 +856,87 @@
     }
   });
   renderAllPrep();
+
+  // --- Rome ticket tracker ---
+  var TIX_KEY='italia-tix-v1';
+  var ROME_TICKETS=[
+    {
+      name:'Colosseum, Forum & Palatine',
+      url:'https://ticketing.colosseo.it',
+      label:'ticketing.colosseo.it',
+      visit:new Date(2026,9,8),
+      windowDays:30,
+      assumed:false,
+      tip:'Full Experience tickets sell out in minutes — standard arena floor tickets are easier to get.'
+    },
+    {
+      name:'Vatican Museums & Sistine Chapel',
+      url:'https://tickets.museivaticani.va',
+      label:'tickets.museivaticani.va',
+      visit:new Date(2026,9,9),
+      windowDays:60,
+      assumed:false,
+      tip:"Book the earliest 8:00 AM slot. St Peter's Basilica itself is free but has a security queue."
+    },
+    {
+      name:'Pantheon (interior)',
+      url:'https://direzionemuseiroma.cultura.gov.it',
+      label:'direzionemuseiroma.cultura.gov.it',
+      visit:new Date(2026,9,9),
+      windowDays:30,
+      assumed:true,
+      tip:'€5 entry. Timed reservations are mandatory on weekends/holidays — book online to skip the cash queue.'
+    },
+    {
+      name:'Galleria Borghese',
+      url:'https://galleriaborghese.beniculturali.it',
+      label:'galleriaborghese.beniculturali.it',
+      visit:null,
+      windowDays:60,
+      assumed:false,
+      tip:'Strict 2-hour timed slots, tightly capped capacity — not yet on the itinerary; pick a date if you add it.'
+    }
+  ];
+  var tixBooked={};
+  try{tixBooked=JSON.parse(localStorage.getItem(TIX_KEY)||'{}');}catch(e){}
+  function saveTix(){try{localStorage.setItem(TIX_KEY,JSON.stringify(tixBooked));}catch(e){}}
+  function fmtDate(d){return d.toLocaleDateString('en-US',{month:'short',day:'numeric'});}
+  function renderTix(){
+    var ul=document.getElementById('tixList');
+    if(!ul)return;
+    ul.innerHTML='';
+    var now=new Date();now.setHours(0,0,0,0);
+    ROME_TICKETS.forEach(function(t,i){
+      var release=t.visit?new Date(t.visit.getTime()-t.windowDays*86400000):null;
+      var cls='wait',text='';
+      if(!t.visit){text='Not yet scheduled';}
+      else if(now<release){var d=Math.ceil((release-now)/86400000);text='Opens '+fmtDate(release)+' ('+d+'d)';}
+      else if(now<t.visit){cls='open';text='Book now';}
+      else{cls='passed';text='Date passed';}
+
+      var li=document.createElement('li');li.className='tix-row';
+
+      var top=document.createElement('div');top.className='tix-top';
+      var nameWrap=document.createElement('div');
+      var nameEl=document.createElement('div');nameEl.className='tix-name';nameEl.textContent=t.name;
+      var linkEl=document.createElement('a');linkEl.className='tix-link';linkEl.href=t.url;linkEl.target='_blank';linkEl.rel='noopener';linkEl.textContent=t.label+' ↗';
+      nameWrap.appendChild(nameEl);nameWrap.appendChild(linkEl);
+      var badge=document.createElement('span');badge.className='tix-status '+cls;badge.textContent=text;
+      top.appendChild(nameWrap);top.appendChild(badge);
+
+      var tip=document.createElement('div');tip.className='tix-tip';
+      tip.textContent=t.tip+(t.assumed?' (assumes an Oct 9 visit)':'');
+
+      var chk=document.createElement('label');chk.className='tix-check';
+      var cb=document.createElement('input');cb.type='checkbox';cb.checked=!!tixBooked[i];
+      cb.addEventListener('change',function(){tixBooked[i]=cb.checked;saveTix();});
+      var cs=document.createElement('span');cs.textContent='Booked';
+      chk.appendChild(cb);chk.appendChild(cs);
+
+      li.appendChild(top);li.appendChild(tip);li.appendChild(chk);
+      ul.appendChild(li);
+    });
+  }
+  renderTix();
 })();
 </script>
