@@ -45,15 +45,20 @@ L’Institut a refondu ses normes de pratique au terme d’un processus pluriann
 
 | Norme | Objet | Exigences structurantes |
 |---|---|---|
-| **PS 100** (nouvelle) | Cadre fondé sur des principes pour toute la série 100 | Définit ce qui constitue une évaluation, quand les normes s’appliquent, et consacre la primauté du jugement professionnel |
+| **PS 100** (nouvelle) | Concepts fondamentaux applicables à toutes les conclusions de valeur et à tous les rapports d’évaluation | Établit un cadre fondé sur des principes pour les trois niveaux de conclusion. Pose cinq principes cardinaux : **indépendance, objectivité, scepticisme professionnel, compétence en évaluation d’entreprises et jugement professionnel éclairé**. Consacre la responsabilité du professionnel de mener une étendue des travaux calibrée sur la finalité et les utilisateurs visés |
 | **PS 110** | Divulgation dans le rapport | Étendue des travaux, information utilisée, jugements professionnels exercés, intrants et hypothèses significatifs, fondement des conclusions. Divulgation normalisée pour les conclusions de type Calcul et Estimation. Divulgation explicite des quatre conditions applicables aux rapports préliminaires |
 | **PS 120** | Étendue des travaux | Revue, demandes d’information, analyse et **corroboration indépendante** de l’information significative sur l’entreprise, son secteur et les autres facteurs pertinents. S’applique désormais aux trois types de conclusions. Appréciation du caractère raisonnable global avant émission. Processus de contrôle qualité |
 | **PS 130** | Documentation | Documentation des procédures d’indépendance et de vérification des conflits, y compris les facteurs considérés pour le mandat précis. Preuve documentaire de l’exécution du contrôle qualité exigé par la PS 120 |
 
-**Deux déplacements de fond, décisifs pour la conception de l’application :**
+**Trois déplacements de fond, décisifs pour la conception de l’application :**
 
 - **Du rapport vers la conclusion.** Le centre de gravité passe du « rapport d’évaluation » à la « conclusion de valeur ». Les exigences d’étendue des travaux ne se modulent plus selon l’étiquette du rapport : elles s’appliquent aux conclusions Exhaustive, Estimation et Calcul.
 - **L’adéquation à la finalité.** Le contenu et le niveau de détail se calibrent sur la finalité du mandat et les besoins des utilisateurs visés, non sur un gabarit uniforme.
+- **La corroboration indépendante devient l’axe de gradation.** La PS 100 redéfinit les trois niveaux de conclusion en les distinguant par la profondeur de l’étendue des travaux — et plus précisément par **l’ampleur de la corroboration indépendante**. C’est le changement le plus lourd de conséquences pour l’outillage : ce qui sépare un Calcul d’une conclusion Exhaustive n’est plus une convention de présentation, mais une quantité de travail de recoupement mesurable.
+
+La PS 100 définit le rapport d’évaluation comme « toute communication écrite contenant une conclusion quant à la valeur d’actions, d’actifs, de passifs ou d’une participation dans une entreprise, préparée par un évaluateur agissant de manière indépendante et objective »<sup>†</sup>. La définition est large : une note, un courriel chiffré ou une annexe de modèle peuvent y tomber. Le dispositif doit donc traiter toute sortie chiffrée comme potentiellement assujettie, et non seulement le document intitulé « rapport ».
+
+<sup>†</sup> Traduction de travail. Le libellé officiel français doit être repris du texte de l’Institut avant toute citation externe.
 
 **Compléments applicables :** les bulletins de pratique de l’Institut — dont le bulletin no 1 sur les rapports de critique restreinte et le bulletin no 3, qui porte des directives d’application. Depuis le 19 septembre 2023, les normes internationales d’évaluation (IVS) sont adoptées **en option**, aux côtés des normes de l’Institut; leur emploi n’est pas obligatoire.
 
@@ -131,7 +136,7 @@ L’adoption est déjà un fait dans la profession : au congrès de l’Institut
 | **Cadrage et conflits** | Structure la lettre de mission : finalité, utilisateurs visés, date, prémisse, type de conclusion. Balaie les parties liées contre le registre des mandats | Fiche de mandat, note d’indépendance à attester |
 | **Collecte et complétude** | Génère la liste de documents adaptée au type de conclusion, suit les réceptions, signale les manques et leur incidence sur l’étendue des travaux | Tableau de complétude, projet de relance |
 | **Normalisation financière** | Repère les éléments non récurrents, hors exploitation et de rémunération du propriétaire-dirigeant; propose chaque retraitement avec sa justification et sa source | Tableau de normalisation, BAIIA normalisé, journal des retraitements |
-| **Recherche et corroboration** | Documente le secteur, les transactions comparables et les multiples; recoupe l’information client contre des sources externes datées | Dossier sectoriel, tableau de comparables avec provenance |
+| **Recherche et corroboration** | Documente le secteur, les transactions comparables et les multiples; recoupe l’information client contre des sources externes datées. **Paramétré par niveau de conclusion** : la profondeur de recoupement exigée découle du niveau retenu au cadrage | Dossier sectoriel, tableau de comparables avec provenance, registre de corroboration |
 | **Modélisation** | Monte les scénarios, exécute les tests de cohérence et de sensibilité, signale les écarts entre méthodes | Modèle, tableau de sensibilité, liste des incohérences |
 | **Rédaction** | Produit les sections selon un gabarit conforme à la PS 110, dans la norme rédactionnelle fr-CA de la firme | Projet de rapport, tableau de couverture des divulgations |
 | **Contrôle qualité et critique adverse** | Relit en posture de contre-expertise : affirmations non étayées, sauts logiques, divulgations manquantes, angles d’attaque probables | Liste de faiblesses classées par gravité |
@@ -150,7 +155,19 @@ L’adoption est déjà un fait dans la profession : au congrès de l’Institut
 | Journal d’audit | Trace de chaque appel, invite, source, sortie et validation humaine | Immuable, exportable, lisible par un tiers |
 | Garde-fous | Interdictions dures | Aucune conclusion de valeur générée; aucune émission sans passage de l’agent 7; aucune donnée client hors du périmètre autorisé |
 
-## B.5 — Le journal d’audit, pièce maîtresse
+## B.5 — Les cinq principes de la PS 100, traduits en contraintes de conception
+
+| Principe | Traduction dans l’application | Ce qui reste hors machine |
+|---|---|---|
+| **Indépendance** | L’agent 1 balaie les parties liées et constitue la documentation exigée par la PS 130 | L’attestation d’indépendance, qui est personnelle |
+| **Objectivité** | Invites et gabarits neutres par construction; aucun paramètre permettant d’orienter vers une fourchette souhaitée; toute instruction du client est horodatée au journal | L’arbitrage en cas de pression du mandant |
+| **Scepticisme professionnel** | L’agent 7 opère en posture de contre-expertise; l’agent 4 signale les données client non recoupées | Le doute exercé sur une donnée qui « sent mauvais » sans anomalie formelle |
+| **Compétence** | Le dispositif ne crée pas de compétence : il l’applique à l’échelle. L’accès aux agents suppose un EEE responsable du mandat | La compétence elle-même, personnelle et non délégable (art. 231 C.p.c.) |
+| **Jugement professionnel éclairé** | L’agent fournit la matière du jugement — options, sources, écarts, sensibilités | Le jugement, en totalité |
+
+Le registre de corroboration mérite une mention distincte. Puisque le niveau de conclusion se distingue désormais par l’ampleur du recoupement indépendant, ce registre devient la pièce qui démontre que le niveau annoncé a bien été atteint. Il doit répondre à une question simple, poste par poste : cette donnée a-t-elle été recoupée, contre quoi, et sinon, pourquoi.
+
+## B.6 — Le journal d’audit, pièce maîtresse
 
 Le journal n’est pas une commodité d’ingénierie : c’est le livrable qui rend l’ensemble défendable. Il doit permettre de répondre, sous serment, à trois questions :
 
@@ -246,7 +263,7 @@ L’indicateur d’écart agent-humain mérite une attention particulière : il 
 | Affirmation non étayée passant dans le rapport | Élevée | Règle dure : pas de source, pas de sortie. L’agent 7 bloque l’émission |
 | Fuite de données confidentielles | Élevée | Cloisonnement par mandat; hébergement arbitré en phase 0; aucun entraînement sur les données de dossier |
 | Dérive normative — le gabarit vieillit | Moyenne | Gabarits versionnés avec date d’effet; revue semestrielle des normes et bulletins |
-| Attaque sur la recevabilité en litige | Élevée | Journal d’audit répondant aux trois questions de la section B.5; politique de divulgation appliquée |
+| Attaque sur la recevabilité en litige | Élevée | Journal d’audit répondant aux trois questions de la section B.6; politique de divulgation appliquée |
 | Surinvestissement avant preuve de valeur | Moyenne | Phases à valeur autonome; arrêt possible après toute phase |
 | Perte de compétence des juniors | Moyenne | Maintien d’une rotation de mandats exécutés sans assistance; l’apprentissage du métier passe par la mécanique |
 
@@ -265,15 +282,20 @@ L’indicateur d’écart agent-humain mérite une attention particulière : il 
 
 # Annexe 2 — Points à valider auprès de l’Institut
 
-Le site de l’Institut n’était pas joignable depuis l’environnement de travail au moment de la rédaction. Les éléments suivants sont établis à partir de sources secondaires et doivent être confirmés sur le portail des membres avant diffusion externe du plan :
+Le domaine de l’Institut est bloqué par la politique d’egress du réseau de travail : ni les pages de normes ni le PDF de la PS 100 (2026) n’ont pu être lus directement. Le contenu normatif ci-dessus provient de sources secondaires et de résumés des publications de l’Institut. Les éléments suivants doivent être confirmés sur le texte officiel avant diffusion externe du plan :
 
 - Les intitulés officiels exacts des normes PS 100, 110, 120 et 130 dans leur version française
+- Le libellé français officiel de la définition du rapport d’évaluation citée en partie A.2 — la version au présent document est une traduction de travail
+- Les paragraphes numérotés de la PS 100 fixant, niveau par niveau, l’ampleur de corroboration indépendante attendue. **C’est le point le plus important à valider** : le paramétrage de l’agent 4 en dépend directement
 - La liste complète et à jour des bulletins de pratique en vigueur
 - Les exigences chiffrées de formation continue
 - Toute ligne directrice sur l’IA publiée depuis le primer de juin 2024
 
+**Levée du blocage :** déposer les PDF des quatre normes dans `docs/normes/` du présent dépôt, ou faire ajouter `cbvinstitute.com` à la liste des domaines autorisés.
+
 # Annexe 3 — Sources
 
+- CBV Institute — [Practice Standard No. 100, version 2026](https://cbvinstitute.com/wp-content/uploads/2025/10/Practice-Standard-No.-100-E-2026.pdf) *(texte officiel, inaccessible depuis l’environnement de travail — à lire hors ligne)*
 - CBV Institute — [Practice Standards](https://cbvinstitute.com/members-students/standards-ethics/practice-standards/)
 - CBV Institute — [Updated Valuation Practice Standards Now in Effect](https://cbvinstitute.com/news_article/cbv-institutes-updated-valuation-practice-standards-now-in-effect/)
 - CBV Institute — [Countdown to 2026 : PS 100, The New Foundation](https://cbvinstitute.com/countdown-to-2026-ps-100-the-new-foundation/)
