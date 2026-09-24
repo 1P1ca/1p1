@@ -1,0 +1,48 @@
+{
+  "topic": "How Small Businesses Can Setup AI Voice Receptionists",
+  "avatar_dialogue": {
+    "platform": "HeyGen / Synthesia",
+    "clean_text": "Every missed call is a customer you just handed to a competitor. Small businesses lose thousands each month to unanswered phones. Today I'll show you how to set up an AI voice receptionist. It answers every call, books appointments, and never takes a break. First, pick a platform that handles inbound calls with a natural voice. You describe your business once, and it learns your hours and services. Step one, connect your existing business phone number. Step two, write a short greeting the AI will speak to callers. Step three, tell it how to book, transfer, or take a message. The AI greets the caller, answers common questions, and captures details. It can even send you a text summary the moment a call ends. A human receptionist can cost thousands of dollars each month. An AI agent often runs for the price of a dinner out. Set this up once, and your phone is covered around the clock. That means more booked jobs and zero missed opportunities. If this saved you a headache, subscribe for more small business AI wins. Drop a comment with the tool you want me to test next."
+  },
+  "voice_synthesis": {
+    "platform": "ElevenLabs",
+    "ssml": "Every missed call is a customer you just handed to a competitor. <break time=\"0.5s\"/> Small businesses lose thousands each month to unanswered phones. <break time=\"0.7s\"/> Today I'll show you how to set up an AI voice receptionist. <break time=\"0.5s\"/> It answers every call, books appointments, and never takes a break. <break time=\"0.7s\"/> First, pick a platform that handles inbound calls with a natural voice. <break time=\"0.5s\"/> You describe your business once, and it learns your hours and services. <break time=\"0.7s\"/> Step one, connect your existing business phone number. <break time=\"0.4s\"/> Step two, write a short greeting the AI will speak to callers. <break time=\"0.4s\"/> Step three, tell it how to book, transfer, or take a message. <break time=\"0.7s\"/> The AI greets the caller, answers common questions, and captures details. <break time=\"0.5s\"/> It can even send you a text summary the moment a call ends. <break time=\"0.7s\"/> A human receptionist can cost thousands of dollars each month. <break time=\"0.5s\"/> An AI agent often runs for the price of a dinner out. <break time=\"0.7s\"/> Set this up once, and your phone is covered around the clock. <break time=\"0.5s\"/> That means more booked jobs and zero missed opportunities. <break time=\"0.7s\"/> If this saved you a headache, subscribe for more small business AI wins. <break time=\"0.5s\"/> Drop a comment with the tool you want me to test next."
+  },
+  "broll_prompts": [
+    {
+      "cue": "[VISUAL: cold-open, phone ringing unanswered in an empty shop]",
+      "engine": "Runway",
+      "prompt": "cinematic shot of a desk phone ringing in an empty small retail shop, soft morning light, shallow depth of field, subtle push-in camera move, 16:9"
+    },
+    {
+      "cue": "[VISUAL: friendly host on camera, warm office background]",
+      "engine": "Midjourney",
+      "prompt": "friendly business creator speaking to camera in a warm modern home office, soft bokeh, natural window light, professional YouTube setup --ar 16:9"
+    },
+    {
+      "cue": "[VISUAL: screen recording of an AI voice platform dashboard]",
+      "engine": "Midjourney",
+      "prompt": "clean modern SaaS dashboard for an AI voice receptionist, call logs and settings panels, flat UI, blue accent, screen mockup --ar 16:9"
+    },
+    {
+      "cue": "[VISUAL: graphic listing three setup steps]",
+      "engine": "Midjourney",
+      "prompt": "minimalist infographic with three numbered setup steps, bold sans-serif type, soft gradient background, high contrast --ar 16:9"
+    },
+    {
+      "cue": "[VISUAL: split screen showing a live call transcript]",
+      "engine": "Midjourney",
+      "prompt": "split-screen graphic, left a smartphone call in progress, right a scrolling text transcript bubble UI, clean tech aesthetic --ar 16:9"
+    },
+    {
+      "cue": "[VISUAL: simple cost comparison chart, human vs AI]",
+      "engine": "Midjourney",
+      "prompt": "simple bar chart comparing high human receptionist cost versus low AI agent cost, two bars, clear labels, friendly flat design --ar 16:9"
+    },
+    {
+      "cue": "[VISUAL: host on camera, confident close]",
+      "engine": "Midjourney",
+      "prompt": "confident business creator smiling to camera, warm office, arms relaxed, encouraging expression, cinematic key light --ar 16:9"
+    }
+  ]
+}

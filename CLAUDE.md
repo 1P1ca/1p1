@@ -46,3 +46,7 @@ Délègue avec l'outil `Agent` quand la tâche est bien découpée :
 - `triage-courriels` — boîte de réception, calendrier et suivis Outlook.
 - `veille-crm` — pipeline HubSpot et prospection Apollo.
 - `studio-marketing` — Mailchimp, Canva et Common Room.
+
+## Moteur de production média (YouTube)
+
+Espace **autonome et isolé** dans le sous-dossier `yt-media-engine/` : une chaîne multi-agents (editorial → production → publisher → community) qui transforme un sujet vidéo brut en paquet de production YouTube complet. Ses agents et sa commande `/build-episode` ne sont **pas** chargés à la racine — pour l'utiliser, lancer `claude` depuis `yt-media-engine/`. Voir `yt-media-engine/README.md` et `yt-media-engine/CLAUDE.md`. **Garde-fou** : tout reste en brouillon local, aucune publication sans accord explicite.

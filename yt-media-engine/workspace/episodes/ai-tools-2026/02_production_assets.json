@@ -1,0 +1,53 @@
+{
+  "topic": "5 AI Tools Every Small Business Should Use in 2026",
+  "avatar_dialogue": {
+    "platform": "HeyGen / Synthesia",
+    "clean_text": "Running a small business means wearing far too many hats. What if five AI tools could take half of them off? Today I'll walk you through five tools worth your time. Each one is affordable, simple, and pays for itself fast. Number one, an AI writing assistant for your daily content. It drafts emails, posts, and product pages in seconds. Number two, an AI chatbot for your website and messages. It answers common questions day and night, so you rest. Number three, an AI bookkeeping tool that sorts every expense. It flags unpaid invoices before they slip through the cracks. Number four, an AI scheduling assistant for your inbox and calendar. It books meetings and sends reminders without your input. Number five, an AI analytics tool that reads your numbers. It spots trends and tells you where to focus next. Pick just one tool and set it up this week. Small steps compound into hours saved every single month. Comment which tool you'll try first, and I'll help you set it up. Subscribe for more practical AI guides built for small business owners."
+  },
+  "voice_synthesis": {
+    "platform": "ElevenLabs",
+    "ssml": "Running a small business means wearing far too many hats. <break time=\"0.5s\"/> What if five AI tools could take half of them off? <break time=\"0.7s\"/> Today I'll walk you through five tools worth your time. <break time=\"0.5s\"/> Each one is affordable, simple, and pays for itself fast. <break time=\"0.7s\"/> Number one, an AI writing assistant for your daily content. <break time=\"0.4s\"/> It drafts emails, posts, and product pages in seconds. <break time=\"0.7s\"/> Number two, an AI chatbot for your website and messages. <break time=\"0.4s\"/> It answers common questions day and night, so you rest. <break time=\"0.7s\"/> Number three, an AI bookkeeping tool that sorts every expense. <break time=\"0.4s\"/> It flags unpaid invoices before they slip through the cracks. <break time=\"0.7s\"/> Number four, an AI scheduling assistant for your inbox and calendar. <break time=\"0.4s\"/> It books meetings and sends reminders without your input. <break time=\"0.7s\"/> Number five, an AI analytics tool that reads your numbers. <break time=\"0.4s\"/> It spots trends and tells you where to focus next. <break time=\"0.7s\"/> Pick just one tool and set it up this week. <break time=\"0.5s\"/> Small steps compound into hours saved every single month. <break time=\"0.7s\"/> Comment which tool you'll try first, and I'll help you set it up. <break time=\"0.5s\"/> Subscribe for more practical AI guides built for small business owners."
+  },
+  "broll_prompts": [
+    {
+      "cue": "[VISUAL: host on camera, bright modern office]",
+      "engine": "Midjourney",
+      "prompt": "friendly small business owner speaking to camera in a bright modern office, natural window light, soft bokeh, professional YouTube setup --ar 16:9"
+    },
+    {
+      "cue": "[VISUAL: animated title card, \"5 AI Tools for 2026\"]",
+      "engine": "Midjourney",
+      "prompt": "bold animated title card reading 5 AI Tools for 2026, clean sans-serif type, gradient background, energetic motion-graphic style --ar 16:9"
+    },
+    {
+      "cue": "[VISUAL: screen recording of an AI writing assistant]",
+      "engine": "Midjourney",
+      "prompt": "clean UI mockup of an AI writing assistant drafting an email, text generating on screen, minimal SaaS interface, blue accent --ar 16:9"
+    },
+    {
+      "cue": "[VISUAL: graphic of a chatbot answering customer questions]",
+      "engine": "Midjourney",
+      "prompt": "website chat widget with an AI assistant answering customer questions, speech bubbles, friendly flat illustration, soft palette --ar 16:9"
+    },
+    {
+      "cue": "[VISUAL: dashboard showing an AI bookkeeping tool]",
+      "engine": "Midjourney",
+      "prompt": "modern bookkeeping dashboard with categorized expenses and an overdue-invoice alert, clean fintech UI, green and white --ar 16:9"
+    },
+    {
+      "cue": "[VISUAL: calendar and email being organized automatically]",
+      "engine": "Runway",
+      "prompt": "calendar events and email threads auto-sorting into neat order, smooth animated reorganization, clean productivity aesthetic, 16:9"
+    },
+    {
+      "cue": "[VISUAL: simple chart showing sales trends]",
+      "engine": "Midjourney",
+      "prompt": "simple line chart showing an upward sales trend, clear labels, friendly flat data-viz style, light background --ar 16:9"
+    },
+    {
+      "cue": "[VISUAL: host on camera, pointing to the screen]",
+      "engine": "Midjourney",
+      "prompt": "small business owner pointing toward an on-screen graphic, engaged expression, bright office, cinematic key light --ar 16:9"
+    }
+  ]
+}
